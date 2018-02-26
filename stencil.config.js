@@ -1,7 +1,7 @@
 const sass = require('@stencil/sass');
 
 exports.config = {
-  namespace: 'lumavatecomponents',
+  namespace: 'lumavate-components',
   generateDistribution: true,
   serviceWorker: false,
   plugins: [
