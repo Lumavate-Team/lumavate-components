@@ -15,31 +15,91 @@ declare global {
 
 
 import {
-  MyComponent as MyComponent
-} from './components/my-component/my-component';
+  LumavateQuote as LumavateQuote
+} from './components/lumavate-quote/lumavate-quote';
 
 declare global {
-  interface HTMLMyComponentElement extends MyComponent, HTMLStencilElement {
+  interface HTMLLumavateQuoteElement extends LumavateQuote, HTMLStencilElement {
   }
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
+  var HTMLLumavateQuoteElement: {
+    prototype: HTMLLumavateQuoteElement;
+    new (): HTMLLumavateQuoteElement;
   };
   interface HTMLElementTagNameMap {
-    "my-component": HTMLMyComponentElement;
+    "lumavate-quote": HTMLLumavateQuoteElement;
   }
   interface ElementTagNameMap {
-    "my-component": HTMLMyComponentElement;
+    "lumavate-quote": HTMLLumavateQuoteElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "my-component": JSXElements.MyComponentAttributes;
+      "lumavate-quote": JSXElements.LumavateQuoteAttributes;
     }
   }
   namespace JSXElements {
-    export interface MyComponentAttributes extends HTMLAttributes {
-      first?: string;
-      last?: string;
+    export interface LumavateQuoteAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  LumavateToolbarButton as LumavateToolbarButton
+} from './components/lumavate-toolbar-button/lumavate-toolbar-button';
+
+declare global {
+  interface HTMLLumavateToolbarButtonElement extends LumavateToolbarButton, HTMLStencilElement {
+  }
+  var HTMLLumavateToolbarButtonElement: {
+    prototype: HTMLLumavateToolbarButtonElement;
+    new (): HTMLLumavateToolbarButtonElement;
+  };
+  interface HTMLElementTagNameMap {
+    "lumavate-toolbar-button": HTMLLumavateToolbarButtonElement;
+  }
+  interface ElementTagNameMap {
+    "lumavate-toolbar-button": HTMLLumavateToolbarButtonElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "lumavate-toolbar-button": JSXElements.LumavateToolbarButtonAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateToolbarButtonAttributes extends HTMLAttributes {
+      item?: any;
+    }
+  }
+}
+
+
+import {
+  LumavateToolbar as LumavateToolbar
+} from './components/lumavate-toolbar/lumavate-toolbar';
+
+declare global {
+  interface HTMLLumavateToolbarElement extends LumavateToolbar, HTMLStencilElement {
+  }
+  var HTMLLumavateToolbarElement: {
+    prototype: HTMLLumavateToolbarElement;
+    new (): HTMLLumavateToolbarElement;
+  };
+  interface HTMLElementTagNameMap {
+    "lumavate-toolbar": HTMLLumavateToolbarElement;
+  }
+  interface ElementTagNameMap {
+    "lumavate-toolbar": HTMLLumavateToolbarElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "lumavate-toolbar": JSXElements.LumavateToolbarAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateToolbarAttributes extends HTMLAttributes {
+      backgroundcolor?: string;
+      items?: string;
     }
   }
 }
