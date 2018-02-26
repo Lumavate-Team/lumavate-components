@@ -1,5 +1,5 @@
 {
-  "name": "lumavate-components",
+  "name": "@lumavate/lumavate-components",
   "version": "0.0.2",
   "description": "Lumavate Component Library",
   "main": "dist/lumavate-components.js",
@@ -49,5 +49,9 @@
       "json",
       "jsx"
     ]
-  }
+  },
+  "keywords": [
+    "lumavate",
+    "components"
+  ]
 }
