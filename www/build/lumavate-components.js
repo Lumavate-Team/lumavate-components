@@ -1,2 +1,76 @@
 /*! Built with http://stenciljs.com */
-!function(t,e,n,o,a,i,r,c,u,s,l){!function(t,e,n,o,a,i,r,c,u,s,l,m,p){(t.LumavateComponents=t.LumavateComponents||{}).components=l,(p=l.filter(function(t){return t[2]}).map(function(t){return t[0]})).length&&((m=e.createElement("style")).innerHTML=p.join()+"{visibility:hidden}.hydrated{visibility:inherit}",m.setAttribute("data-styles",""),e.head.insertBefore(m,e.head.firstChild)),(m=n[n.length-1])&&m.src&&(i=(p=m.src.split("/").slice(0,-1)).join("/")+(p.length?"/":"")+"lumavate-components/"),(m=e.createElement("script")).src=i+(!function(t){return t.location.search.indexOf("core=es5")>-1}(t)&&function(t){return t.customElements}(t)&&function(t){if(!("noModule"in m))return!1;try{return new Function('import("")'),!0}catch(t){return!1}}()&&function(t){return t.fetch}(t)&&function(t){return t.CSS&&t.CSS.supports&&t.CSS.supports("color","var(--c)")}(t)?"lumavate-components.ehgf3cgc.js":"lumavate-components.vtgqmmkq.js"),m.setAttribute("data-path",i),m.setAttribute("data-namespace","lumavate-components"),e.head.appendChild(m)}(t,e,e.scripts,0,0,"/build/lumavate-components/",0,0,0,0,[["lumavate-quote","sfa97ozs",1],["lumavate-toolbar","vcqt0pny",1,[["backgroundcolor",1,1,2],["items",1,1,2]],0,[["navigate","navigateHandler"]]],["lumavate-toolbar-button","vcqt0pny",1,[["item",1,1,1]]]],void 0)}(window,document);
+(function(win, doc, appNamespace, urlNamespace, publicPath, discoverPublicPath, appCore, appCoreSsr, appCorePolyfilled, hydratedCssClass, components) {
+
+function init(win, doc, docScripts, appNamespace, urlNamespace, publicPath, discoverPublicPath, appCore, appCorePolyfilled, hydratedCssClass, components, x, y) {
+    // create global namespace if it doesn't already exist
+    (win[appNamespace] = win[appNamespace] || {}).components = components;
+    y = components.filter(function (c) { return c[2]; }).map(function (c) { return c[0]; });
+    if (y.length) {
+        // auto hide components until they been fully hydrated
+        // reusing the "x" and "i" variables from the args for funzies
+        x = doc.createElement('style');
+        x.innerHTML = y.join() + '{visibility:hidden}.' + hydratedCssClass + '{visibility:inherit}';
+        x.setAttribute('data-styles', '');
+        doc.head.insertBefore(x, doc.head.firstChild);
+    }
+    // get this current script
+    // script tag cannot use "async" attribute
+    if (discoverPublicPath) {
+        x = docScripts[docScripts.length - 1];
+        if (x && x.src) {
+            y = x.src.split('/').slice(0, -1);
+            publicPath = (y.join('/')) + (y.length ? '/' : '') + urlNamespace + '/';
+        }
+    }
+    // request the core this browser needs
+    // test for native support of custom elements and fetch
+    // if either of those are not supported, then use the core w/ polyfills
+    // also check if the page was build with ssr or not
+    x = doc.createElement('script');
+    x.src = publicPath + (usePolyfills(win, win.location, x, 'import("")') ? appCorePolyfilled : appCore);
+    x.setAttribute('data-path', publicPath);
+    x.setAttribute('data-namespace', urlNamespace);
+    doc.head.appendChild(x);
+}
+function usePolyfills(win, location, scriptElm, dynamicImportTest) {
+    // fyi, dev mode has verbose if/return statements
+    // but it minifies to a nice 'lil one-liner ;)
+    if (location.search.indexOf('core=es5') > -1) {
+        // force es5 polyfill w/ ?core=es5 querystring
+        return true;
+    }
+    if (location.protocol === 'file:') {
+        // file protocol cannot use dynamic module imports
+        return true;
+    }
+    if (!win.customElements) {
+        // does not have customElement support
+        return true;
+    }
+    if (!win.fetch) {
+        // does not have fetch support
+        return true;
+    }
+    if (!(win.CSS && win.CSS.supports && win.CSS.supports('color', 'var(--c)'))) {
+        // does not have CSS variables support
+        return true;
+    }
+    if (!('noModule' in scriptElm)) {
+        // does not have static ES module support
+        return true;
+    }
+    return doesNotSupportsDynamicImports(dynamicImportTest);
+}
+function doesNotSupportsDynamicImports(dynamicImportTest) {
+    try {
+        new Function(dynamicImportTest);
+        return false;
+    }
+    catch (e) { }
+    return true;
+}
+
+
+init(win, doc, doc.scripts, appNamespace, urlNamespace, publicPath, discoverPublicPath, appCore, appCoreSsr, appCorePolyfilled, hydratedCssClass, components);
+
+})(window, document, "LumavateComponents","lumavate-components","/build/lumavate-components/",true,"lumavate-components.core.js","es5-build-disabled.js","hydrated",[["lumavate-quote","lumavate-quote",1],["lumavate-toolbar","lumavate-toolbar",1,[["backgroundcolor",1,1,2],["items",1,1,2]],0,[["navigate","navigateHandler"]]],["lumavate-toolbar-button","lumavate-toolbar",1,[["item",1,1,1]]]]);

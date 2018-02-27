@@ -2,17 +2,17 @@
   "namespace": "LumavateComponents",
   "fsNamespace": "lumavate-components",
   "loader": "../lumavate-components.js",
-  "core": "lumavate-components.ehgf3cgc.js",
-  "corePolyfilled": "lumavate-components.vtgqmmkq.js",
+  "core": "lumavate-components.core.js",
+  "corePolyfilled": "es5-build-disabled.js",
   "components": {
     "lumavate-quote": {
-      "$": "sfa97ozs"
+      "$": "lumavate-quote"
     },
     "lumavate-toolbar": {
-      "$": "vcqt0pny"
+      "$": "lumavate-toolbar"
     },
     "lumavate-toolbar-button": {
-      "$": "vcqt0pny"
+      "$": "lumavate-toolbar"
     }
   }
 }

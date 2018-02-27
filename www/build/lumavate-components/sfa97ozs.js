@@ -1,2 +1,0 @@
-/*! Built with http://stenciljs.com */
-const{h:t,Context:e}=window.LumavateComponents;class a{render(){return t("div",null,"QUOTE")}static get is(){return"lumavate-quote"}static get style(){return"lumavate-quote{flex:0 0 auto;width:100%;min-height:48px}"}}export{a as LumavateQuote};
