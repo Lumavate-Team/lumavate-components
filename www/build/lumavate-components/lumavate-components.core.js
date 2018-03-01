@@ -950,8 +950,9 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
         vnode.elm = domApi.$createTextNode(vnode.vtext);
       } else {
         // create element
-        elm = vnode.elm = domApi.$createElement(vnode.vtag);
-        false;
+        elm = vnode.elm = (true, isSvgMode || 'svg' === vnode.vtag ? domApi.$createElementNS('http://www.w3.org/2000/svg', vnode.vtag) : domApi.$createElement(vnode.vtag));
+        true;
+        isSvgMode = 'svg' === vnode.vtag || 'foreignObject' !== vnode.vtag && isSvgMode;
         // add css classes, attrs, props, listeners, etc.
         updateElement(plt, null, vnode, isSvgMode);
         null !== scopeId && elm._scopeId !== scopeId && 
@@ -973,7 +974,9 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
             }
           }
         }
-        false;
+        true;
+        // Only reset the SVG context when we're exiting SVG element
+        'svg' === vnode.vtag && (isSvgMode = false);
       }
       return vnode.elm;
     }
@@ -1080,7 +1083,11 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
       const oldChildren = oldVNode.vchildren;
       const newChildren = newVNode.vchildren;
       let defaultSlot;
-      false;
+      true;
+      // test if we're rendering an svg element, or still rendering nodes inside of one
+      // only add this to the when the compiler sees we're using an svg somewhere
+      isSvgMode = newVNode.elm && null != newVNode.elm.parentElement && void 0 !== newVNode.elm.ownerSVGElement;
+      isSvgMode = 'svg' === newVNode.vtag || 'foreignObject' !== newVNode.vtag && isSvgMode;
       if (isUndef(newVNode.vtext)) {
         // element node
         'slot' !== newVNode.vtag && 
@@ -1114,7 +1121,9 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
         // and also only if the text is different than before
         domApi.$setTextContent(elm, newVNode.vtext);
       }
-      false;
+      true;
+      // reset svgMode when svg node is fully patched
+      isSvgMode && 'svg' === newVNode.vtag && (isSvgMode = false);
     }
     // internal variables to be reused per patch() call
         let isUpdate, defaultSlot, namedSlots, useNativeShadowDom, scopeId;

@@ -43,7 +43,12 @@ declare global {
   }
   namespace JSXElements {
     export interface LumavateQuoteAttributes extends HTMLAttributes {
-      
+      CardColor?: string;
+      Color?: string;
+      FontSize?: string;
+      QuotationMarks?: boolean;
+      QuoteText?: string;
+      ShowCard?: boolean;
     }
   }
 }
