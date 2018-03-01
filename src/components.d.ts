@@ -45,7 +45,7 @@ declare global {
     export interface LumavateQuoteAttributes extends HTMLAttributes {
       CardColor?: string;
       Color?: string;
-      FontSize?: string;
+      FontSize?: number;
       QuotationMarks?: boolean;
       QuoteText?: string;
       ShowCard?: boolean;

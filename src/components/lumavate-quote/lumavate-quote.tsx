@@ -7,12 +7,17 @@ import { Component, Prop } from '@stencil/core';
 export class LumavateQuote {
 
   @Prop() QuoteText:string = '';
-  @Prop() FontSize: string = '12pt';
+  @Prop() FontSize: number = 12;
   @Prop() QuotationMarks: boolean = true;
   @Prop() Color: string = '#000';
   @Prop() ShowCard: boolean = true;
   @Prop() CardColor: string = '#FFF';
 
+  internalFontSize: string = '';
+
+  componentWillLoad() {
+    this.internalFontSize = String(this.FontSize) + 'pt';
+  }
 
   render() {
     return (
@@ -28,7 +33,7 @@ export class LumavateQuote {
           </svg>
         :''}
       </div></div>
-      <div class="quote-text" style={{color:this.Color,fontSize:this.FontSize}}>{this.QuoteText}</div>
+      <div class="quote-text" style={{color:this.Color,fontSize:this.internalFontSize}}>{this.QuoteText}</div>
       <div class="quote-container end">
       <div class="spacer">
       { this.QuotationMarks
