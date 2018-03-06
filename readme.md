@@ -6,6 +6,11 @@ generating Web Components.
 By default, these components rely on the Roboto font and Google Material Icons.  Please include the following in your app, if you plan to use these
 components.
 
+```html
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+```
+
 ### To use in your project
 ```bash
  npm install @lumavate/components --save
@@ -13,11 +18,6 @@ components.
  and include 
 
  '../node_modules/@lumavate/components/dist/lumavate-components.js'
-```
-
-```html
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 ```
 
 ### Components
