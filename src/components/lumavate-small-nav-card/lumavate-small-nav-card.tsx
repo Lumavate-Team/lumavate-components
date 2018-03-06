@@ -7,14 +7,14 @@ import { Component,Prop } from '@stencil/core';
 export class LumavateSmallNavCard {
 
   @Prop() SubTitle: boolean = true;
-  @Prop() SubTitleText: string = 'Subtitle, Yeah';
-  @Prop() TitleText: string = 'Dropbox Onboarding Case Study';
+  @Prop() SubTitleText: string = '';
+  @Prop() TitleText: string = '';
   @Prop() TitleTextColor: string = '#000';
-  @Prop() CardColor: string = '#D8E7FF';
+  @Prop() CardColor: string = '#FFF';
   @Prop() CardImage: boolean = true;
-  @Prop() ImageSource: string = 'https://s3.amazonaws.com/assets.labelnexusdev.com/images/R2_A1.jpg';
+  @Prop() ImageSource: string = '';
   @Prop() ImageScaling: string = 'contain';
-  @Prop() CardLink: string = 'https://www.google.com';
+  @Prop() CardLink: string = '';
 
 	cardClicked() {
 		if(this.CardLink) {

@@ -7,14 +7,14 @@ import { Component,Prop } from '@stencil/core';
 export class LumavateLargeNavCard {
 
   @Prop() Caption: boolean = true;
-  @Prop() CaptionText: string = 'Dropbox Onboarding Case Study';
+  @Prop() CaptionText: string = '';
   @Prop() CaptionTextColor: string = '#000';
   @Prop() CaptionBackgroundColor: string = '#FFF';
-  @Prop() CardColor: string = '#D8E7FF';
+  @Prop() CardColor: string = '#FFF';
   @Prop() CardImage: boolean = true;
-  @Prop() ImageSource: string = 'https://s3.amazonaws.com/assets.labelnexusdev.com/images/dbtransparent.png';
+  @Prop() ImageSource: string = '';
   @Prop() ImageScaling: string = 'contain';
-  @Prop() CardLink: string = 'https://www.google.com';
+  @Prop() CardLink: string = '';
 
 	cardClicked() {
 		if(this.CardLink) {

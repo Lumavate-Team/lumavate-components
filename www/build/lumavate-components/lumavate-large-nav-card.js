@@ -4,14 +4,14 @@ const { h } = window.LumavateComponents;
 class LumavateLargeNavCard {
     constructor() {
         this.Caption = true;
-        this.CaptionText = 'Dropbox Onboarding Case Study';
+        this.CaptionText = '';
         this.CaptionTextColor = '#000';
         this.CaptionBackgroundColor = '#FFF';
-        this.CardColor = '#D8E7FF';
+        this.CardColor = '#FFF';
         this.CardImage = true;
-        this.ImageSource = 'https://s3.amazonaws.com/assets.labelnexusdev.com/images/dbtransparent.png';
+        this.ImageSource = '';
         this.ImageScaling = 'contain';
-        this.CardLink = 'https://www.google.com';
+        this.CardLink = '';
         this.imageMinHeight = '';
     }
     cardClicked() {

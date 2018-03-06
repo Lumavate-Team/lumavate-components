@@ -32,3 +32,32 @@ components.
   </lumavate-quote>
 ```
 
+### lumavate-large-nav-card
+```html
+  <lumavate-large-nav-card
+    caption=true
+    caption-text='Dropbox Onboarding Case Study'
+    caption-text-color='#000'
+    caption-background-color='#FFF'
+    card-color='#D8E7FF'
+    card-image=true
+    image-source='http://via.placeholder.com/140x40'
+    image-scaling='contain'
+    card-link-'https://www.google.com'>
+  </lumavate-large-nav-card>
+```
+
+### lumavate-small-nav-card
+```html
+  <lumavate-small-nav-card
+    sub-title=true
+    sub-title-text='This is Subtitle'
+    title-text='Dropbox Onboarding Case Study'
+    title-text-color='#000'
+    card-color='#D8E7FF'
+    card-image=true
+    image-source='http://via.placeholder.com/140x40'
+    image-scaling='contain'
+    card-ling='https://www.dropbox.com'>
+  </lumavate-small-nav-card>
+```
