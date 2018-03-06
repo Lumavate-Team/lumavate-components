@@ -20,6 +20,44 @@ declare global {
 
 
 import {
+  LumavateLargeNavCard as LumavateLargeNavCard
+} from './components/lumavate-large-nav-card/lumavate-large-nav-card';
+
+declare global {
+  interface HTMLLumavateLargeNavCardElement extends LumavateLargeNavCard, HTMLStencilElement {
+  }
+  var HTMLLumavateLargeNavCardElement: {
+    prototype: HTMLLumavateLargeNavCardElement;
+    new (): HTMLLumavateLargeNavCardElement;
+  };
+  interface HTMLElementTagNameMap {
+    "lumavate-large-nav-card": HTMLLumavateLargeNavCardElement;
+  }
+  interface ElementTagNameMap {
+    "lumavate-large-nav-card": HTMLLumavateLargeNavCardElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "lumavate-large-nav-card": JSXElements.LumavateLargeNavCardAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateLargeNavCardAttributes extends HTMLAttributes {
+      Caption?: boolean;
+      CaptionBackgroundColor?: string;
+      CaptionText?: string;
+      CaptionTextColor?: string;
+      CardColor?: string;
+      CardImage?: boolean;
+      CardLink?: string;
+      ImageScaling?: string;
+      ImageSource?: string;
+    }
+  }
+}
+
+
+import {
   LumavateQuote as LumavateQuote
 } from './components/lumavate-quote/lumavate-quote';
 
@@ -49,6 +87,44 @@ declare global {
       QuotationMarks?: boolean;
       QuoteText?: string;
       ShowCard?: boolean;
+    }
+  }
+}
+
+
+import {
+  LumavateSmallNavCard as LumavateSmallNavCard
+} from './components/lumavate-small-nav-card/lumavate-small-nav-card';
+
+declare global {
+  interface HTMLLumavateSmallNavCardElement extends LumavateSmallNavCard, HTMLStencilElement {
+  }
+  var HTMLLumavateSmallNavCardElement: {
+    prototype: HTMLLumavateSmallNavCardElement;
+    new (): HTMLLumavateSmallNavCardElement;
+  };
+  interface HTMLElementTagNameMap {
+    "lumavate-small-nav-card": HTMLLumavateSmallNavCardElement;
+  }
+  interface ElementTagNameMap {
+    "lumavate-small-nav-card": HTMLLumavateSmallNavCardElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "lumavate-small-nav-card": JSXElements.LumavateSmallNavCardAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateSmallNavCardAttributes extends HTMLAttributes {
+      CardColor?: string;
+      CardImage?: boolean;
+      CardLink?: string;
+      ImageScaling?: string;
+      ImageSource?: string;
+      SubTitle?: boolean;
+      SubTitleText?: string;
+      TitleText?: string;
+      TitleTextColor?: string;
     }
   }
 }

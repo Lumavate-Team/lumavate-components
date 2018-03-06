@@ -5,7 +5,10 @@ exports.config = {
   generateDistribution: true,
   serviceWorker: false,
   plugins: [
-    sass()
+    sass({
+      injectGlobalPaths: [
+    'src/global/index.scss' ]
+    })
   ]
 };
 

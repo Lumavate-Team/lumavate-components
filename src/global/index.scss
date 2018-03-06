@@ -1,0 +1,84 @@
+:root {
+  --app-primary-color: #488aff;
+  --app-font-family: 'Roboto', sans-serif;
+  --app-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+}
+
+@mixin center() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin vertical-center() {
+	display: flex;
+	align-items: center;
+}
+
+@mixin horizontal-center() {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+@mixin layout-column() {
+	display: flex;
+	flex-direction: column;
+}
+
+@mixin layout-column-full() {
+	flex: 1;
+
+	@include layout-column();
+}
+
+@mixin layout-row() {
+	display: flex;
+	flex-direction: row;
+}
+
+@mixin layout-row-wrap() {
+	flex-wrap: wrap;
+
+	@include layout-row();
+}
+
+@mixin layout-column-full-scroll() {
+	height: 1px;
+	overflow: auto;
+
+	@include layout-column-full();
+}
+
+@mixin vertical-center-column() {
+	justify-content: center;
+
+	@include layout-column();
+}
+
+@mixin horizontal-center-column() {
+	align-items: center;
+
+	@include layout-column();
+}
+
+@mixin horizontal-center-column-full() {
+	flex: 1;
+
+	@include horizontal-center-column();
+}
+
+@mixin center-column() {
+	justify-content: center;
+	align-items: center;
+
+	@include layout-column();
+}
+
+@mixin center-column-full() {
+	flex: 1;
+
+	@include center-column();
+}
+
+
