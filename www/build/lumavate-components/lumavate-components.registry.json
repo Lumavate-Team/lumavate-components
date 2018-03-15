@@ -2,23 +2,23 @@
   "namespace": "LumavateComponents",
   "fsNamespace": "lumavate-components",
   "loader": "../lumavate-components.js",
-  "core": "lumavate-components.wipywdpd.js",
-  "corePolyfilled": "lumavate-components.e4pmcamd.js",
+  "core": "lumavate-components.core.js",
+  "corePolyfilled": "es5-build-disabled.js",
   "components": {
     "lumavate-large-nav-card": {
-      "$": "sea4juxj"
+      "$": "lumavate-large-nav-card"
     },
     "lumavate-quote": {
-      "$": "pqtrkuwl"
+      "$": "lumavate-quote"
     },
     "lumavate-small-nav-card": {
-      "$": "mkdtxhxi"
+      "$": "lumavate-small-nav-card"
     },
     "lumavate-toolbar": {
-      "$": "78yfdwca"
+      "$": "lumavate-toolbar"
     },
     "lumavate-toolbar-button": {
-      "$": "78yfdwca"
+      "$": "lumavate-toolbar"
     }
   }
 }
