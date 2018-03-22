@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
   </head>
-  <body style="height:100%;min-height:100%">
+  <body style="height:100%;min-height:100%;margin:0px;">
     <div style="width:384px;margin:8px;">
       <lumavate-quote quote-text="This is the End, The End is Near, This is reall the end" font-size="12" show-card="true" card-color="#FFF" quotation-marks="true" color="#6A1F64">
     </lumavate-quote>
@@ -21,25 +21,13 @@
     <lumavate-small-nav-card sub-title="true" sub-title-text="This is Subtitle" title-text="Dropbox Onboarding Case Study" title-text-color="#000" card-color="#D8E7FF" card-image="true" image-source="http://via.placeholder.com/140x40" image-scaling="contain" card-ling="https://www.dropbox.com">
     </lumavate-small-nav-card>
   </div>
-  <div style="width:384px;height:100%;min-height:100%;margin:8px;">
-    <lumavate-nav-bar nav-bar-background-color="#741367" nav-bar-item-color="#e2cfdf" nav-bar-position="bottom" nav-bar-items="[
-    {&quot;text&quot;:&quot;Away&quot;,&quot;linkTo&quot;:{&quot;url&quot;:&quot;http://www.google.com&quot;},&quot;imageSource&quot;:{&quot;preview&quot;:&quot;http://via.placeholder.com/24x24&quot;}},
-    {&quot;text&quot;:&quot;Home&quot;,&quot;linkTo&quot;:{&quot;url&quot;:&quot;http://www.google.com&quot;},&quot;imageSource&quot;:{&quot;preview&quot;:&quot;http://via.placeholder.com/24x24&quot;}}
+    <lumavate-nav-bar nav-bar-background-color="#741367" nav-bar-item-color="#ff6248" nav-bar-position="bottom" nav-bar-items="[
+    {&quot;text&quot;:&quot;Bing&quot;,&quot;linkTo&quot;:{&quot;url&quot;:&quot;http://www.bing.com&quot;}},
+    {&quot;text&quot;:&quot;Bing&quot;,&quot;linkTo&quot;:{&quot;url&quot;:&quot;http://www.bing.com&quot;},&quot;imageSource&quot;:{&quot;preview&quot;:&quot;https://s3.amazonaws.com/assets.labelnexusdev.com/images/ic_3d_rotation_black_24px.svg&quot;}},
+    {&quot;text&quot;:&quot;Bing&quot;,&quot;linkTo&quot;:{&quot;url&quot;:&quot;http://www.bing.com&quot;},&quot;imageSource&quot;:{&quot;preview&quot;:&quot;https://s3.amazonaws.com/assets.labelnexusdev.com/images/ic_3d_rotation_black_24px.svg&quot;}},
+    {&quot;text&quot;:&quot;Google&quot;,&quot;linkTo&quot;:{&quot;url&quot;:&quot;http://www.google.com&quot;},&quot;imageSource&quot;:{&quot;preview&quot;:&quot;https://s3.amazonaws.com/assets.labelnexusdev.com/images/ic_3d_rotation_black_24px.svg&quot;}}
     ]">
   </lumavate-nav-bar>
-  </div>
-
-  <script>
-    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-      // auto-unregister service worker during dev mode
-      navigator.serviceWorker.getRegistration().then(function(registration) {
-        if (registration) {
-          registration.unregister().then(function() { location.reload(true) });
-        }
-      });
-    }
-  </script>
-
 
 
 </body></html>

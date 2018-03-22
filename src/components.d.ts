@@ -84,8 +84,8 @@ declare global {
   }
   namespace JSXElements {
     export interface LumavateNavBarItemAttributes extends HTMLAttributes {
-      NavBarImageLink?: string;
       NavBarItemColor?: string;
+      NavBarItemImageLink?: string;
       NavBarItemLink?: string;
       NavBarItemText?: string;
       onNavigate?: (event: CustomEvent) => void;
