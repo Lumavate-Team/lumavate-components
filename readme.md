@@ -27,6 +27,7 @@ components.
 | `lumavate-quote` | Simple component to display quoted text |
 | `lumavate-large-nav-card`      | Allows you to display a large navigation card  |
 | `lumavate-small-nav-card`     | Allows you to display a small navication card. |
+| `lumavate-nav-bar`     | Allows you to display a navigation bar at top or bottom of body, with or without icon svg links. |
 
 
 ### lumavate-quote
@@ -69,4 +70,18 @@ components.
     image-scaling='contain'
     card-ling='https://www.dropbox.com'>
   </lumavate-small-nav-card>
+```
+
+### lumavate-nav-bar
+```html
+  <lumavate-nav-bar
+    nav-bar-background-color='#741367'
+    nav-bar-item-color='#ff6248'
+    nav-bar-position='bottom | top'
+    nav-bar-items='[
+    {"text":"Bing","linkTo":{"url":"http://www.bing.com"}},
+    {"text":"Bing","linkTo":{"url":"http://www.yahoo.com"},"imageSource":{"preview":"https://s3.amazonaws.com/assets.labelnexusdev.com/images/ic_3d_rotation_black_24px.svg"}},
+    {"text":"Google","linkTo":{"url":"http://www.google.com"},"imageSource":{"preview":"https://s3.amazonaws.com/assets.labelnexusdev.com/images/ic_3d_rotation_black_24px.svg"}}
+    ]'>
+  </lumavate-nav-bar>
 ```
