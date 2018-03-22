@@ -88,7 +88,7 @@ declare global {
       NavBarItemImageLink?: string;
       NavBarItemLink?: string;
       NavBarItemText?: string;
-      onNavigate?: (event: CustomEvent) => void;
+      
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Prop, Listen } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'lumavate-nav-bar',
@@ -11,14 +11,9 @@ export class LumavateNavBar {
   @Prop() NavBarItems: string = '';
 
 	innerItems: Array<any>
-	@Listen('navigate')
-	navigateHandler(event: CustomEvent) {
-		window.location.href = event.detail.url;
-	}
 
 	componentWillLoad() {
 		this.innerItems = JSON.parse(this.NavBarItems);
-    console.log(this.NavBarPosition);
   }
 
   getImageLink(i) {
