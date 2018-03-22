@@ -1,6 +1,6 @@
 {
   "name": "@lumavate/components",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Lumavate Component Library",
   "main": "dist/lumavate-components.js",
   "types": "dist/types/index.d.ts",
