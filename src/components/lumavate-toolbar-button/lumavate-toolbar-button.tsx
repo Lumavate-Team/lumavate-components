@@ -14,7 +14,7 @@ export class LumavateToolbarButton {
 	}
 
 	@Event() navigate: EventEmitter
-	
+
 	@Prop() item: any
 
 	render() {

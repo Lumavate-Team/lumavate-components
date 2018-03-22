@@ -47,18 +47,16 @@
       card-ling='https://www.dropbox.com'>
     </lumavate-small-nav-card>
   </div>
-
-
-  <script>
-    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-      // auto-unregister service worker during dev mode
-      navigator.serviceWorker.getRegistration().then(function(registration) {
-        if (registration) {
-          registration.unregister().then(function() { location.reload(true) });
-        }
-      });
-    }
-  </script>
-
+  <div style="width:384px;height:100%;min-height:100%;margin:8px;">
+    <lumavate-nav-bar
+    nav-bar-background-color='#741367'
+    nav-bar-item-color='#e2cfdf'
+    nav-bar-position='bottom'
+    nav-bar-items='[
+    {"text":"Away","linkTo":{"url":"http://www.google.com"},"imageSource":{"preview":"http://via.placeholder.com/24x24"}},
+    {"text":"Home","linkTo":{"url":"http://www.google.com"},"imageSource":{"preview":"http://via.placeholder.com/24x24"}}
+    ]'>
+  </lumavate-nav-bar>
+  </div>
 </body>
 </html>

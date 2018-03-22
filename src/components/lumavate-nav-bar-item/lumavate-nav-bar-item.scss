@@ -1,0 +1,20 @@
+lumavate-nav-bar-item {
+	& div {
+		position:relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction:column;
+
+		& div {
+			padding:4px 4px;
+			cursor:pointer;
+		}
+		.button-text {
+			font-size: 12px;
+			margin-top:4px;
+			line-height:0;
+		}
+	}
+  font-family:var(--app-font-family);
+}

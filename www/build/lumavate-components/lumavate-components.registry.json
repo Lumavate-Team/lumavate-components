@@ -8,6 +8,12 @@
     "lumavate-large-nav-card": {
       "$": "lumavate-large-nav-card"
     },
+    "lumavate-nav-bar": {
+      "$": "lumavate-nav-bar"
+    },
+    "lumavate-nav-bar-item": {
+      "$": "lumavate-nav-bar"
+    },
     "lumavate-quote": {
       "$": "lumavate-quote"
     },

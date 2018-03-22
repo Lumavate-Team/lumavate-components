@@ -455,7 +455,7 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
     // all is good, this component has been told it's time to finish loading
     // it's possible that we've already decided to destroy this element
     // check if this element has any actively loading child elements
-    if (!plt.hasLoadedMap.has(elm) && plt.instanceMap.get(elm) && !plt.isDisconnectedMap.has(elm) && (!elm.$activeLoading || !elm.$activeLoading.length)) {
+    if (!plt.hasLoadedMap.has(elm) && (instance = plt.instanceMap.get(elm)) && !plt.isDisconnectedMap.has(elm) && (!elm.$activeLoading || !elm.$activeLoading.length)) {
       // cool, so at this point this element isn't already being destroyed
       // and it does not have any child elements that are still loading
       // ensure we remove any child references cuz it doesn't matter at this point
@@ -473,7 +473,12 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
           onReadyCallbacks.forEach(cb => cb(elm));
           plt.onReadyCallbacksMap.delete(elm);
         }
-        false;
+        true;
+        // fire off the user's componentDidLoad method (if one was provided)
+        // componentDidLoad only runs ONCE, after the instance's element has been
+        // assigned as the host element, and AFTER render() has been called
+        // we'll also fire this method off on the element, just to
+        instance.componentDidLoad && instance.componentDidLoad();
       } catch (e) {
         plt.onError(e, 4 /* DidLoadError */ , elm);
       }

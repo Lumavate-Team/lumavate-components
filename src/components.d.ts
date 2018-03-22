@@ -58,6 +58,72 @@ declare global {
 
 
 import {
+  LumavateNavBarItem as LumavateNavBarItem
+} from './components/lumavate-nav-bar-item/lumavate-nav-bar-item';
+
+declare global {
+  interface HTMLLumavateNavBarItemElement extends LumavateNavBarItem, HTMLStencilElement {
+  }
+  var HTMLLumavateNavBarItemElement: {
+    prototype: HTMLLumavateNavBarItemElement;
+    new (): HTMLLumavateNavBarItemElement;
+  };
+  interface HTMLElementTagNameMap {
+    "lumavate-nav-bar-item": HTMLLumavateNavBarItemElement;
+  }
+  interface ElementTagNameMap {
+    "lumavate-nav-bar-item": HTMLLumavateNavBarItemElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "lumavate-nav-bar-item": JSXElements.LumavateNavBarItemAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateNavBarItemAttributes extends HTMLAttributes {
+      NavBarImageLink?: string;
+      NavBarItemColor?: string;
+      NavBarItemLink?: string;
+      NavBarItemText?: string;
+    }
+  }
+}
+
+
+import {
+  LumavateNavBar as LumavateNavBar
+} from './components/lumavate-nav-bar/lumavate-nav-bar';
+
+declare global {
+  interface HTMLLumavateNavBarElement extends LumavateNavBar, HTMLStencilElement {
+  }
+  var HTMLLumavateNavBarElement: {
+    prototype: HTMLLumavateNavBarElement;
+    new (): HTMLLumavateNavBarElement;
+  };
+  interface HTMLElementTagNameMap {
+    "lumavate-nav-bar": HTMLLumavateNavBarElement;
+  }
+  interface ElementTagNameMap {
+    "lumavate-nav-bar": HTMLLumavateNavBarElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "lumavate-nav-bar": JSXElements.LumavateNavBarAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateNavBarAttributes extends HTMLAttributes {
+      NavBarBackgroundColor?: string;
+      NavBarItemColor?: string;
+      NavBarItems?: string;
+      NavBarPosition?: string;
+    }
+  }
+}
+
+
+import {
   LumavateQuote as LumavateQuote
 } from './components/lumavate-quote/lumavate-quote';
 
