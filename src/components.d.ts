@@ -13,6 +13,8 @@ declare global {
   interface HTMLStencilElement extends HTMLElement {
     componentOnReady(): Promise<this>;
     componentOnReady(done: (ele?: this) => void): void;
+
+    forceUpdate(): void;
   }
 
   interface HTMLAttributes {}
@@ -52,6 +54,7 @@ declare global {
       CardLink?: string;
       ImageScaling?: string;
       ImageSource?: string;
+      
     }
   }
 }
@@ -85,6 +88,7 @@ declare global {
       NavBarItemColor?: string;
       NavBarItemLink?: string;
       NavBarItemText?: string;
+      onNavigate?: (event: CustomEvent) => void;
     }
   }
 }
@@ -118,6 +122,7 @@ declare global {
       NavBarItemColor?: string;
       NavBarItems?: string;
       NavBarPosition?: string;
+      
     }
   }
 }
@@ -153,6 +158,7 @@ declare global {
       QuotationMarks?: boolean;
       QuoteText?: string;
       ShowCard?: boolean;
+      
     }
   }
 }
@@ -191,6 +197,7 @@ declare global {
       SubTitleText?: string;
       TitleText?: string;
       TitleTextColor?: string;
+      
     }
   }
 }
@@ -221,6 +228,7 @@ declare global {
   namespace JSXElements {
     export interface LumavateToolbarButtonAttributes extends HTMLAttributes {
       item?: any;
+      onNavigate?: (event: CustomEvent) => void;
     }
   }
 }
@@ -252,6 +260,7 @@ declare global {
     export interface LumavateToolbarAttributes extends HTMLAttributes {
       backgroundcolor?: string;
       items?: string;
+      
     }
   }
 }

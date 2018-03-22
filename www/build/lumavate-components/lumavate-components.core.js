@@ -1,7 +1,7 @@
 /*! Built with http://stenciljs.com */
-(function(Context,appNamespace,hydratedCssClass,publicPath){"use strict";
-var s=document.querySelector("script[data-namespace='lumavate-components']");if(s){publicPath=s.getAttribute('data-path');}
-(function(window, document, Context, appNamespace, publicPath) {
+(function(Context,namespace,hydratedCssClass,resourcesUrl,s){"use strict";
+s=document.querySelector("script[data-namespace='lumavate-components']");if(s){resourcesUrl=s.getAttribute('data-resources-url');}
+(function(window, document, Context, namespace) {
   'use strict';
   function assignHostContentSlots(plt, domApi, elm, childNodes, childNode, slotName, defaultSlot, namedSlots, i) {
     // so let's loop through each of the childNodes to the host element
@@ -320,8 +320,9 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
         d = memberData[i];
         cmpMeta.membersMeta[d[0]] = {
           memberType: d[1],
-          attribName: 'string' === typeof d[2] ? d[2] : d[2] ? d[0] : 0,
-          propType: d[3]
+          reflectToAttr: !!d[2],
+          attribName: 'string' === typeof d[3] ? d[3] : d[3] ? d[0] : 0,
+          propType: d[4]
         };
       }
     }
@@ -575,13 +576,16 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
       // it off and generate the child vnodes for this host element
       // note that we do not create the host element cuz it already exists
       const hostMeta = cmpMeta.componentConstructor.host;
-      if (instance.render || instance.hostData || hostMeta) {
+      let reflectHostAttr;
+      false;
+      if (instance.render || instance.hostData || hostMeta || reflectHostAttr) {
         // tell the platform we're actively rendering
         // if a value is changed within a render() then
         // this tells the platform not to queue the change
         plt.activeRender = true;
         const vnodeChildren = instance.render && instance.render();
         let vnodeHostData;
+        false;
         false;
         // tell the platform we're done rendering
         // now any changes will again queue
@@ -593,10 +597,12 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
         // if this is a re-render, then give the renderer the last vnode we already created
         const oldVNode = plt.vnodeMap.get(elm) || new VNode();
         oldVNode.elm = elm;
+        const hostVNode = h(null, vnodeHostData, vnodeChildren);
+        false;
         // each patch always gets a new vnode
         // the host element itself isn't patched because it already exists
         // kick off the actual render and any DOM updates
-                plt.vnodeMap.set(elm, plt.render(oldVNode, h(null, vnodeHostData, vnodeChildren), isUpdateRender, plt.defaultSlotsMap.get(elm), plt.namedSlotsMap.get(elm), cmpMeta.componentConstructor.encapsulation));
+        plt.vnodeMap.set(elm, plt.render(oldVNode, hostVNode, isUpdateRender, plt.defaultSlotsMap.get(elm), plt.namedSlotsMap.get(elm), cmpMeta.componentConstructor.encapsulation));
       }
       true;
       // attach the styles this component needs, if any
@@ -707,7 +713,14 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
     function setComponentProp(newValue, elm) {
       // component instance prop/state setter (cannot be arrow fn)
       elm = plt.hostElementMap.get(this);
-      elm && !(!property.state && !property.mutable) && setValue(plt, elm, memberName, newValue);
+      if (elm) {
+        if (property.state || property.mutable) {
+          setValue(plt, elm, memberName, newValue);
+        } else {
+          true;
+          console.warn(`@Prop() "${memberName}" on "${elm.tagName}" cannot be modified.`);
+        }
+      }
     }
     if (property.type || property.state) {
       const values = plt.valuesMap.get(elm);
@@ -798,6 +811,37 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
     });
   }
   const WATCH_CB_PREFIX = 'wc-';
+  function updateAttribute(elm, memberName, newValue) {
+    const isXlinkNs = memberName !== (memberName = memberName.replace(/^xlink\:?/, ''));
+    const isBooleanAttr = BOOLEAN_ATTRS[memberName];
+    if (!isBooleanAttr || newValue && 'false' !== newValue) {
+      if ('function' !== typeof newValue) {
+        isBooleanAttr && (newValue = '');
+        isXlinkNs ? elm.setAttributeNS(XLINK_NS$1, toLowerCase(memberName), newValue) : elm.setAttribute(memberName, newValue);
+      }
+    } else {
+      isXlinkNs ? elm.removeAttributeNS(XLINK_NS$1, toLowerCase(memberName)) : elm.removeAttribute(memberName);
+    }
+  }
+  const BOOLEAN_ATTRS = {
+    'allowfullscreen': 1,
+    'async': 1,
+    'autofocus': 1,
+    'autoplay': 1,
+    'checked': 1,
+    'controls': 1,
+    'disabled': 1,
+    'enabled': 1,
+    'formnovalidate': 1,
+    'hidden': 1,
+    'multiple': 1,
+    'noresize': 1,
+    'readonly': 1,
+    'required': 1,
+    'selected': 1,
+    'spellcheck': 1
+  };
+  const XLINK_NS$1 = 'http://www.w3.org/1999/xlink';
   function updateElement(plt, oldVnode, newVnode, isSvgMode, memberName) {
     // if the element passed in is a shadow root, which is a document fragment
     // then we want to be adding attrs/props to the shadow root's "host" element
@@ -807,14 +851,14 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
     const newVnodeAttrs = newVnode.vattrs || EMPTY_OBJ;
     // remove attributes no longer present on the vnode by setting them to undefined
         for (memberName in oldVnodeAttrs) {
-      newVnodeAttrs && null != newVnodeAttrs[memberName] || null == oldVnodeAttrs[memberName] || setAccessor(plt, elm, memberName, oldVnodeAttrs[memberName], void 0, isSvgMode);
+      newVnodeAttrs && null != newVnodeAttrs[memberName] || null == oldVnodeAttrs[memberName] || setAccessor(plt, elm, memberName, oldVnodeAttrs[memberName], void 0, isSvgMode, newVnode.isHostElement);
     }
     // add new & update changed attributes
         for (memberName in newVnodeAttrs) {
-      memberName in oldVnodeAttrs && newVnodeAttrs[memberName] === ('value' === memberName || 'checked' === memberName ? elm[memberName] : oldVnodeAttrs[memberName]) || setAccessor(plt, elm, memberName, oldVnodeAttrs[memberName], newVnodeAttrs[memberName], isSvgMode);
+      memberName in oldVnodeAttrs && newVnodeAttrs[memberName] === ('value' === memberName || 'checked' === memberName ? elm[memberName] : oldVnodeAttrs[memberName]) || setAccessor(plt, elm, memberName, oldVnodeAttrs[memberName], newVnodeAttrs[memberName], isSvgMode, newVnode.isHostElement);
     }
   }
-  function setAccessor(plt, elm, memberName, oldValue, newValue, isSvg, i, ilen) {
+  function setAccessor(plt, elm, memberName, oldValue, newValue, isSvg, isHostElement, i, ilen) {
     if ('class' !== memberName || isSvg) {
       if ('style' === memberName) {
         // Style
@@ -837,7 +881,9 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
             // we know for a fact that this element is a known component
             // and this component has this member name as a property,
             // let's set the known @Prop on this element
+            // set it directly as property on the element
             setProperty(elm, memberName, newValue);
+            false;
           } else if ('ref' !== memberName) {
             // this member name is a property on this element, but it's not a component
             // this is a native property like "value" or something
@@ -845,10 +891,10 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
             setProperty(elm, memberName, null == newValue ? '' : newValue);
             null != newValue && false !== newValue || elm.removeAttribute(memberName);
           }
-        } else if (null != newValue) {
+        } else {
+          null != newValue && 
           // Element Attributes
-          i = memberName !== (memberName = memberName.replace(/^xlink\:?/, ''));
-          1 !== BOOLEAN_ATTRS[memberName] || newValue && 'false' !== newValue ? 'function' !== typeof newValue && (i ? elm.setAttributeNS(XLINK_NS$1, toLowerCase(memberName), newValue) : elm.setAttribute(memberName, newValue)) : i ? elm.removeAttributeNS(XLINK_NS$1, toLowerCase(memberName)) : elm.removeAttribute(memberName);
+          updateAttribute(elm, memberName, newValue);
         }
       } else {
         // Event Handlers
@@ -883,25 +929,6 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
       elm[name] = value;
     } catch (e) {}
   }
-  const BOOLEAN_ATTRS = {
-    'allowfullscreen': 1,
-    'async': 1,
-    'autofocus': 1,
-    'autoplay': 1,
-    'checked': 1,
-    'controls': 1,
-    'disabled': 1,
-    'enabled': 1,
-    'formnovalidate': 1,
-    'hidden': 1,
-    'multiple': 1,
-    'noresize': 1,
-    'readonly': 1,
-    'required': 1,
-    'selected': 1,
-    'spellcheck': 1
-  };
-  const XLINK_NS$1 = 'http://www.w3.org/1999/xlink';
   /**
      * Virtual DOM patching algorithm based on Snabbdom by
      * Simon Friis Vindum (@paldepind)
@@ -915,9 +942,14 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
     // the patch() function which createRenderer() returned is the function
     // which gets called numerous times by each component
     function createElm(vnode, parentElm, childIndex, i, elm, childNode, namedSlot, slotNodes, hasLightDom) {
-      'function' === typeof vnode.vtag && (vnode = vnode.vtag(Object.assign({}, vnode.vattrs, {
-        children: vnode.vchildren
-      })));
+      if ('function' === typeof vnode.vtag) {
+        vnode = vnode.vtag(Object.assign({}, vnode.vattrs, {
+          children: vnode.vchildren
+        }));
+        if (!vnode) {
+          return null;
+        }
+      }
       if (!useNativeShadowDom && 'slot' === vnode.vtag) {
         if (defaultSlot || namedSlots) {
           scopeId && domApi.$setAttribute(parentElm, scopeId + '-slot', '');
@@ -1098,7 +1130,7 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
       isSvgMode = 'svg' === newVNode.vtag || 'foreignObject' !== newVNode.vtag && isSvgMode;
       if (isUndef(newVNode.vtext)) {
         // element node
-        'slot' !== newVNode.vtag && 
+        'slot' !== newVNode.vtag && 'function' !== typeof newVNode.vtag && 
         // either this is the first render of an element OR it's an update
         // AND we already know it's possible it could have changed
         // this updates the element's css classes, attrs, props, listeners, etc.
@@ -1357,19 +1389,148 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
       }
     }
   }
-  function attributeChangedCallback(membersMeta, elm, attribName, oldVal, newVal, propName) {
+  function generateDevInspector(App, namespace, win, plt) {
+    const devInspector = win.devInspector = win.devInspector || {};
+    devInspector.apps = devInspector.apps || [];
+    devInspector.apps.push(generateDevInspectorApp(App, namespace, plt));
+    devInspector.getInstance || (devInspector.getInstance = (elm => {
+      return Promise.all(devInspector.apps.map(app => {
+        return app.getInstance(elm);
+      })).then(results => {
+        return results.find(instance => !!instance);
+      });
+    }));
+    devInspector.getComponents || (devInspector.getComponents = (() => {
+      const appsMetadata = [];
+      devInspector.apps.forEach(app => {
+        appsMetadata.push(app.getComponents());
+      });
+      return Promise.all(appsMetadata).then(appMetadata => {
+        const allMetadata = [];
+        appMetadata.forEach(metadata => {
+          metadata.forEach(m => {
+            allMetadata.push(m);
+          });
+        });
+        return allMetadata;
+      });
+    }));
+    return devInspector;
+  }
+  function generateDevInspectorApp(App, namespace, plt) {
+    const app = {
+      namespace: namespace,
+      getInstance: elm => {
+        if (elm && elm.tagName) {
+          return Promise.all([ getComponentMeta(plt, elm.tagName), getComponentInstance(plt, elm) ]).then(results => {
+            if (results[0] && results[1]) {
+              const cmp = {
+                meta: results[0],
+                instance: results[1]
+              };
+              return cmp;
+            }
+            return null;
+          });
+        }
+        return Promise.resolve(null);
+      },
+      getComponent: tagName => {
+        return getComponentMeta(plt, tagName);
+      },
+      getComponents: () => {
+        return Promise.all(App.components.map(cmp => {
+          return getComponentMeta(plt, cmp[0]);
+        })).then(metadata => {
+          return metadata.filter(m => m);
+        });
+      }
+    };
+    return app;
+  }
+  function getMembersMeta(properties) {
+    return Object.keys(properties).reduce((membersMap, memberKey) => {
+      const prop = properties[memberKey];
+      let category;
+      const member = {
+        name: memberKey
+      };
+      if (prop.state) {
+        category = 'states';
+        member.watchers = prop.watchCallbacks || [];
+      } else if (prop.elementRef) {
+        category = 'elements';
+      } else if (prop.method) {
+        category = 'methods';
+      } else {
+        category = 'props';
+        let type = 'any';
+        if (prop.type) {
+          type = prop.type;
+          'function' === typeof prop.type && (type = prop.type.name);
+        }
+        member.type = type.toLowerCase();
+        member.mutable = prop.mutable || false;
+        member.connect = prop.connect || '-';
+        member.context = prop.connect || '-';
+        member.watchers = prop.watchCallbacks || [];
+      }
+      membersMap[category].push(member);
+      return membersMap;
+    }, {
+      props: [],
+      states: [],
+      elements: [],
+      methods: []
+    });
+  }
+  function getComponentMeta(plt, tagName) {
+    const elm = {
+      tagName: tagName
+    };
+    const internalMeta = plt.getComponentMeta(elm);
+    if (!internalMeta || !internalMeta.componentConstructor) {
+      return Promise.resolve(null);
+    }
+    const cmpCtr = internalMeta.componentConstructor;
+    const members = getMembersMeta(cmpCtr.properties || {});
+    const listeners = (internalMeta.listenersMeta || []).map(listenerMeta => {
+      return {
+        event: listenerMeta.eventName,
+        capture: listenerMeta.eventCapture,
+        disabled: listenerMeta.eventDisabled,
+        passive: listenerMeta.eventPassive,
+        method: listenerMeta.eventMethodName
+      };
+    });
+    const emmiters = cmpCtr.events || [];
+    const meta = Object.assign({
+      tag: cmpCtr.is,
+      bundle: internalMeta.bundleIds || 'unknown',
+      encapsulation: cmpCtr.encapsulation || 'none'
+    }, members, {
+      events: {
+        emmiters: emmiters,
+        listeners: listeners
+      }
+    });
+    return Promise.resolve(meta);
+  }
+  function getComponentInstance(plt, elm) {
+    return Promise.resolve(plt.instanceMap.get(elm));
+  }
+  function attributeChangedCallback(membersMeta, elm, attribName, oldVal, newVal, propName, memberMeta) {
     // only react if the attribute values actually changed
-    if (oldVal !== newVal && membersMeta) {
-      // normalize the attribute name w/ lower case
-      attribName = toLowerCase(attribName);
+    if (membersMeta && oldVal !== newVal) {
       // using the known component meta data
       // look up to see if we have a property wired up to this attribute name
-            for (propName in membersMeta) {
-        if (membersMeta[propName].attribName === attribName) {
-          // cool we've got a prop using this attribute name the value will
+      for (propName in membersMeta) {
+        memberMeta = membersMeta[propName];
+        // normalize the attribute name w/ lower case
+                if (memberMeta.attribName && toLowerCase(memberMeta.attribName) === toLowerCase(attribName)) {
+          // cool we've got a prop using this attribute name, the value will
           // be a string, so let's convert it to the correct type the app wants
-          // below code is ugly yes, but great minification ;)
-          elm[propName] = parsePropertyValue(membersMeta[propName].propType, newVal);
+          elm[propName] = parsePropertyValue(memberMeta.propType, newVal);
           break;
         }
       }
@@ -1569,19 +1730,19 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
     }
     return false;
   }
-  function createPlatformClient(appNamespace, Context, win, doc, publicPath, hydratedCssClass) {
+  function createPlatformClient(namespace, Context, win, doc, resourcesUrl, hydratedCssClass) {
     const cmpRegistry = {
       'html': {}
     };
     const controllerComponents = {};
-    const App = win[appNamespace] = win[appNamespace] || {};
+    const App = win[namespace] = win[namespace] || {};
     const domApi = createDomApi(App, win, doc);
     // set App Context
         Context.isServer = Context.isPrerender = !(Context.isClient = true);
     Context.window = win;
     Context.location = win.location;
     Context.document = doc;
-    Context.publicPath = publicPath;
+    Context.resourcesUrl = Context.publicPath = resourcesUrl;
     true;
     Context.enableListener = ((instance, eventName, enabled, attachTo, passive) => enableEventListener(plt, instance, eventName, enabled, attachTo, passive));
     true;
@@ -1633,7 +1794,7 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
       plt.hasLoadedMap.set(rootElm, App.loaded = plt.isAppLoaded = true);
       domApi.$dispatchEvent(win, 'appload', {
         detail: {
-          namespace: appNamespace
+          namespace: namespace
         }
       });
     });
@@ -1673,12 +1834,8 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
           // be observed, it does not include all props yet, so it's safe to
           // loop through all of the props (attrs) and observed them
                     for (const propName in cmpMeta.membersMeta) {
-            // initialize the actual attribute name used vs. the prop name
-            // for example, "myProp" would be "my-prop" as an attribute
-            // and these can be configured to be all lower case or dash case (default)
             cmpMeta.membersMeta[propName].attribName && observedAttributes.push(
-            // dynamically generate the attribute name from the prop name
-            // also add it to our array of attributes we need to observe
+            // add this attribute to our array of attributes we need to observe
             cmpMeta.membersMeta[propName].attribName);
           }
           // set the array of all the attributes to keep an eye on
@@ -1695,7 +1852,7 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
         cb();
       } else {
         const bundleId = 'string' === typeof cmpMeta.bundleIds ? cmpMeta.bundleIds : cmpMeta.bundleIds[modeName];
-        const url = publicPath + bundleId + (useScopedCss(domApi.$supportsShadowDom, cmpMeta) ? '.sc' : '') + '.js';
+        const url = resourcesUrl + bundleId + (useScopedCss(domApi.$supportsShadowDom, cmpMeta) ? '.sc' : '') + '.js';
         // dynamic es module import() => woot!
                 import(url).then(importedModule => {
           // async loading of the module is done
@@ -1719,6 +1876,8 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
     }
     true;
     plt.attachStyles = attachStyles;
+    true;
+    generateDevInspector(App, namespace, window, plt);
     // register all the components now that everything's ready
     // standard es2015 class extends HTMLElement
     (App.components || []).map(data => parseComponentLoader(data, cmpRegistry)).forEach(cmpMeta => plt.defineComponent(cmpMeta, class extends HTMLElement {}));
@@ -1727,7 +1886,7 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
         App.initialized = true;
     domApi.$dispatchEvent(window, 'appinit', {
       detail: {
-        namespace: appNamespace
+        namespace: namespace
       }
     });
   }
@@ -1737,6 +1896,6 @@ var s=document.querySelector("script[data-namespace='lumavate-components']");if(
     */
   /* tslint:disable */  false;
   // es2015 build which does uses es module imports and dynamic imports
-  createPlatformClient(appNamespace, Context, window, document, publicPath, hydratedCssClass);
-})(window, document, Context, appNamespace, publicPath);
-})({},"LumavateComponents","hydrated","/build/lumavate-components/");
+  createPlatformClient(namespace, Context, window, document, resourcesUrl, hydratedCssClass);
+})(window, document, Context, namespace);
+})({},"LumavateComponents","hydrated");
