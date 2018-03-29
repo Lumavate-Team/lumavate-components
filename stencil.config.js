@@ -2,12 +2,13 @@ const sass = require('@stencil/sass');
 
 exports.config = {
   namespace: 'lumavate-components',
-  generateDistribution: true,
-  serviceWorker: false,
+  outputTargets: [
+    { type: 'dist' },
+    { type: 'www' }
+  ],
   plugins: [
     sass({
-      injectGlobalPaths: [
-    'src/global/index.scss' ]
+      injectGlobalPaths: [ 'src/global/index.scss' ]
     })
   ]
 };
