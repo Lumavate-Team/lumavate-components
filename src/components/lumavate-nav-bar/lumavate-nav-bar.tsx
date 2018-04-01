@@ -10,10 +10,10 @@ export class LumavateNavBar {
   @Prop() NavBarPosition: string = 'bottom';
   @Prop() NavBarItems: string = '';
 
-	innerItems: Array<any>
+  innerItems: Array<any>
 
-	componentWillLoad() {
-		this.innerItems = JSON.parse(this.NavBarItems);
+  componentWillLoad() {
+    this.innerItems = JSON.parse(this.NavBarItems);
   }
 
   getImageLink(i) {
@@ -24,19 +24,19 @@ export class LumavateNavBar {
     return '';
   }
 
-	render() {
-		return (
-		<div style={{backgroundColor:this.NavBarBackgroundColor ? this.NavBarBackgroundColor : "#fff"}} class={this.NavBarPosition === 'bottom' ? 'container bottom' : 'container top'}>
-			{this.innerItems.map((item) =>
-				<lumavate-nav-bar-item
-        nav-bar-item-color={this.NavBarItemColor}
-        nav-bar-item-text={item.text}
-        nav-bar-item-image-link={this.getImageLink(item)}
-        nav-bar-item-link={item.linkTo.url}></lumavate-nav-bar-item>
-			)}
-			</div>
-		)
-	}
-
+  render() {
+    return (
+      <div style={{backgroundColor:this.NavBarBackgroundColor ? this.NavBarBackgroundColor : "#fff"}} class={this.NavBarPosition === 'bottom' ? 'container bottom' : 'container top'}>
+        {this.innerItems.map((item) =>
+          <lumavate-nav-bar-item
+            nav-bar-item-color={this.NavBarItemColor}
+            nav-bar-item-text={item.text}
+            nav-bar-item-image-link={this.getImageLink(item)}
+            nav-bar-item-link={item.linkTo.url}>
+          </lumavate-nav-bar-item>
+        )}
+      </div>
+    )
+  }
 }
 
