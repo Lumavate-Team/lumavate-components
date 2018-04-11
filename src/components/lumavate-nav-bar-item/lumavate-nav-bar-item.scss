@@ -5,11 +5,15 @@ lumavate-nav-bar-item {
     justify-content: center;
     align-items: center;
     flex-direction:column;
+    padding:8px 0px 10px 0px;
     .icon {
       width: 24px;
       height: 24px;
-      mask: no-repeat 50% 50%;
       -webkit-mask: no-repeat 50% 50%;
+      mask: no-repeat 50% 50%;
+      &.active: {
+        margin-top:6px;
+      }
     }
     & div {
       padding:4px 4px;
@@ -21,5 +25,5 @@ lumavate-nav-bar-item {
       line-height:0;
     }
   }
-  font-family:var(--app-font-family);
+  font-family:'Roboto', sans-serif;
 }

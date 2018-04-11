@@ -1,7 +1,6 @@
 lumavate-nav-bar {
   flex:0 0 auto;
   width:100%;
-  font-family:var(--app-font-family);
   .bottom {
     bottom:0;
     left:0;
@@ -14,7 +13,7 @@ lumavate-nav-bar {
   }
   .container {
     position:fixed;
-    min-height:48px;
+    height:56px;
     display:flex;
     width:100%;
     flex-direction:row;
