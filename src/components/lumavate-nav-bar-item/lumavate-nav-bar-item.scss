@@ -9,11 +9,8 @@ lumavate-nav-bar-item {
     .icon {
       width: 24px;
       height: 24px;
-      mask: no-repeat 50% 50%;
       -webkit-mask: no-repeat 50% 50%;
-      &.active: {
-        margin-top:6px;
-      }
+      mask: no-repeat 50% 50%;
     }
     & div {
       padding:4px 4px;
