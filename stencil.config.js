@@ -1,4 +1,6 @@
 const sass = require('@stencil/sass');
+const postcss = require('@stencil/postcss');
+const autoprefixer = require('autoprefixer');
 
 exports.config = {
   namespace: 'lumavate-components',
@@ -9,6 +11,9 @@ exports.config = {
   plugins: [
     sass({
       injectGlobalPaths: [ 'src/global/index.scss' ]
+    }),
+    postcss({
+      plugins: [autoprefixer()]
     })
   ]
 };
