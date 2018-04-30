@@ -30,7 +30,11 @@ export class LumavateNavBarItem {
         : ''
       }
 
-      <div style={{color:this.NavBarItemColor ? this.NavBarItemColor : "#000"}} class="button-text">{this.NavBarItemText}</div>
+      {this.NavBarItemText ?
+        <div style={{color:this.NavBarItemColor ? this.NavBarItemColor : "#000"}} class="button-text">{this.NavBarItemText}</div>
+        : ''
+      }
+      
       </div>
     );
   }
