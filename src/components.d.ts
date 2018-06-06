@@ -22,6 +22,73 @@ declare global {
 
 
 import {
+  LumavateGridItem as LumavateGridItem
+} from './components/lumavate-grid-item/lumavate-grid-item';
+
+declare global {
+  interface HTMLLumavateGridItemElement extends LumavateGridItem, HTMLStencilElement {
+  }
+  var HTMLLumavateGridItemElement: {
+    prototype: HTMLLumavateGridItemElement;
+    new (): HTMLLumavateGridItemElement;
+  };
+  interface HTMLElementTagNameMap {
+    "lumavate-grid-item": HTMLLumavateGridItemElement;
+  }
+  interface ElementTagNameMap {
+    "lumavate-grid-item": HTMLLumavateGridItemElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "lumavate-grid-item": JSXElements.LumavateGridItemAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateGridItemAttributes extends HTMLAttributes {
+      gridStartCol?: string;
+      gridStartRow?: string;
+      gridStopCol?: string;
+      gridStopRow?: string;
+      mode?: string;
+      
+    }
+  }
+}
+
+
+import {
+  LumavateGrid as LumavateGrid
+} from './components/lumavate-grid/lumavate-grid';
+
+declare global {
+  interface HTMLLumavateGridElement extends LumavateGrid, HTMLStencilElement {
+  }
+  var HTMLLumavateGridElement: {
+    prototype: HTMLLumavateGridElement;
+    new (): HTMLLumavateGridElement;
+  };
+  interface HTMLElementTagNameMap {
+    "lumavate-grid": HTMLLumavateGridElement;
+  }
+  interface ElementTagNameMap {
+    "lumavate-grid": HTMLLumavateGridElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "lumavate-grid": JSXElements.LumavateGridAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateGridAttributes extends HTMLAttributes {
+      gridColumns?: string;
+      gridRows?: string;
+      
+    }
+  }
+}
+
+
+import {
   LumavateLargeNavCard as LumavateLargeNavCard
 } from './components/lumavate-large-nav-card/lumavate-large-nav-card';
 
