@@ -89,6 +89,39 @@ declare global {
 
 
 import {
+  LumavateImage as LumavateImage
+} from './components/lumavate-image/lumavate-image';
+
+declare global {
+  interface HTMLLumavateImageElement extends LumavateImage, HTMLStencilElement {
+  }
+  var HTMLLumavateImageElement: {
+    prototype: HTMLLumavateImageElement;
+    new (): HTMLLumavateImageElement;
+  };
+  interface HTMLElementTagNameMap {
+    "lumavate-image": HTMLLumavateImageElement;
+  }
+  interface ElementTagNameMap {
+    "lumavate-image": HTMLLumavateImageElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "lumavate-image": JSXElements.LumavateImageAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateImageAttributes extends HTMLAttributes {
+      Margin?: string;
+      Mode?: string;
+      Src?: string;
+      
+    }
+  }
+}
+
+
+import {
   LumavateLargeNavCard as LumavateLargeNavCard
 } from './components/lumavate-large-nav-card/lumavate-large-nav-card';
 
