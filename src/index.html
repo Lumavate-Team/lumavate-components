@@ -7,6 +7,10 @@
     <script src="/build/lumavate-components.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
   </head>
   <body style="height:100%;min-height:100%;margin:0px;">
     <div style="width:384px;margin:8px;">
@@ -99,5 +103,13 @@
     {"text":"Google","linkTo":{"url":"http://www.google.com"},"imageSource":{"preview":"https://s3.amazonaws.com/assets.labelnexusdev.com/images/ic_3d_rotation_black_24px.svg"}}
     ]'>
   </lumavate-nav-bar>
+  <script>
+  $(function() {
+    var c = document.querySelector('lumavate-image');
+    c.addEventListener('clicked', function (e) {
+      console.log('XXX');
+    })
+  })
+  </script>
 </body>
 </html>

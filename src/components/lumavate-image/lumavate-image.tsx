@@ -1,4 +1,4 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter} from '@stencil/core';
 
 @Component({
   tag: 'lumavate-image',
@@ -6,17 +6,19 @@ import { Component, Prop } from '@stencil/core';
 })
 export class LumavateImage {
 
-  @Prop() Src: string = '';
-  @Prop() Margin: string = '0';
-  @Prop() Mode: string = 'cover';
+  @Event() clicked: EventEmitter
+  @Prop() src: string = '';
+  @Prop() margin: string = '0';
+  @Prop() mode: string = 'cover';
 
-  componentWillLoad() {
+  imageClick(e) {
+    this.clicked.emit(e);
   }
 
   render() {
     return (
-      <div style={{margin:this.Margin}}>
-        <img class="image" src={this.Src} />
+      <div style={{margin:this.margin}}>
+        <img class="image" src={this.src} onClick={(e) => this.imageClick(e)}/>
       </div>
     )
   }
