@@ -35,7 +35,7 @@ export class LumavateGridItem {
     }
 
     return (
-      <div innerHTML={this.el.innerHTML}>
+      <div innerHTML={this.el.innerHTML} style={{height:'100%',width:'100%'}}>
       </div>
     );
   }

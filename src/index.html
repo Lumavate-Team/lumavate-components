@@ -52,7 +52,7 @@
     </lumavate-small-nav-card>
   </div>
   <div style="width:384px;height:100%;min-height:100%;margin:8px;">
-    <lumavate-image
+    <lumavate-image id='myimage'
       src='http://via.placeholder.com/140x40'
       mode='cover'
       margin='5px'>
@@ -105,7 +105,7 @@
   </lumavate-nav-bar>
   <script>
   $(function() {
-    var c = document.querySelector('lumavate-image');
+    var c = document.querySelector('#myimage');
     c.addEventListener('clicked', function (e) {
       console.log('XXX');
     })
