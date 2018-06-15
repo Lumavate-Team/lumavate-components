@@ -26,7 +26,7 @@ export class LumavateNavBar {
 
   render() {
     return (
-      <div style={{backgroundColor:this.NavBarBackgroundColor ? this.NavBarBackgroundColor : "#fff"}} class={this.NavBarPosition === 'bottom' ? 'container bottom' : 'container top'}>
+      <div style={{backgroundColor:this.NavBarBackgroundColor ? this.NavBarBackgroundColor : "#fff"}} class='container'}>
         {this.innerItems.map((item) =>
           <lumavate-nav-bar-item
             nav-bar-item-color={this.NavBarItemColor}
