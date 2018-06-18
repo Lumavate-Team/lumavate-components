@@ -16,12 +16,12 @@ lumavate-carousel {
 }
 
 /* Hide the images by default */
-.mySlides {
+.carouselImage {
     display: none;
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.previous, .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -42,7 +42,7 @@ lumavate-carousel {
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
+.previous:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
 

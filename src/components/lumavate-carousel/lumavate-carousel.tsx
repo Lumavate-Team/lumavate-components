@@ -1,5 +1,4 @@
 import { Component, Prop, Event, EventEmitter, Element, Method } from '@stencil/core';
-// import { LumavateImage } from '../lumavate-image/lumavate-image';
 
 @Component({
   tag: 'lumavate-carousel',
@@ -24,24 +23,24 @@ export class LumavateCarosel {
   }
 
   @Method()
-  currentSlide(n) {
+  setSlide(n) {
     this.showSlides(this.carouselIndex = n)
   }
 
   @Method()
-  moveRight(n) {
+  next(n) {
     this.showSlides(this.carouselIndex += n)
   }
 
   @Method()
-  moveLeft(n) {
+  previous(n) {
     this.showSlides(this.carouselIndex -= n)
   }
 
   @Method()
   showSlides(n) {
     let i: number
-    let slides: any = document.getElementsByClassName("mySlides")
+    let slides: any = document.getElementsByClassName("carouselImage")
     let dots: any = document.getElementsByClassName("dot")
 
     if (n > slides.length) { this.carouselIndex = 1 }
@@ -64,7 +63,7 @@ export class LumavateCarosel {
     return (
       <div>
         {this.images.map((item) =>
-          <div class="mySlides fade" style={{ width: "500px", height: "100%", margin: "8px" }}>
+          <div class="carouselImage fade" style={{ width: "500px", height: "100%", margin: "8px" }}>
             <lumavate-image
               src={item.url}
               mode='cover'>
@@ -73,12 +72,12 @@ export class LumavateCarosel {
           </div>
         )}
 
-        <a class="prev" onClick={() => this.moveLeft(1)}>&#10094;</a>
-        <a class="next" onClick={() => this.moveRight(1)}>&#10095;</a>
+        <a class="previous" onClick={() => this.previous(1)}>&#10094;</a>
+        <a class="next" onClick={() => this.next(1)}>&#10095;</a>
 
         <div>
           {this.images.map((_, index) =>
-            <span class="dot" onClick={() => this.currentSlide(index+1)}></span>
+            <span class="dot" onClick={() => this.setSlide(index + 1)}></span>
           )}
         </div>
       </div>
