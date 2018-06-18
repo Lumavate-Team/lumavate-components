@@ -61,12 +61,12 @@ export class LumavateCarosel {
 
   render() {
     return (
-      <div>
+      <div style={{ width: "100%", height: "100%" }}>
         {this.images.map((item) =>
-          <div class="carouselImage fade" style={{ width: "500px", height: "100%", margin: "8px" }}>
+          <div class="carouselImage fade" style={{ width: "100%", height: "100%" }}>
             <lumavate-image
               src={item.url}
-              mode='cover'>
+              mode={this.mode}>
 
             </lumavate-image>
           </div>
