@@ -23,10 +23,6 @@ export class LumavateCarosel {
     this.showSlides(this.carouselIndex)
   }
 
-  imageClick(e) {
-    this.clicked.emit(e);
-  }
-
   @Method()
   currentSlide(n) {
     this.showSlides(this.carouselIndex = n)
