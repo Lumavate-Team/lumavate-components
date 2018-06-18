@@ -29,7 +29,8 @@ export class LumavateCarosel {
 
   @Method()
   currentSlide(n) {
-    this.showSlides(n)
+    console.log(n)
+    this.showSlides(this.carouselIndex = n)
   }
 
   @Method()
@@ -81,9 +82,9 @@ export class LumavateCarosel {
         <a class="next" onClick={() => this.moveRight(1)}>&#10095;</a>
 
         <div>
-          <span class="dot" ></span>
-          <span class="dot" ></span>
-          <span class="dot" ></span>
+          {this.images.map((_, index) =>
+            <span class="dot" onClick={() => this.currentSlide(index+1)}></span>
+          )}
         </div>
       </div>
     )
