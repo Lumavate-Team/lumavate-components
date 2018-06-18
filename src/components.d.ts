@@ -22,6 +22,38 @@ declare global {
 
 
 import {
+  LumavateCarosel as LumavateCarousel
+} from './components/lumavate-carousel/lumavate-carousel';
+
+declare global {
+  interface HTMLLumavateCarouselElement extends LumavateCarousel, HTMLStencilElement {
+  }
+  var HTMLLumavateCarouselElement: {
+    prototype: HTMLLumavateCarouselElement;
+    new (): HTMLLumavateCarouselElement;
+  };
+  interface HTMLElementTagNameMap {
+    "lumavate-carousel": HTMLLumavateCarouselElement;
+  }
+  interface ElementTagNameMap {
+    "lumavate-carousel": HTMLLumavateCarouselElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "lumavate-carousel": JSXElements.LumavateCarouselAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateCarouselAttributes extends HTMLAttributes {
+      CarouselImages?: string;
+      mode?: string;
+      onClicked?: (event: CustomEvent) => void;
+    }
+  }
+}
+
+
+import {
   LumavateGridItem as LumavateGridItem
 } from './components/lumavate-grid-item/lumavate-grid-item';
 

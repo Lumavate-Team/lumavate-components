@@ -14,18 +14,18 @@
   </head>
   <body style="height:100%;min-height:100%;margin:0px;">
   <div style='position:fixed;top:0px;bottom:56px;right:0px;left:0px;overflow:scroll'>
-    <div style="width:384px;margin:8px;">
+    <!-- <div style="width:384px;margin:8px;">
         <lumavate-quote
-        quote-text='This is the End, The End is Near, This is really the end'
+        quote-text='42 is'
         font-size=12
         show-card=true
         card-color='#FFF'
         quotation-marks=true
         color='#6A1F64'>
       </lumavate-quote>
-    </div>
+    </div> -->
 
-    <div style="width:384px;height:200px;margin:8px;">
+    <!-- <div style="width:384px;height:200px;margin:8px;">
       <lumavate-large-nav-card
         caption=true
         caption-text='Dropbox Onboarding Case Study'
@@ -37,9 +37,9 @@
         image-scaling='contain'
         card-link-'https://www.google.com'>
       </lumavate-large-nav-card>
-    </div>
+    </div> -->
 
-    <div style="width:384px;height:200px;margin:8px;">
+    <!-- <div style="width:384px;height:200px;margin:8px;">
       <lumavate-small-nav-card
         sub-title=true
         sub-title-text='This is Subtitle'
@@ -51,20 +51,31 @@
         image-scaling='contain'
         card-ling='https://www.dropbox.com'>
       </lumavate-small-nav-card>
-    </div>
-    <div style="width:384px;height:200px;margin:8px;">
+    </div> -->
+    <!-- <div style="width:384px;height:200px;margin:8px;">
       <lumavate-image id='myimage'
         src='http://via.placeholder.com/140x40'
         mode='cover'
       </lumavate-image>
+    </div> -->
+
+    <div style="width:500px;height:200px;margin:8px;">
+      <lumavate-carousel id='myimage'
+        carousel-images='[
+        {"url": "http://via.placeholder.com/500x500"},
+        {"url": "https://www.fiftyflowers.com/site_files/FiftyFlowers/Image/Product/Stock-Lavender-Closeup-500_bfa14455.jpg"},
+        {"url": "http://via.placeholder.com/400x400"}
+        ]'
+      </lumavate-carousel>
     </div>
-    <div style="width:384px;height:200px;margin:8px;">
+
+    <!-- <div style="width:384px;height:200px;margin:8px;">
       <lumavate-image id='myimage'
         src='http://via.placeholder.com/140x40'
         mode='contain'
       </lumavate-image>
-    </div>
-    <div style="width:384px;height:200px;margin:8px;">
+    </div> -->
+    <!-- <div style="width:384px;height:200px;margin:8px;">
       <lumavate-grid grid-columns='1fr 1fr' grid-rows='100px 100px'>
         <lumavate-grid-item grid-start-col=1 grid-stop-col=1 grid-start-row=1 grid-stop-row=1>
           <lumavate-quote
@@ -97,9 +108,9 @@
           </lumavate-quote>
         </lumavate-grid-item>
       </lumavate-grid>
-    </div>
+    </div> -->
   </div>
-  <div style='position:fixed;height:56px;bottom:0px;right:0px;left:0px'>
+  <!-- <div style='position:fixed;height:56px;bottom:0px;right:0px;left:0px'>
       <lumavate-nav-bar
       nav-bar-background-color='#741367'
       nav-bar-item-color='#ff6248'
@@ -111,7 +122,7 @@
       {"text":"Google","linkTo":{"url":"http://www.google.com"},"imageSource":{"preview":"https://s3.amazonaws.com/assets.labelnexusdev.com/images/ic_3d_rotation_black_24px.svg"}}
       ]'>
     </lumavate-nav-bar>
-  </div>
+  </div> -->
   <script>
   $(function() {
     var c = document.querySelector('#myimage');
