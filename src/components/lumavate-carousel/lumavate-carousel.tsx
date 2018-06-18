@@ -51,18 +51,16 @@ export class LumavateCarosel {
     if (n > slides.length) { this.carouselIndex = 1 }
     if (n < 1) { this.carouselIndex = slides.length }
 
-    console.log(slides.length)
-
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none"
     }
 
     for (i = 0; i < dots.length; i++) {
-      dots[i].className =  dots[i].className.replace('active', '')
+      dots[i].className = dots[i].className.replace('active', '')
     }
 
-    slides[this.carouselIndex -1].style.display = 'block'
-    dots[this.carouselIndex -1].className += 'active'
+    slides[this.carouselIndex - 1].style.display = 'block'
+    dots[this.carouselIndex - 1].className += ' active'
 
   }
 
@@ -78,12 +76,12 @@ export class LumavateCarosel {
             </lumavate-image>
           </div>
         )}
-        <script>console.log(document.getElementsByClassName("mySlides").length);</script>
 
-        <a class="prev" >&#10094;</a>
-        <a class="next" >&#10095;</a>
+        <a class="prev" onClick={() => this.moveLeft(1)}>&#10094;</a>
+        <a class="next" onClick={() => this.moveRight(1)}>&#10095;</a>
 
         <div>
+          <span class="dot" ></span>
           <span class="dot" ></span>
           <span class="dot" ></span>
         </div>
