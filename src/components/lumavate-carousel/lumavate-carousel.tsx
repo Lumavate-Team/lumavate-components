@@ -29,7 +29,6 @@ export class LumavateCarosel {
 
   @Method()
   currentSlide(n) {
-    console.log(n)
     this.showSlides(this.carouselIndex = n)
   }
 
