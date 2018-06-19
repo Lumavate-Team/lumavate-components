@@ -25,7 +25,7 @@ export class LumavateCarosel {
   }
 
   @Method()
-  setArrowColor(){
+  setArrowColor() {
     let nextArrow: any = document.getElementsByClassName("next")
     let previousArrow: any = document.getElementsByClassName("previous")
 
