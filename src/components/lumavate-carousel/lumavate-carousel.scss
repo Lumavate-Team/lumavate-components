@@ -1,16 +1,7 @@
-lumavate-carousel {
-  display: flex;
-  height:100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-
 * {box-sizing:border-box}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
   position: relative;
   margin: auto;
 }
@@ -27,7 +18,7 @@ lumavate-carousel {
   top: 50%;
   width: auto;
   margin-top: -22px;
-  padding: 16px;
+  padding: 12px;
   color: white;
   font-weight: bold;
   font-size: 18px;
@@ -64,6 +55,12 @@ lumavate-carousel {
   padding: 8px 12px;
   position: absolute;
   top: 0;
+}
+
+.dot-container{
+  display: flex;
+  margin-top: -30px;
+  justify-content: center;
 }
 
 /* The dots/bullets/indicators */

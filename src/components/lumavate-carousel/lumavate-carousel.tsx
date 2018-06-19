@@ -61,7 +61,7 @@ export class LumavateCarosel {
 
   render() {
     return (
-      <div style={{ width: "100%", height: "100%" }}>
+      <div class="slideshow-container" style={{ width: "100%", height: "100%" }}>
         {this.images.map((item) =>
           <div class="carouselImage fade" style={{ width: "100%", height: "100%" }}>
             <lumavate-image
@@ -75,7 +75,7 @@ export class LumavateCarosel {
         <a class="previous" onClick={() => this.previous(1)}>&#10094;</a>
         <a class="next" onClick={() => this.next(1)}>&#10095;</a>
 
-        <div>
+        <div class="dot-container">
           {this.images.map((_, index) =>
             <span class="dot" onClick={() => this.setSlide(index + 1)}></span>
           )}
