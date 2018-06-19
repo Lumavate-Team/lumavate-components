@@ -10,6 +10,7 @@ export class LumavateCarosel {
   @Element() el: HTMLElement;
   @Prop() CarouselImages: string = '';
   @Prop() mode: string = 'contain';
+  @Prop() arrowColor: string = 'white';
 
   images: Array<any>
   carouselIndex: number = 1
@@ -20,8 +21,18 @@ export class LumavateCarosel {
 
   componentDidLoad() {
     this.showSlides(this.carouselIndex)
+    this.setArrowColor()
   }
 
+  @Method()
+  setArrowColor(){
+    let nextArrow: any = document.getElementsByClassName("next")
+    let previousArrow: any = document.getElementsByClassName("previous")
+
+    nextArrow[0].style.color = this.arrowColor
+    previousArrow[0].style.color = this.arrowColor
+
+  }
   @Method()
   setSlide(n) {
     this.showSlides(this.carouselIndex = n)

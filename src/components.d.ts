@@ -46,6 +46,7 @@ declare global {
   namespace JSXElements {
     export interface LumavateCarouselAttributes extends HTMLAttributes {
       CarouselImages?: string;
+      arrowColor?: string;
       mode?: string;
       onClicked?: (event: CustomEvent) => void;
     }
