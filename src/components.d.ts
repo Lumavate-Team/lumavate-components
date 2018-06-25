@@ -22,6 +22,37 @@ declare global {
 
 
 import {
+  LumavateCamera as LumavateCamera
+} from './components/lumavate-camera/lumavate-camera';
+
+declare global {
+  interface HTMLLumavateCameraElement extends LumavateCamera, HTMLStencilElement {
+  }
+  var HTMLLumavateCameraElement: {
+    prototype: HTMLLumavateCameraElement;
+    new (): HTMLLumavateCameraElement;
+  };
+  interface HTMLElementTagNameMap {
+    "lumavate-camera": HTMLLumavateCameraElement;
+  }
+  interface ElementTagNameMap {
+    "lumavate-camera": HTMLLumavateCameraElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "lumavate-camera": JSXElements.LumavateCameraAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateCameraAttributes extends HTMLAttributes {
+      
+      
+    }
+  }
+}
+
+
+import {
   LumavateGridItem as LumavateGridItem
 } from './components/lumavate-grid-item/lumavate-grid-item';
 

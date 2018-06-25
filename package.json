@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "@stencil/core": "^0.7.5",
-    "@stencil/sass": "0.0.3"
+    "@stencil/sass": "0.0.3",
+    "@types/webrtc": "0.0.23"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",
