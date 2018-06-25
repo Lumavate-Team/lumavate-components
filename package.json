@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "@stencil/core": "^0.7.5",
-    "@stencil/sass": "0.0.3"
+    "@stencil/sass": "0.0.3",
+    "tslint": "^5.10.0"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",

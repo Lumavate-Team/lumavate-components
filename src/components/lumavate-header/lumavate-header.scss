@@ -1,0 +1,29 @@
+lumavate-header {
+  .back-bar{
+  position:absolute;
+  top:0px;
+  left:0px;
+  right:0px;
+  width:100%;
+  }
+
+  .nav-wrapper{
+    display:flex;
+    justify-content: center;
+    height: 56px;
+  }
+
+  .back-button{
+    position: absolute;
+    width: 100%;
+    height: 56;
+    top: 16px;
+  }
+
+  .text{
+    font-family: 'Roboto', sans-serif;
+    font-size:18px;
+    height: 56px;
+  }
+}
+

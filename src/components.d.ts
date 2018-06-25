@@ -89,6 +89,40 @@ declare global {
 
 
 import {
+  LumavateShareText as LumavateHeader
+} from './components/lumavate-header/lumavate-header';
+
+declare global {
+  interface HTMLLumavateHeaderElement extends LumavateHeader, HTMLStencilElement {
+  }
+  var HTMLLumavateHeaderElement: {
+    prototype: HTMLLumavateHeaderElement;
+    new (): HTMLLumavateHeaderElement;
+  };
+  interface HTMLElementTagNameMap {
+    "lumavate-header": HTMLLumavateHeaderElement;
+  }
+  interface ElementTagNameMap {
+    "lumavate-header": HTMLLumavateHeaderElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "lumavate-header": JSXElements.LumavateHeaderAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateHeaderAttributes extends HTMLAttributes {
+      BackgroundColor?: string;
+      FontColor?: string;
+      ShowBackButton?: boolean;
+      Text?: string;
+      
+    }
+  }
+}
+
+
+import {
   LumavateImage as LumavateImage
 } from './components/lumavate-image/lumavate-image';
 
