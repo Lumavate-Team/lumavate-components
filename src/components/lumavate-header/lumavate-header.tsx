@@ -27,19 +27,21 @@ export class LumavateShareText {
 
   render() {
     return (
-      <div class="back-bar">
+      <div class="back-bar" style={{ "background-color": this.BackgroundColor }}>
         <style>
           @import url('https://fonts.googleapis.com/css?family=Roboto');
+          @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
         </style>
-        <div class="nav-wrapper" style={{ "background-color": this.BackgroundColor, "color": this.FontColor }}>
-          <div class='back-button'>
+        <div class="nav-wrapper" style={{ "color": this.FontColor }}>
+          <div id='back-button'>
             <a href="javascript:history.back()" style={{ "color": this.FontColor }}>
               <i class="material-icons">keyboard_arrow_left</i>
             </a>
           </div>
-          <div class="text">
-            <p>{this.Text}</p>
+          <div id="text">
+            {this.Text}
           </div>
+          <div class="forward-button"></div>
         </div>
       </div>
     )
