@@ -1,29 +1,25 @@
 lumavate-header {
-  .back-bar{
-  position:absolute;
-  top:0px;
-  left:0px;
-  right:0px;
-  width:100%;
-  }
 
   .nav-wrapper{
-    display:flex;
-    justify-content: center;
+    display: flex;
+    flex: 0 0 auto;
     height: 56px;
   }
 
-  .back-button{
-    position: absolute;
-    width: 100%;
-    height: 56;
-    top: 16px;
+  #back-button{
+    align-self: center;
   }
 
-  .text{
+  #text{
+    margin: auto;
+    align-self: center;
     font-family: 'Roboto', sans-serif;
     font-size:18px;
-    height: 56px;
+  }
+
+  .forward-button{
+    //This was added to center the text. It's lopsided without
+    width: 24px;
   }
 }
 
