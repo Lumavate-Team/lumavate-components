@@ -344,7 +344,7 @@
         "type": "color"
       }
     ],
-    "template": "<lumavate-quote quoteText=\"{{ componentData.quoteText }}\" fontSize=\"{{ componentData.fontSize }}\" quotationMarks=\"{{ componentData.quotationMarks }}\" color=\"{{ componentData.color }}\" showCard=\"{{ componentData.showCard }}\" cardColor=\"{{ componentData.cardColor }}\"></lumavate-quote>"
+    "template": "<lumavate-quote quote-text=\"{{ componentData.quoteText }}\" font-size=\"{{ componentData.fontSize }}\" quotation-marks=\"{{ componentData.quotationMarks|lower }}\" color=\"{{ componentData.color }}\" show-card=\"{{ componentData.showCard|lower }}\" card-color=\"{{ componentData.cardColor }}\"></lumavate-quote>"
   },
   {
     "label": "Small-Nav-Card",

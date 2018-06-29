@@ -2,7 +2,8 @@ import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'lumavate-quote',
-  styleUrl: 'lumavate-quote.scss'
+  styleUrl: 'lumavate-quote.scss',
+  shadow:true
 })
 export class LumavateQuote {
 
