@@ -2,7 +2,8 @@ import { Component, Prop, Event, EventEmitter, Element} from '@stencil/core';
 
 @Component({
   tag: 'lumavate-image',
-  styleUrl: 'lumavate-image.scss'
+  styleUrl: 'lumavate-image.scss',
+  shadow:true
 })
 export class LumavateImage {
 
