@@ -17,8 +17,8 @@ export class LumavateImage {
   }
 
   render() {
-    this.el.style.setProperty('background-image', 'url(' + this.src + ')');
-    this.el.style.setProperty('background-size', this.mode);
-    return;
+		return (
+      <div class="image" style={{backgroundImage:"url(" + this.src + ")",backgroundSize:this.mode}}></div>
+    )
   }
 }
