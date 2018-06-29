@@ -131,7 +131,6 @@ declare global {
   namespace JSXElements {
     export interface LumavateImageAttributes extends HTMLAttributes {
       'mode'?: string;
-      'onClicked'?: (event: CustomEvent) => void;
       'src'?: string;
     }
   }
