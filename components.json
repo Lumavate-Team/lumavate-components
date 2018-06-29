@@ -309,7 +309,7 @@
       },
       {
         "classification": null,
-        "default": "#000",
+        "default": "#000000",
         "helpText": null,
         "label": "Color",
         "name": "color",
@@ -333,7 +333,7 @@
       },
       {
         "classification": null,
-        "default": "#FFF",
+        "default": "#ffffff",
         "helpText": null,
         "label": "Card Color",
         "name": "cardColor",
