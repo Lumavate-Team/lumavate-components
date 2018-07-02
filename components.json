@@ -1,7 +1,7 @@
 [
   {
     "label": "Image",
-    "icon": "/src/assets/image.svg",
+    "icon": "/assets/image.svg",
     "tags": ["body"],
     "type":"Image",
     "properties": [
@@ -34,7 +34,7 @@
   },
   {
     "label": "Large-Nav-Card",
-    "icon": "/src/assets/largenav.svg",
+    "icon": "/assets/largenav.svg",
     "tags": ["body"],
     "type":"Large-Nav-Card",
     "properties": [
@@ -266,7 +266,7 @@
   },
   {
     "label": "Quote",
-    "icon":"/src/assets/quote.svg",
+    "icon":"/assets/quote.svg",
     "tags": ["body"],
     "type":"Quote",
     "properties": [
@@ -347,7 +347,7 @@
   },
   {
     "label": "Small-Nav-Card",
-    "icon": "/src/assets/smallnav.svg",
+    "icon": "/assets/smallnav.svg",
     "tags": ["body"],
     "type":"Small-Nav-Card",
     "properties": [
@@ -464,7 +464,7 @@
   },
   {
     "label": "Carousel",
-    "icon":"/src/assets/carousel.svg",
+    "icon":"/assets/carousel.svg",
     "tags": ["body"],
     "type":"Carousel",
     "properties": [
@@ -510,7 +510,7 @@
   },
   {
     "label": "Header",
-    "icon":"/src/assets/header.svg",
+    "icon":"/assets/header.svg",
     "tags": ["body"],
     "type":"Header",
     "properties": [
