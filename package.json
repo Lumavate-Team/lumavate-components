@@ -7,7 +7,9 @@
   "module": "dist/esm/index.js",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
-    "dist/"
+    "dist/",
+    "src/assets",
+    "components.json"
   ],
   "scripts": {
     "build": "stencil build",
