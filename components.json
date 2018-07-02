@@ -1,7 +1,7 @@
 [
   {
     "label": "Image",
-    "icon": "a",
+    "icon": "/assets/image.svg",
     "tags": ["body"],
     "type":"Image",
     "properties": [
@@ -18,14 +18,13 @@
       },
       {
         "classification": null,
-        "default": "both",
+        "default": "contain",
         "helpText": null,
         "label": "Mode",
         "name": "mode",
         "options": {
-          "both": "Both",
-          "degraded": "Degraded",
-          "optimal": "Optimal"
+          "contain": "Contain",
+          "cover": "Cover"
         },
         "section": null,
         "type": "dropdown"
