@@ -1,6 +1,6 @@
 {
   "name": "@lumavate/components",
-  "version": "0.5.9",
+  "version": "0.5.10",
   "description": "Lumavate Component Library",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "build": "stencil build",
-      "postbuild": "./postbuild.sh",
+    "postbuild": "./postbuild.sh",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "serve": "stencil-dev-server",
     "start": "npm run dev",
