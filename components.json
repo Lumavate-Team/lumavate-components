@@ -1,7 +1,7 @@
 [
   {
     "label": "Image",
-    "icon": "/assets/image.svg",
+    "icon": "/src/assets/image.svg",
     "tags": ["body"],
     "type":"Image",
     "properties": [
