@@ -34,7 +34,7 @@
   },
   {
     "label": "Large-Nav-Card",
-    "icon": "a",
+    "icon": "/src/assets/largenav.svg",
     "tags": ["body"],
     "type":"Large-Nav-Card",
     "properties": [
@@ -266,7 +266,7 @@
   },
   {
     "label": "Quote",
-    "icon": "a",
+    "icon":"/src/assets/quote.svg",
     "tags": ["body"],
     "type":"Quote",
     "properties": [
@@ -347,7 +347,7 @@
   },
   {
     "label": "Small-Nav-Card",
-    "icon": "a",
+    "icon": "/src/assets/smallnav.svg",
     "tags": ["body"],
     "type":"Small-Nav-Card",
     "properties": [
@@ -464,7 +464,7 @@
   },
   {
     "label": "Carousel",
-    "icon": "a",
+    "icon":"/src/assets/carousel.svg",
     "tags": ["body"],
     "type":"Carousel",
     "properties": [
@@ -510,7 +510,7 @@
   },
   {
     "label": "Header",
-    "icon": "a",
+    "icon":"/src/assets/header.svg",
     "tags": ["body"],
     "type":"Header",
     "properties": [
