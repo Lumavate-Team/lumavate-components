@@ -14,13 +14,14 @@ export class LumavateQrScanner {
     }
 
     filterIndex: any = 0
+    idx = 0
 
     @Method()
     handleSuccess = (stream) => {
         let video: any = document.querySelector('video')
         video.srcObject = stream
         video.setAttribute("playsinline", true)
-        requestAnimationFrame(this.tick);
+        requestAnimationFrame(this.tick)
         return navigator.mediaDevices.enumerateDevices()
     }
 
@@ -48,47 +49,53 @@ export class LumavateQrScanner {
             canvasElement.height = video.videoHeight;
             canvasElement.width = video.videoWidth;
             canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
-            var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-            var code = jsQR(imageData.data, imageData.width, imageData.height);
-            if (code) {
-                let leftMiddle = {
-                    x: (code.location.bottomLeftCorner.x + code.location.topLeftCorner.x) / 2,
-                    y: (code.location.bottomLeftCorner.y + code.location.topLeftCorner.y) / 2
+            if (this.idx % 10 == 0) {
+                let imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+                var code = jsQR(imageData.data, imageData.width, imageData.height);
+                if (code) {
+                    let leftMiddle = {
+                        x: (code.location.bottomLeftCorner.x + code.location.topLeftCorner.x) / 2,
+                        y: (code.location.bottomLeftCorner.y + code.location.topLeftCorner.y) / 2
+                    }
+
+                    let rightMiddle = {
+                        x: (code.location.bottomRightCorner.x + code.location.topRightCorner.x) / 2,
+                        y: (code.location.bottomRightCorner.y + code.location.topRightCorner.y) / 2
+                    }
+
+                    let topMiddle = {
+                        x: (code.location.topLeftCorner.x + code.location.topRightCorner.x) / 2,
+                        y: (code.location.topLeftCorner.y + code.location.topRightCorner.y) / 2
+                    }
+
+
+                    let bottomMiddle = {
+                        x: (code.location.bottomRightCorner.x + code.location.bottomLeftCorner.x) / 2,
+                        y: (code.location.bottomRightCorner.y + code.location.bottomLeftCorner.y) / 2
+                    }
+
+
+                    this.drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
+                    this.drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
+                    this.drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
+                    this.drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
+                    this.drawLine(leftMiddle, rightMiddle, "#FF3B58")
+                    this.drawLine(topMiddle, bottomMiddle, "#FF3B58")
+                    outputMessage.hidden = true;
+                    outputData.parentElement.hidden = false;
+                    outputData.innerText = code.data;
                 }
-
-                let rightMiddle = {
-                    x: (code.location.bottomRightCorner.x + code.location.topRightCorner.x) / 2,
-                    y: (code.location.bottomRightCorner.y + code.location.topRightCorner.y) / 2
-                }
-
-                let topMiddle = {
-                    x: (code.location.topLeftCorner.x + code.location.topRightCorner.x) / 2,
-                    y: (code.location.topLeftCorner.y + code.location.topRightCorner.y) / 2
-                }
-
-
-                let bottomMiddle = {
-                    x: (code.location.bottomRightCorner.x + code.location.bottomLeftCorner.x) / 2,
-                    y: (code.location.bottomRightCorner.y + code.location.bottomLeftCorner.y) / 2
-                }
-
-
-                // this.drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
-                // this.drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
-                // this.drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
-                // this.drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
-                // this.drawLine(leftMiddle, rightMiddle, "#FF3B58")
-                // this.drawLine(topMiddle, bottomMiddle, "#FF3B58")
-                outputMessage.hidden = true;
-                outputData.parentElement.hidden = false;
-                outputData.innerText = code.data;
-                // return;
             } else {
                 outputMessage.hidden = false;
                 outputData.parentElement.hidden = true;
             }
         }
-        requestAnimationFrame(this.tick);
+        if(this.idx <=60){
+            this.idx++
+        }else{
+            this.idx = 0
+        }
+        requestAnimationFrame(this.tick)
     }
 
     @Method()
@@ -137,11 +144,12 @@ export class LumavateQrScanner {
     @Method()
     start() {
         let videoSelect: HTMLSelectElement = document.querySelector('select#videoSource')
-        // videoSelect.onchange(this.start)
-        var videoSource = videoSelect.value;
+        let videoSource = videoSelect.value;
         console.log(videoSource)
-        var constraints = {
-            video: { deviceId: videoSource ? { exact: videoSource } : undefined },
+        let constraints = {
+            video: {
+                deviceId: videoSource ? { exact: videoSource } : undefined ,
+            },
             facingMode: "environment"
         };
 
@@ -149,32 +157,18 @@ export class LumavateQrScanner {
             then(this.handleSuccess).then(this.gotDevices).catch(this.handleError);
     }
 
-    @Method()
-    changeFilter() {
-        let video: any = document.querySelector('video') as HTMLVideoElement
-        let filters: string[] = ['blur', 'brightness', 'contrast', 'hue-rotate', 'grayscale', 'invert', 'opacity', 'saturate', 'sepia', '']
-
-        video.className = filters[this.filterIndex]
-        this.filterIndex += 1
-        if (this.filterIndex > filters.length) {
-            this.filterIndex = 0
-        }
-    }
-
     render() {
         return (
             <div>
                 <div class="select">
-                    {/* <label htmlfor="videoSource">Video source: </label><select  id="videoSource"></select> */}
-                    <label htmlfor="videoSource">Video source: </label><select  onChange={() => this.start()} id="videoSource"></select>
+                    <label htmlfor="videoSource">Video source: </label><select onChange={() => this.start()} id="videoSource"></select>
                 </div>
-                <video id='preview' autoplay style={{ width: "100%", height: "100%" }} hidden> </video>
+                <video id='preview' autoplay style={{ width: "640px", height: "480px" }} hidden> </video>
                 <canvas id="canvas" style={{ width: "640", height: "480" }} hidden></canvas>
                 <div id="output" hidden>
                     <div id="outputMessage">No QR code detected.</div>
                     <div hidden><b>Data:</b> <span id="outputData"></span></div>
                 </div>
-                <button onClick={() => this.changeFilter()} hidden>Change Filter</button>
                 <button onClick={() => this.tick()}>Resume Scanning</button>
             </div>
         )
