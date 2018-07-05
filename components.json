@@ -17,8 +17,7 @@
         "type": "image-upload"
       },
       {
-        "classification": null,
-        "default": "contain",
+        "classification": null, "default": "contain",
         "helpText": null,
         "label": "Mode",
         "name": "mode",
@@ -157,112 +156,207 @@
     "properties": [
       {
         "classification": null,
-        "default": "#000",
+        "default": "#000000",
         "helpText": null,
-        "label": "Nav Bar Background Color",
+        "label": "Background Color",
         "name": "navBarBackgroundColor",
         "options": {
 
         },
         "section": null,
-        "type": "text"
+        "type": "color"
       },
       {
         "classification": null,
-        "default": "#FFF",
+        "default": "#ffffff",
         "helpText": null,
-        "label": "Nav Bar Item Color",
+        "label": "Item Color",
         "name": "navBarItemColor",
         "options": {
 
         },
-        "section": null,
-        "type": "text"
-      },
-      {
-        "classification": null,
-        "default": "bottom",
-        "helpText": null,
-        "label": "Nav Bar Position",
-        "name": "navBarPosition",
-        "options": {
-          "top": "Top",
-          "bottom": "Bottom"
-        },
-        "section": null,
-        "type": "dropdown"
+        "section": "Item 1",
+        "type": "color"
       },
       {
         "classification": null,
         "default": "",
         "helpText": null,
-        "label": "Nav Bar Items",
-        "name": "navBarItems",
-        "options": {
-
-        },
-        "section": null,
-        "type": "text"
-      }
-    ],
-    "template": "<lumavate-nav-bar navBarBackgroundColor=\"{{ componentData.navBarBackgroundColor }}\" navBarItemColor=\"{{ componentData.navBarItemColor }}\" navBarPosition=\"{{ componentData.navBarPosition }}\" navBarItems=\"{{ componentData.navBarItems }}\"></lumavate-nav-bar>"
-  },
-  {
-    "label": "Nav-Bar-Item",
-    "icon": "a",
-    "tags": ["footer"],
-    "type":"Nav-Bar-Item",
-    "properties": [
-      {
-        "classification": null,
-        "default": "",
-        "helpText": null,
-        "label": "Nav Bar Item Link",
+        "label": "Item Link",
         "name": "navBarItemLink",
         "options": {
 
         },
-        "section": null,
+        "section": "Item 1",
         "type": "text"
       },
       {
         "classification": null,
-        "default": "",
         "helpText": null,
-        "label": "Nav Bar Item Image Link",
+        "label": "Item Image Link",
         "name": "navBarItemImageLink",
         "options": {
 
         },
-        "section": null,
-        "type": "text"
+        "section": "Item 1",
+        "type": "image-upload"
       },
       {
         "classification": null,
         "default": "",
         "helpText": null,
-        "label": "Nav Bar Item Text",
+        "label": "Item Text",
         "name": "navBarItemText",
         "options": {
 
         },
-        "section": null,
+        "section": "Item 1",
         "type": "text"
       },
       {
         "classification": null,
-        "default": "#FFF",
+        "default": "#ffffff",
         "helpText": null,
-        "label": "Nav Bar Item Color",
+        "label": "Item Color",
         "name": "navBarItemColor",
         "options": {
 
         },
-        "section": null,
+        "section": "Item 2",
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Item Link",
+        "name": "navBarItemLink",
+        "options": {
+
+        },
+        "section": "Item 2",
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Item Image Link",
+        "name": "navBarItemImageLink",
+        "options": {
+
+        },
+        "section": "Item 2",
+        "type": "image-upload"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Item Text",
+        "name": "navBarItemText",
+        "options": {
+
+        },
+        "section": "Item 2",
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "#ffffff",
+        "helpText": null,
+        "label": "Item Color",
+        "name": "navBarItemColor",
+        "options": {
+
+        },
+        "section": "Item 3",
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Item Link",
+        "name": "navBarItemLink",
+        "options": {
+
+        },
+        "section": "Item 3",
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Item Image Link",
+        "name": "navBarItemImageLink",
+        "options": {
+
+        },
+        "section": "Item 3",
+        "type": "image-upload"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Item Text",
+        "name": "navBarItemText",
+        "options": {
+
+        },
+        "section": "Item 3",
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "#ffffff",
+        "helpText": null,
+        "label": "Item Color",
+        "name": "navBarItemColor",
+        "options": {
+
+        },
+        "section": "Item 4",
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Item Link",
+        "name": "navBarItemLink",
+        "options": {
+
+        },
+        "section": "Item 4",
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Item Image Link",
+        "name": "navBarItemImageLink",
+        "options": {
+
+        },
+        "section": "Item 4",
+        "type": "image-upload"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Item Text",
+        "name": "navBarItemText",
+        "options": {
+
+        },
+        "section": "Item 4",
         "type": "text"
       }
+
     ],
-    "template": "<lumavate-nav-bar-item navBarItemLink=\"{{ componentData.navBarItemLink }}\" navBarItemImageLink=\"{{ componentData.navBarItemImageLink }}\" navBarItemText=\"{{ componentData.navBarItemText }}\" navBarItemColor=\"{{ componentData.navBarItemColor }}\"></lumavate-nav-bar-item>"
+    "template": "<lumavate-nav-bar navBarBackgroundColor=\"{{ componentData.navBarBackgroundColor }}\" navBarItemColor=\"{{ componentData.navBarItemColor }}\" navBarPosition=\"{{ componentData.navBarPosition }}\" navBarItems=\"{{ componentData.navBarItems }}\"></lumavate-nav-bar>"
   },
   {
     "label": "Quote",
