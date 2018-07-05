@@ -14,12 +14,11 @@ export class LumavateNavBar {
   innerItems: Array<any>
 
   componentWillLoad() {
-    console.log(this.NavBarItems);
-    this.innerItems = JSON.parse(this.NavBarItems);
+    this.innerItems = JSON.parse(this.NavBarItems).filter((i) => { return i.linkTo.length > 0; });
   }
 
   getImageLink(i) {
-    if(i.imageSource && i.imageSource.preview) {
+    if(i.imageSource && i.imageSource.preview && i.imageSource.key) {
       return i.imageSource.preview;
     }
 
@@ -27,7 +26,6 @@ export class LumavateNavBar {
   }
 
   render() {
-    console.log('here');
     return (
       <div style={{backgroundColor:this.NavBarBackgroundColor ? this.NavBarBackgroundColor : "#fff"}} class='container'>
         {this.innerItems.map((item) =>
@@ -35,7 +33,7 @@ export class LumavateNavBar {
             nav-bar-item-color={this.NavBarItemColor}
             nav-bar-item-text={item.text}
             nav-bar-item-image-link={this.getImageLink(item)}
-            nav-bar-item-link={item.linkTo.url}>
+            nav-bar-item-link={item.linkTo}>
           </lumavate-nav-bar-item>
         )}
       </div>

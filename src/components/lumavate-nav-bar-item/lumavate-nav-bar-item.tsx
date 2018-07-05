@@ -2,7 +2,8 @@ import { Component,Prop } from '@stencil/core';
 
 @Component({
   tag: 'lumavate-nav-bar-item',
-  styleUrl: 'lumavate-nav-bar-item.scss'
+  styleUrl: 'lumavate-nav-bar-item.scss',
+  shadow:true
 })
 export class LumavateNavBarItem {
   @Prop() NavBarItemLink: string = ''
@@ -34,7 +35,7 @@ export class LumavateNavBarItem {
         <div style={{color:this.NavBarItemColor ? this.NavBarItemColor : "#000"}} class="button-text">{this.NavBarItemText}</div>
         : ''
       }
-      
+
       </div>
     );
   }
