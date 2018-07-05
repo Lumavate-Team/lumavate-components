@@ -17,7 +17,6 @@ export class LumavateCamera {
 
     video: any = document.querySelector('video') as HTMLVideoElement
     canvas: any = document.querySelector('canvas') as HTMLCanvasElement
-    img: any = document.querySelector('photo') as HTMLImageElement
     filters: string[] = ['blur', 'brightness', 'contrast', 'hue-rotate', 'grayscale', 'invert', 'opacity', 'saturate', 'sepia', '']
 
     filterIndex: any = 0
@@ -55,7 +54,6 @@ export class LumavateCamera {
     takePicture() {
         let canvas: any = document.querySelector('canvas') as HTMLCanvasElement
         let video: any = document.querySelector('video') as HTMLVideoElement
-        let img: any = document.querySelector('photo') as HTMLImageElement
 
         canvas.width = video.videoWidth
         canvas.height = video.videoWidth
@@ -63,9 +61,8 @@ export class LumavateCamera {
         canvas.className = this.filters[this.filterIndex - 1]
 
         var dataURL = canvas.toDataURL('image/jpeg', 0.5)
-        console.log(dataURL)
-        // // Other browsers will fall back to image/png
-        // img.src = canvas.toDataURL('image/webp')
+        var base64 = dataURL.split(',')[1]
+        console.log(base64)
     }
 
     render() {
