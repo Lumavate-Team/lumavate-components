@@ -14,6 +14,7 @@ export class LumavateNavBar {
   innerItems: Array<any>
 
   componentWillLoad() {
+    console.log(this.NavBarItems);
     this.innerItems = JSON.parse(this.NavBarItems);
   }
 
@@ -26,6 +27,7 @@ export class LumavateNavBar {
   }
 
   render() {
+    console.log('here');
     return (
       <div style={{backgroundColor:this.NavBarBackgroundColor ? this.NavBarBackgroundColor : "#fff"}} class='container'>
         {this.innerItems.map((item) =>
