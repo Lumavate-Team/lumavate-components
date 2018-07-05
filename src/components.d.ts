@@ -259,6 +259,37 @@ declare global {
 
 
 import {
+  LumavateQrScanner as LumavateQrScanner
+} from './components/lumavate-qr-scanner/lumavate-qr-scanner';
+
+declare global {
+  interface HTMLLumavateQrScannerElement extends LumavateQrScanner, HTMLStencilElement {
+  }
+  var HTMLLumavateQrScannerElement: {
+    prototype: HTMLLumavateQrScannerElement;
+    new (): HTMLLumavateQrScannerElement;
+  };
+  interface HTMLElementTagNameMap {
+    "lumavate-qr-scanner": HTMLLumavateQrScannerElement;
+  }
+  interface ElementTagNameMap {
+    "lumavate-qr-scanner": HTMLLumavateQrScannerElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "lumavate-qr-scanner": JSXElements.LumavateQrScannerAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateQrScannerAttributes extends HTMLAttributes {
+      
+      
+    }
+  }
+}
+
+
+import {
   LumavateQuote as LumavateQuote
 } from './components/lumavate-quote/lumavate-quote';
 
