@@ -1,10 +1,22 @@
-import { Component, Method } from '@stencil/core';
+import { Component, Prop, EventEmitter, Event, State, Method } from '@stencil/core';
 
 @Component({
     tag: 'lumavate-camera',
     styleUrl: 'lumavate-camera.scss'
 })
 export class LumavateCamera {
+
+    @Prop() headers     : Headers = new Headers();
+    @Prop() method      : string  = 'GET';
+    @Prop() url         : string  = '';
+    @Prop() buttonLabel : string  = 'Fetch';
+
+    @Event() resolved : EventEmitter;
+    @Event() error    : EventEmitter;
+
+    @State() available : boolean = false;
+    @State() request   : any;
+
     constraints = {
         audio: false,
         video: {
@@ -65,13 +77,39 @@ export class LumavateCamera {
         console.log(base64)
     }
 
+    componentDidLoad() {
+        console.log("we made it")
+        if(self.fetch) {
+          this.available = true;
+          let options = {
+            method: this.method,
+            headers: new Headers(this.headers)
+          };
+
+          this.request = new Request(this.url, options);
+        }
+    }
+
+    @Method()
+    makeRequest () {
+        if(this.available) {
+          fetch(this.request)
+          .then(function(response) {
+            this.resolved.emit(response);
+          }.bind(this))
+          .catch(function(err) {
+            this.error.emit(err);
+          }.bind(this));
+        }
+    }
+
     render() {
         return (
             <div>
                 <div class="camera">
                     <video autoplay style={{ width: "100%", height: "100%" }}> </video>
                     <button onClick={() => this.changeFilter()}>Change Filter</button>
-                    <button onClick={() => this.takePicture()}>Take photo</button>
+                    <button onClick={() => this.makeRequest()}>Take photo</button>
                 </div>
 
                 <div>
