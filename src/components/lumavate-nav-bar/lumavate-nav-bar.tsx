@@ -2,7 +2,8 @@ import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'lumavate-nav-bar',
-  styleUrl: 'lumavate-nav-bar.scss'
+  styleUrl: 'lumavate-nav-bar.scss',
+  shadow:true
 })
 export class LumavateNavBar {
   @Prop() NavBarBackgroundColor: string = '#000';
