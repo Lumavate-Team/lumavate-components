@@ -565,12 +565,12 @@
   {
     "label": "Header",
     "icon":"/assets/header.svg",
-    "tags": ["body"],
+    "tags": ["header"],
     "type":"Header",
     "properties": [
       {
         "classification": null,
-        "default": "#F1F1F1",
+        "default": "#f1f1f1",
         "helpText": null,
         "label": "Font Color",
         "name": "fontColor",
@@ -578,7 +578,7 @@
 
         },
         "section": null,
-        "type": "text"
+        "type": "color"
       },
       {
         "classification": null,
@@ -590,7 +590,7 @@
 
         },
         "section": null,
-        "type": "text"
+        "type": "color"
       },
       {
         "classification": null,
@@ -606,7 +606,7 @@
       },
       {
         "classification": null,
-        "default": "placeholder text",
+        "default": "",
         "helpText": null,
         "label": "Text",
         "name": "text",
@@ -617,6 +617,6 @@
         "type": "text"
       }
     ],
-    "template": "<lumavate-header fontColor=\"{{ componentData.fontColor }}\" backgroundColor=\"{{ componentData.backgroundColor }}\" showBackButton=\"{{ componentData.showBackButton }}\" text=\"{{ componentData.text }}\"></lumavate-header>"
+    "template": "<lumavate-header font-color=\"{{ componentData.fontColor }}\" background-color=\"{{ componentData.backgroundColor }}\" show-back-button=\"{{ componentData.showBackButton|lower }}\" text=\"{{ componentData.text }}\"></lumavate-header>"
   }
 ]

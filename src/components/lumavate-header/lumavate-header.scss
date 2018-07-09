@@ -1,4 +1,4 @@
-lumavate-header {
+:host {
 
   .nav-wrapper{
     display: flex;
@@ -6,11 +6,11 @@ lumavate-header {
     height: 56px;
   }
 
-  #back-button{
+  .back-button{
     align-self: center;
   }
 
-  #text{
+  .text{
     margin: auto;
     align-self: center;
     font-family: 'Roboto', sans-serif;
