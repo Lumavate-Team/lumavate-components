@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
     <title>Lumavate Common Components</title>
     <script src="/build/lumavate-components.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -14,6 +12,21 @@
   </head>
   <body style="height:100%;min-height:100%;margin:0px;">
   <div style='position:fixed;top:0px;bottom:56px;right:0px;left:0px;overflow:scroll'>
+      <div style="width:384px;margin:8px;">
+          <lumavate-header>
+
+          </lumavate-header>
+      </div>
+      <div style="width:384px;margin:8px;">
+          <lumavate-quote
+          quote-text='This is the End, The End is Near, This is really the end'
+          font-size=12
+          show-card=true
+          card-color='#FFF'
+          quotation-marks=true
+          color='#6A1F64'>
+        </lumavate-quote>
+      </div>
     <div style="width:384px;margin:8px;">
         <lumavate-quote
         quote-text='This is the End, The End is Near, This is really the end'

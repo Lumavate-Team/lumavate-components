@@ -105,6 +105,46 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface LumavateHeader {
+      'BackgroundColor': string;
+      'FontColor': string;
+      'ShowBackButton': boolean;
+      'Text': string;
+      'showBackButton': () => void;
+    }
+  }
+
+  interface HTMLLumavateHeaderElement extends StencilComponents.LumavateHeader, HTMLStencilElement {}
+
+  var HTMLLumavateHeaderElement: {
+    prototype: HTMLLumavateHeaderElement;
+    new (): HTMLLumavateHeaderElement;
+  };
+  interface HTMLElementTagNameMap {
+    'lumavate-header': HTMLLumavateHeaderElement;
+  }
+  interface ElementTagNameMap {
+    'lumavate-header': HTMLLumavateHeaderElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'lumavate-header': JSXElements.LumavateHeaderAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateHeaderAttributes extends HTMLAttributes {
+      'BackgroundColor'?: string;
+      'FontColor'?: string;
+      'ShowBackButton'?: boolean;
+      'Text'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface LumavateImage {
       'mode': string;
       'src': string;
