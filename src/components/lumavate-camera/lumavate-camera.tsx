@@ -109,7 +109,7 @@ export class LumavateCamera {
                 <div class="camera">
                     <video autoplay style={{ width: "100%", height: "100%" }}> </video>
                     <button onClick={() => this.changeFilter()}>Change Filter</button>
-                    <button onClick={() => this.makeRequest()}>Take photo</button>
+                    <button onClick={() => this.makeRequest()}>Send Photo</button>
                 </div>
 
                 <div>
