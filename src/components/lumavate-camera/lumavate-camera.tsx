@@ -94,12 +94,18 @@ export class LumavateCamera {
     makeRequest () {
         console.log("make request")
         if(this.available) {
-          fetch(this.request)
+          console.log("after fetch")
+          fetch(this.request, {
+              mode: 'no-cors'
+          })
           .then(function(response) {
+              console.log("before emit")
             this.resolved.emit(response);
+            console.log("after emit")
           }.bind(this))
           .catch(function(err) {
             this.error.emit(err);
+            console.log("after catch")
           }.bind(this));
         }
     }
