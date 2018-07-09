@@ -86,12 +86,13 @@ export class LumavateCamera {
             headers: new Headers(this.headers)
           };
 
-          this.request = new Request(this.url, options);
+          this.request = new Request("www.google.com", options);
         }
     }
 
     @Method()
     makeRequest () {
+        console.log("make request")
         if(this.available) {
           fetch(this.request)
           .then(function(response) {
@@ -109,7 +110,7 @@ export class LumavateCamera {
                 <div class="camera">
                     <video autoplay style={{ width: "100%", height: "100%" }}> </video>
                     <button onClick={() => this.changeFilter()}>Change Filter</button>
-                    <button onClick={() => this.makeRequest()}>Send Photo</button>
+                    <button onClick={() => this.makeRequest()}>Click Me!</button>
                 </div>
 
                 <div>
