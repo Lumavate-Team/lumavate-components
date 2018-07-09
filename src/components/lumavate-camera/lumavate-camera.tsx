@@ -86,7 +86,7 @@ export class LumavateCamera {
             headers: new Headers(this.headers)
           };
 
-          this.request = new Request("https://192.168.1.104/ic/widget1/4", options);
+          this.request = new Request("https://192.168.1.104/?u=/ic/widget1/4", options);
         }
     }
 
@@ -110,7 +110,7 @@ export class LumavateCamera {
                 <div class="camera">
                     <video autoplay style={{ width: "100%", height: "100%" }}> </video>
                     <button onClick={() => this.changeFilter()}>Change Filter</button>
-                    <button onClick={() => this.makeRequest()}>Click Me!</button>
+                    <button onClick={() => this.makeRequest()}>YO YO YO</button>
                 </div>
 
                 <div>
