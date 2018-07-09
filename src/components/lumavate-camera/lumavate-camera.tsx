@@ -86,7 +86,7 @@ export class LumavateCamera {
             headers: new Headers(this.headers)
           };
 
-          this.request = new Request("www.google.com", options);
+          this.request = new Request("/4", options);
         }
     }
 
