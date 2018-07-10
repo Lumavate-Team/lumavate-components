@@ -88,20 +88,14 @@ export class LumavateCamera {
             headers: {
                 "Content-Type": 'application/json; charset=utf-8'
             },
-            credentials: "same-origin",
-            mode: 'no-cors'
         })
             .then(function(response) {
-                console.log("before emit")
-                this.resolved.emit(response)
+                // this.resolved.emit(response)
                 console.log(response)
-                console.log("after emit")
-            }.bind(this))
+            })
             .catch(function(err) {
                 this.error.emit(err)
-                console.log("after catch")
-            }.bind(this))
-
+            })
     }
 
     render() {
