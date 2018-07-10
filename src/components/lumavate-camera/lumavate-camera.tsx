@@ -7,7 +7,7 @@ import { Component, Prop, EventEmitter, Event, State, Method } from '@stencil/co
 export class LumavateCamera {
 
     @Prop() headers     : Headers = new Headers();
-    @Prop() method      : string  = 'GET';
+    @Prop() method      : string  = 'POST';
     @Prop() url         : string  = '';
     @Prop() buttonLabel : string  = 'Fetch';
 
@@ -62,6 +62,20 @@ export class LumavateCamera {
 
     }
 
+    // componentDidLoad() {
+    //     console.log("we made it")
+    //     if(self.fetch) {
+    //       this.available = true;
+    //       let options = {
+    //         method: "POST",
+    //         headers: new Headers(this.headers),
+    //         body: "hello",
+    //       };
+
+    //       this.request = new Request("http://localhost:3333/", options);
+    //     }
+    // }
+
     @Method()
     takePicture() {
         let canvas: any = document.querySelector('canvas') as HTMLCanvasElement
@@ -75,39 +89,29 @@ export class LumavateCamera {
         var dataURL = canvas.toDataURL('image/jpeg', 0.5)
         var base64 = dataURL.split(',')[1]
         console.log(base64)
-    }
 
-    componentDidLoad() {
-        console.log("we made it")
-        if(self.fetch) {
-          this.available = true;
-          let options = {
-            method: this.method,
-            headers: new Headers(this.headers)
-          };
+        const url = "http://localhost:3333/"
 
-          this.request = new Request("https://192.168.1.104/?u=/ic/widget1/4", options);
-        }
-    }
+        fetch(url, {
+            method: "POST",
+            body: base64,
+            headers: {
+                "Content-Type": 'multipart/form-data'
+            },
+            credentials: "same-origin",
+            mode: 'no-cors'
+        })
+            .then(function(response) {
+                console.log("before emit")
+                this.resolved.emit(response)
+                console.log(response)
+                console.log("after emit")
+            }.bind(this))
+            .catch(function(err) {
+                this.error.emit(err)
+                console.log("after catch")
+            }.bind(this))
 
-    @Method()
-    makeRequest () {
-        console.log("make request")
-        if(this.available) {
-          console.log("after fetch")
-          fetch(this.request, {
-              mode: 'no-cors'
-          })
-          .then(function(response) {
-              console.log("before emit")
-            this.resolved.emit(response);
-            console.log("after emit")
-          }.bind(this))
-          .catch(function(err) {
-            this.error.emit(err);
-            console.log("after catch")
-          }.bind(this));
-        }
     }
 
     render() {
@@ -116,7 +120,7 @@ export class LumavateCamera {
                 <div class="camera">
                     <video autoplay style={{ width: "100%", height: "100%" }}> </video>
                     <button onClick={() => this.changeFilter()}>Change Filter</button>
-                    <button onClick={() => this.makeRequest()}>YO YO YO</button>
+                    <button onClick={() => this.takePicture()}>YO YO YO</button>
                 </div>
 
                 <div>
