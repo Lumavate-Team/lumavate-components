@@ -27,23 +27,23 @@ export class LumavateCamera {
         }
     }
 
-    video: any = document.querySelector('video') as HTMLVideoElement
-    canvas: any = document.querySelector('canvas') as HTMLCanvasElement
-    filters: string[] = ['blur', 'brightness', 'contrast', 'hue-rotate', 'grayscale', 'invert', 'opacity', 'saturate', 'sepia', '']
+    video: any = document.querySelector('video') as HTMLVideoElement;
+    canvas: any = document.querySelector('canvas') as HTMLCanvasElement;
+    filters: string[] = ['blur', 'brightness', 'contrast', 'hue-rotate', 'grayscale', 'invert', 'opacity', 'saturate', 'sepia', ''];
 
-    filterIndex: any = 0
+    filterIndex: any = 0;
 
 
     @Method()
     handleSuccess(stream) {
-        let video: any = document.querySelector('video') as HTMLVideoElement
+        let video: any = document.querySelector('video') as HTMLVideoElement;
 
-        video.srcObject = stream
+        video.srcObject = stream;
     }
 
     @Method()
     handleError(error) {
-        console.error('User Rejected camera permission', error)
+        console.error('User Rejected camera permission', error);
     }
     componentWillLoad() {
         navigator.mediaDevices.getUserMedia(this.constraints).then(this.handleSuccess).catch(this.handleError)
@@ -51,8 +51,8 @@ export class LumavateCamera {
 
     @Method()
     changeFilter() {
-        let video: any = document.querySelector('video') as HTMLVideoElement
-        let canvas: any = document.querySelector('canvas') as HTMLCanvasElement
+        let video: any = document.querySelector('video') as HTMLVideoElement;
+        let canvas: any = document.querySelector('canvas') as HTMLCanvasElement;
 
         video.className = this.filters[this.filterIndex]
         this.filterIndex += 1
@@ -62,41 +62,31 @@ export class LumavateCamera {
 
     }
 
-    // componentDidLoad() {
-    //     console.log("we made it")
-    //     if(self.fetch) {
-    //       this.available = true;
-    //       let options = {
-    //         method: "POST",
-    //         headers: new Headers(this.headers),
-    //         body: "hello",
-    //       };
-
-    //       this.request = new Request("http://localhost:3333/", options);
-    //     }
-    // }
-
     @Method()
     takePicture() {
-        let canvas: any = document.querySelector('canvas') as HTMLCanvasElement
-        let video: any = document.querySelector('video') as HTMLVideoElement
+        let canvas: any = document.querySelector('canvas') as HTMLCanvasElement;
+        let video: any = document.querySelector('video') as HTMLVideoElement;
 
-        canvas.width = video.videoWidth
-        canvas.height = video.videoWidth
-        canvas.getContext('2d').drawImage(video, 0, 0)
-        canvas.className = this.filters[this.filterIndex - 1]
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoWidth;
+        canvas.getContext('2d').drawImage(video, 0, 0);
+        canvas.className = this.filters[this.filterIndex - 1];
 
-        var dataURL = canvas.toDataURL('image/jpeg', 0.5)
-        var base64 = dataURL.split(',')[1]
-        console.log(base64)
+        var dataURL = canvas.toDataURL('image/jpeg', 0.5);
+        var base64 = dataURL.split(',')[1];
+        console.log(base64);
 
-        const url = "http://localhost:3333/"
+        let dataWrap: any = {
+            cameraData : base64
+        };
+
+        const url = window.location.href;
 
         fetch(url, {
             method: "POST",
-            body: base64,
+            body: dataWrap,
             headers: {
-                "Content-Type": 'multipart/form-data'
+                "Content-Type": 'application/json; charset=utf-8'
             },
             credentials: "same-origin",
             mode: 'no-cors'
@@ -120,7 +110,7 @@ export class LumavateCamera {
                 <div class="camera">
                     <video autoplay style={{ width: "100%", height: "100%" }}> </video>
                     <button onClick={() => this.changeFilter()}>Change Filter</button>
-                    <button onClick={() => this.takePicture()}>YO YO YO</button>
+                    <button onClick={() => this.takePicture()}>Take a Picture</button>
                 </div>
 
                 <div>
