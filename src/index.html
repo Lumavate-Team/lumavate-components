@@ -11,20 +11,17 @@
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
       <script>
-        function showModal() {
+        function show() {
           //var d = document.querySelector('lumavate-modal').shadowRoot.querySelector('#testmodal');
-          var d = document.querySelector('lumavate-modal')
+          var d = document.querySelector('#testmodal')
           d.showModal();
         }
       </script>
   </head>
   <body style="height:100%;min-height:100%;margin:0px;">
 
-    <div style="background-color:#4CAF50;border:none;color:#FFF;padding:15px 32px;text-align:center;text-decoration:none;display:inline-block;font-size:16px" onclick="showModal()">Modal Click</div>
-
-        <lumavate-modal modal-id="testmodal">
-
-        </lumavate-modal>
+    <div style="background-color:#4CAF50;border:none;color:#FFF;padding:15px 32px;text-align:center;text-decoration:none;display:inline-block;font-size:16px" onclick="show()">Modal Click</div>
+        <lumavate-modal id="testmodal"></lumavate-modal>
   <div style='position:fixed;top:45px;bottom:56px;right:0px;left:0px;overflow:scroll'>
       <div style="width:360px;margin:8px;">
           <lumavate-header>
@@ -130,13 +127,11 @@
       <lumavate-nav-bar
       nav-bar-background-color='#741367'
       nav-bar-item-color='#ff6248'
-      nav-bar-position='bottom'
-      nav-bar-items='[
-      {"text":"Bing","linkTo":{"url":"http://www.bing.com"}},
-      {"text":"Bing","linkTo":{"url":"http://www.bing.com"},"imageSource":{"preview":"https://s3.amazonaws.com/assets.labelnexusdev.com/images/ic_3d_rotation_black_24px.svg"}},
-      {"text":"Bing","linkTo":{"url":"http://www.bing.com"},"imageSource":{"preview":"https://s3.amazonaws.com/assets.labelnexusdev.com/images/ic_3d_rotation_black_24px.svg"}},
-      {"text":"Google","linkTo":{"url":"http://www.google.com"},"imageSource":{"preview":"https://s3.amazonaws.com/assets.labelnexusdev.com/images/ic_3d_rotation_black_24px.svg"}}
-      ]'>
+      nav-bar-items='[{"text":"Google","linkTo":"modal:testmodal","imageSource":{"key": "5f1c4eeb", "preview": "https://s3.amazonaws.com/assets.labelnexusdev.com/images/ic_3d_rotation_black_24px.svg"}},
+        {"text":"Yahoo","linkTo":"http://www.yahoo.com","imageSource":{"key": "7746804c", "preview": "https://s3.amazonaws.com/assets.labelnexusdev.com/images/ic_3d_rotation_black_24px.svg"}},
+        {"text":"","linkTo":"","imageSource":{"key": null, "preview": "/iot/v1/icons/no_image_available.png"}},
+        {"text":"","linkTo":"","imageSource":{"key": null, "preview": "/iot/v1/icons/no_image_available.png"}}]'
+     >
     </lumavate-nav-bar>
   </div>
   <script>

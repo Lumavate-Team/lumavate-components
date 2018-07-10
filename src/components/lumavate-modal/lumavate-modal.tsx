@@ -7,7 +7,7 @@ import { Component, Prop, Method, Element } from '@stencil/core';
 })
 
 export class LumavateModal {
-  @Prop() ModalId: string = 'modal';
+  @Prop() Id: string = 'modal';
 
   @Element() el: HTMLElement;
 
@@ -17,7 +17,7 @@ export class LumavateModal {
   }
 
   toggle() {
-    let modalDiv: any = this.el.shadowRoot.querySelector('#'+this.ModalId)
+    let modalDiv: any = this.el.shadowRoot.querySelector('#m_'+this.Id)
     let modalOverlay: any = this.el.shadowRoot.querySelector('.modal-overlay')
     let body: any = document.querySelector('body')
     body.classList.toggle('modal-open')
@@ -29,7 +29,7 @@ export class LumavateModal {
   render() {
     return (
       <div class="modal-overlay closed">
-      <div class="modal closed" id={this.ModalId}>
+      <div class="modal closed" id={'m_' + this.Id}>
         <div class="close" onClick={this.toggle.bind(this)}></div>
         <div class="modal-header"></div>
         <div class="modal-content">

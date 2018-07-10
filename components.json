@@ -11,8 +11,7 @@
         "label": "Src",
         "name": "src",
         "options": {
-
-        },
+},
         "section": null,
         "type": "image-upload"
       },
@@ -561,6 +560,27 @@
       }
     ],
     "template": "<lumavate-carousel carouselImages=\"{{ componentData.carouselImages }}\" mode=\"{{ componentData.mode }}\" arrowColor=\"{{ componentData.arrowColor }}\"></lumavate-carousel>"
+  },
+  {
+    "label":"Modal",
+    "icon":"/assets/modal.svg",
+    "tags":["modal"],
+    "type":"Modal",
+    "properties":[
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Modal ID",
+        "name": "modalId",
+        "options": {
+
+        },
+        "section": null,
+        "type": "text"
+      }
+    ],
+    "template":"<lumavate-modal id=\"{{ componentData.modalId }}\"></lumavate-modal>"
   },
   {
     "label": "Header",

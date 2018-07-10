@@ -13,7 +13,14 @@ export class LumavateNavBarItem {
 
   buttonClicked() {
     if(this.NavBarItemLink) {
-      window.location.href = this.NavBarItemLink;
+
+      if(this.NavBarItemLink.indexOf('modal:')>-1) {
+        let sub = this.NavBarItemLink.substr(6);
+        let m : any =  document.querySelector(`#${sub}`)
+        m.showModal()
+      } else {
+        window.location.href = this.NavBarItemLink;
+      }
     }
   }
 

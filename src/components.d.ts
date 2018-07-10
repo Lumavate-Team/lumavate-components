@@ -230,7 +230,7 @@ declare global {
 
   namespace StencilComponents {
     interface LumavateModal {
-      'ModalId': string;
+      'Id': string;
       'showModal': () => void;
     }
   }
@@ -254,7 +254,7 @@ declare global {
   }
   namespace JSXElements {
     export interface LumavateModalAttributes extends HTMLAttributes {
-      'ModalId'?: string;
+      'Id'?: string;
     }
   }
 }
