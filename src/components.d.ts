@@ -229,6 +229,40 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface LumavateModal {
+      'ModalId': string;
+      'showModal': () => void;
+    }
+  }
+
+  interface HTMLLumavateModalElement extends StencilComponents.LumavateModal, HTMLStencilElement {}
+
+  var HTMLLumavateModalElement: {
+    prototype: HTMLLumavateModalElement;
+    new (): HTMLLumavateModalElement;
+  };
+  interface HTMLElementTagNameMap {
+    'lumavate-modal': HTMLLumavateModalElement;
+  }
+  interface ElementTagNameMap {
+    'lumavate-modal': HTMLLumavateModalElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'lumavate-modal': JSXElements.LumavateModalAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateModalAttributes extends HTMLAttributes {
+      'ModalId'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface LumavateNavBarItem {
       'NavBarItemColor': string;
       'NavBarItemImageLink': string;

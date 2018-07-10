@@ -5,19 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
     <title>Lumavate Common Components</title>
     <script src="/build/lumavate-components.js"></script>
+    <link href="/build/lumavate-components.css" rel="stylesheet">
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
+      <script>
+        function showModal() {
+          //var d = document.querySelector('lumavate-modal').shadowRoot.querySelector('#testmodal');
+          var d = document.querySelector('lumavate-modal')
+          d.showModal();
+        }
+      </script>
   </head>
   <body style="height:100%;min-height:100%;margin:0px;">
-  <div style='position:fixed;top:0px;bottom:56px;right:0px;left:0px;overflow:scroll'>
-      <div style="width:384px;margin:8px;">
+
+    <div style="background-color:#4CAF50;border:none;color:#FFF;padding:15px 32px;text-align:center;text-decoration:none;display:inline-block;font-size:16px" onclick="showModal()">Modal Click</div>
+
+        <lumavate-modal modal-id="testmodal">
+
+        </lumavate-modal>
+  <div style='position:fixed;top:45px;bottom:56px;right:0px;left:0px;overflow:scroll'>
+      <div style="width:360px;margin:8px;">
           <lumavate-header>
 
           </lumavate-header>
       </div>
-      <div style="width:384px;margin:8px;">
+      <div style="width:360px;margin:8px;">
           <lumavate-quote
           quote-text='This is the End, The End is Near, This is really the end'
           font-size=12
@@ -27,7 +41,7 @@
           color='#6A1F64'>
         </lumavate-quote>
       </div>
-    <div style="width:384px;margin:8px;">
+    <div style="width:360px;margin:8px;">
         <lumavate-quote
         quote-text='This is the End, The End is Near, This is really the end'
         font-size=12
@@ -38,7 +52,7 @@
       </lumavate-quote>
     </div>
 
-    <div style="width:384px;height:200px;margin:8px;">
+    <div style="width:360px;height:200px;margin:8px;">
       <lumavate-large-nav-card
         caption=true
         caption-text='Dropbox Onboarding Case Study'
@@ -52,7 +66,7 @@
       </lumavate-large-nav-card>
     </div>
 
-    <div style="width:384px;height:200px;margin:8px;">
+    <div style="width:360px;height:200px;margin:8px;">
       <lumavate-small-nav-card
         sub-title=true
         sub-title-text='This is Subtitle'
@@ -65,19 +79,19 @@
         card-ling='https://www.dropbox.com'>
       </lumavate-small-nav-card>
     </div>
-    <div style="width:384px;height:200px;margin:8px;">
+    <div style="width:360px;height:200px;margin:8px;">
       <lumavate-image id='myimage'
         src='http://via.placeholder.com/140x40'
         mode='cover'
       </lumavate-image>
     </div>
-    <div style="width:384px;height:200px;margin:8px;">
+    <div style="width:360px;height:200px;margin:8px;">
       <lumavate-image id='myimage'
         src='http://via.placeholder.com/140x40'
         mode='contain'
       </lumavate-image>
     </div>
-    <div style="width:384px;height:200px;margin:8px;">
+    <div style="width:360px;height:200px;margin:8px;">
       <lumavate-grid grid-columns='1fr 1fr' grid-rows='100px 100px'>
         <lumavate-grid-item grid-start-col=1 grid-stop-col=1 grid-start-row=1 grid-stop-row=1>
           <lumavate-quote
