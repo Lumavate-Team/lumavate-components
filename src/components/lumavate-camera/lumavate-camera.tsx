@@ -5,7 +5,6 @@ import { Component, Prop, EventEmitter, Event, State, Method } from '@stencil/co
     styleUrl: 'lumavate-camera.scss'
 })
 export class LumavateCamera {
-
     @Prop() headers     : Headers = new Headers();
     @Prop() method      : string  = 'POST';
     @Prop() url         : string  = '';
@@ -63,6 +62,16 @@ export class LumavateCamera {
     }
 
     @Method()
+    getAuthToken() {
+      var cookies = document.cookie.split(";");
+      for(var i=0,len=cookies.length; i < len; i++){
+        var cookie = cookies[i].split("=");
+        if(cookie[0].trim() == "pwa_jwt"){
+          return cookie[1].trim();
+        }
+      }
+    }
+    @Method()
     takePicture() {
         let canvas: any = document.querySelector('canvas') as HTMLCanvasElement;
         let video: any = document.querySelector('video') as HTMLVideoElement;
@@ -74,20 +83,21 @@ export class LumavateCamera {
 
         var dataURL = canvas.toDataURL('image/jpeg', 0.5);
         var base64 = dataURL.split(',')[1];
-        console.log(base64);
 
         let dataWrap: any = {
             cameraData : base64
         };
 
+        console.log(dataWrap);
         const url = window.location.href;
-        console.log(url);
+        console.log("URL 3: " + url);
 
         fetch(url, {
             method: "POST",
-            body: dataWrap,
+            body: JSON.stringify(dataWrap),
             headers: {
-                "Content-Type": 'application/json; charset=utf-8'
+                'Content-Type': 'application/json; charset=utf-8',
+                'Authorization': 'Bearer ' + this.getAuthToken()
             },
         })
             .then(function(response) {
