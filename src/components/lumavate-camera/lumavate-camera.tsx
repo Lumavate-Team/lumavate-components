@@ -81,6 +81,7 @@ export class LumavateCamera {
         };
 
         const url = window.location.href;
+        console.log(url)
 
         fetch(url, {
             method: "POST",
@@ -94,7 +95,8 @@ export class LumavateCamera {
                 console.log(response)
             })
             .catch(function(err) {
-                this.error.emit(err)
+                // this.error.emit(err)
+                console.log(err)
             })
     }
 
