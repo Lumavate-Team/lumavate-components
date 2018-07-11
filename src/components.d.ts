@@ -152,6 +152,46 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface LumavateHeader {
+      'BackgroundColor': string;
+      'FontColor': string;
+      'ShowBackButton': boolean;
+      'Text': string;
+      'showBackButton': () => void;
+    }
+  }
+
+  interface HTMLLumavateHeaderElement extends StencilComponents.LumavateHeader, HTMLStencilElement {}
+
+  var HTMLLumavateHeaderElement: {
+    prototype: HTMLLumavateHeaderElement;
+    new (): HTMLLumavateHeaderElement;
+  };
+  interface HTMLElementTagNameMap {
+    'lumavate-header': HTMLLumavateHeaderElement;
+  }
+  interface ElementTagNameMap {
+    'lumavate-header': HTMLLumavateHeaderElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'lumavate-header': JSXElements.LumavateHeaderAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateHeaderAttributes extends HTMLAttributes {
+      'BackgroundColor'?: string;
+      'FontColor'?: string;
+      'ShowBackButton'?: boolean;
+      'Text'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface LumavateImage {
       'mode': string;
       'src': string;
@@ -228,6 +268,40 @@ declare global {
       'CardLink'?: string;
       'ImageScaling'?: string;
       'ImageSource'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface LumavateModal {
+      'Id': string;
+      'showModal': () => void;
+    }
+  }
+
+  interface HTMLLumavateModalElement extends StencilComponents.LumavateModal, HTMLStencilElement {}
+
+  var HTMLLumavateModalElement: {
+    prototype: HTMLLumavateModalElement;
+    new (): HTMLLumavateModalElement;
+  };
+  interface HTMLElementTagNameMap {
+    'lumavate-modal': HTMLLumavateModalElement;
+  }
+  interface ElementTagNameMap {
+    'lumavate-modal': HTMLLumavateModalElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'lumavate-modal': JSXElements.LumavateModalAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateModalAttributes extends HTMLAttributes {
+      'Id'?: string;
     }
   }
 }

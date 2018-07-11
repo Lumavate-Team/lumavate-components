@@ -11,8 +11,7 @@
         "label": "Src",
         "name": "src",
         "options": {
-
-        },
+},
         "section": null,
         "type": "image-upload"
       },
@@ -175,26 +174,25 @@
         "options": {
 
         },
-        "section": "Item 1",
+        "section": null,
         "type": "color"
       },
       {
         "classification": null,
-        "default": "",
         "helpText": null,
         "label": "Item Link",
-        "name": "navBarItemLink",
+        "name": "navBarItemLink1",
         "options": {
 
         },
         "section": "Item 1",
-        "type": "text"
+        "type": "page-link"
       },
       {
         "classification": null,
         "helpText": null,
         "label": "Item Image Link",
-        "name": "navBarItemImageLink",
+        "name": "navBarItemImageLink1",
         "options": {
 
         },
@@ -206,7 +204,7 @@
         "default": "",
         "helpText": null,
         "label": "Item Text",
-        "name": "navBarItemText",
+        "name": "navBarItemText1",
         "options": {
 
         },
@@ -215,33 +213,20 @@
       },
       {
         "classification": null,
-        "default": "#ffffff",
-        "helpText": null,
-        "label": "Item Color",
-        "name": "navBarItemColor",
-        "options": {
-
-        },
-        "section": "Item 2",
-        "type": "color"
-      },
-      {
-        "classification": null,
-        "default": "",
         "helpText": null,
         "label": "Item Link",
-        "name": "navBarItemLink",
+        "name": "navBarItemLink2",
         "options": {
 
         },
         "section": "Item 2",
-        "type": "text"
+        "type": "page-link"
       },
       {
         "classification": null,
         "helpText": null,
         "label": "Item Image Link",
-        "name": "navBarItemImageLink",
+        "name": "navBarItemImageLink2",
         "options": {
 
         },
@@ -253,7 +238,7 @@
         "default": "",
         "helpText": null,
         "label": "Item Text",
-        "name": "navBarItemText",
+        "name": "navBarItemText2",
         "options": {
 
         },
@@ -262,33 +247,20 @@
       },
       {
         "classification": null,
-        "default": "#ffffff",
-        "helpText": null,
-        "label": "Item Color",
-        "name": "navBarItemColor",
-        "options": {
-
-        },
-        "section": "Item 3",
-        "type": "color"
-      },
-      {
-        "classification": null,
-        "default": "",
         "helpText": null,
         "label": "Item Link",
-        "name": "navBarItemLink",
+        "name": "navBarItemLink3",
         "options": {
 
         },
         "section": "Item 3",
-        "type": "text"
+        "type": "page-link"
       },
       {
         "classification": null,
         "helpText": null,
         "label": "Item Image Link",
-        "name": "navBarItemImageLink",
+        "name": "navBarItemImageLink3",
         "options": {
 
         },
@@ -300,7 +272,7 @@
         "default": "",
         "helpText": null,
         "label": "Item Text",
-        "name": "navBarItemText",
+        "name": "navBarItemText3",
         "options": {
 
         },
@@ -309,33 +281,20 @@
       },
       {
         "classification": null,
-        "default": "#ffffff",
         "helpText": null,
-        "label": "Item Color",
-        "name": "navBarItemColor",
+        "label": "Item Link",
+        "name": "navBarItemLink4",
         "options": {
 
         },
         "section": "Item 4",
-        "type": "color"
-      },
-      {
-        "classification": null,
-        "default": "",
-        "helpText": null,
-        "label": "Item Link",
-        "name": "navBarItemLink",
-        "options": {
-
-        },
-        "section": "Item 4",
-        "type": "text"
+        "type": "page-link"
       },
       {
         "classification": null,
         "helpText": null,
         "label": "Item Image Link",
-        "name": "navBarItemImageLink",
+        "name": "navBarItemImageLink4",
         "options": {
 
         },
@@ -347,7 +306,7 @@
         "default": "",
         "helpText": null,
         "label": "Item Text",
-        "name": "navBarItemText",
+        "name": "navBarItemText4",
         "options": {
 
         },
@@ -356,7 +315,7 @@
       }
 
     ],
-    "template": "<lumavate-nav-bar navBarBackgroundColor=\"{{ componentData.navBarBackgroundColor }}\" navBarItemColor=\"{{ componentData.navBarItemColor }}\" navBarPosition=\"{{ componentData.navBarPosition }}\" navBarItems=\"{{ componentData.navBarItems }}\"></lumavate-nav-bar>"
+    "template": "<lumavate-nav-bar nav-bar-background-color=\"{{ componentData.navBarBackgroundColor }}\" nav-bar-item-color=\"{{ componentData.navBarItemColor }}\" nav-bar-items='[{\"text\":\"{{ componentData.navBarItemText1 }}\",\"linkTo\":\"{{componentData.navBarItemLink1.url}}\",\"imageSource\":{{componentData.navBarItemImageLink1|tojson}}},{\"text\":\"{{ componentData.navBarItemText2 }}\",\"linkTo\":\"{{componentData.navBarItemLink2.url}}\",\"imageSource\":{{componentData.navBarItemImageLink2|tojson}}},{\"text\":\"{{ componentData.navBarItemText3 }}\",\"linkTo\":\"{{componentData.navBarItemLink3.url}}\",\"imageSource\":{{componentData.navBarItemImageLink3|tojson}}},{\"text\":\"{{ componentData.navBarItemText4 }}\",\"linkTo\":\"{{componentData.navBarItemLink4.url}}\",\"imageSource\":{{componentData.navBarItemImageLink4|tojson}}}]'></lumavate-nav-bar>"
   },
   {
     "label": "Quote",
@@ -603,14 +562,35 @@
     "template": "<lumavate-carousel carouselImages=\"{{ componentData.carouselImages }}\" mode=\"{{ componentData.mode }}\" arrowColor=\"{{ componentData.arrowColor }}\"></lumavate-carousel>"
   },
   {
+    "label":"Modal",
+    "icon":"/assets/modal.svg",
+    "tags":["modal"],
+    "type":"Modal",
+    "properties":[
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Modal ID",
+        "name": "modalId",
+        "options": {
+
+        },
+        "section": null,
+        "type": "text"
+      }
+    ],
+    "template":"<lumavate-modal id=\"{{ componentData.modalId }}\"></lumavate-modal>"
+  },
+  {
     "label": "Header",
     "icon":"/assets/header.svg",
-    "tags": ["body"],
+    "tags": ["header"],
     "type":"Header",
     "properties": [
       {
         "classification": null,
-        "default": "#F1F1F1",
+        "default": "#f1f1f1",
         "helpText": null,
         "label": "Font Color",
         "name": "fontColor",
@@ -618,7 +598,7 @@
 
         },
         "section": null,
-        "type": "text"
+        "type": "color"
       },
       {
         "classification": null,
@@ -630,7 +610,7 @@
 
         },
         "section": null,
-        "type": "text"
+        "type": "color"
       },
       {
         "classification": null,
@@ -646,7 +626,7 @@
       },
       {
         "classification": null,
-        "default": "placeholder text",
+        "default": "",
         "helpText": null,
         "label": "Text",
         "name": "text",
@@ -657,6 +637,6 @@
         "type": "text"
       }
     ],
-    "template": "<lumavate-header fontColor=\"{{ componentData.fontColor }}\" backgroundColor=\"{{ componentData.backgroundColor }}\" showBackButton=\"{{ componentData.showBackButton }}\" text=\"{{ componentData.text }}\"></lumavate-header>"
+    "template": "<lumavate-header font-color=\"{{ componentData.fontColor }}\" background-color=\"{{ componentData.backgroundColor }}\" show-back-button=\"{{ componentData.showBackButton|lower }}\" text=\"{{ componentData.text }}\"></lumavate-header>"
   }
 ]
