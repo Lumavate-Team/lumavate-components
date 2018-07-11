@@ -53,10 +53,10 @@ export class LumavateCamera {
         let video: any = document.querySelector('video') as HTMLVideoElement;
         let canvas: any = document.querySelector('canvas') as HTMLCanvasElement;
 
-        video.className = this.filters[this.filterIndex]
-        this.filterIndex += 1
+        video.className = this.filters[this.filterIndex];
+        this.filterIndex += 1;
         if (this.filterIndex > this.filters.length) {
-            this.filterIndex = 0
+            this.filterIndex = 0;
         }
 
     }
@@ -71,6 +71,18 @@ export class LumavateCamera {
         }
       }
     }
+
+    @Method()
+    getSessionToken() {
+      var cookies = document.cookie.split(";");
+      for(var i=0,len=cookies.length; i < len; i++){
+        var cookie = cookies[i].split("=");
+        if(cookie[0].trim() == "pwa_s"){
+          return cookie[1].trim();
+        }
+      }
+    }
+
     @Method()
     takePicture() {
         let canvas: any = document.querySelector('canvas') as HTMLCanvasElement;
@@ -82,32 +94,30 @@ export class LumavateCamera {
         canvas.className = this.filters[this.filterIndex - 1];
 
         var dataURL = canvas.toDataURL('image/jpeg', 0.5);
-        var base64 = dataURL.split(',')[1];
+
+        console.log(dataURL)
 
         let dataWrap: any = {
-            cameraData : base64
+            data : dataURL
         };
 
-        console.log(dataWrap);
         const url = window.location.href;
-        console.log("URL 3: " + url);
 
         fetch(url, {
             method: "POST",
             body: JSON.stringify(dataWrap),
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
-                'Authorization': 'Bearer ' + this.getAuthToken()
+                'Authorization': 'Bearer ' + this.getAuthToken(),
+                'PWA-S': this.getSessionToken()
             },
         })
             .then(function(response) {
-                // this.resolved.emit(response)
                 console.log(response)
-            })
+            }.bind(this))
             .catch(function(err) {
-                // this.error.emit(err)
                 console.log(err)
-            })
+            }.bind(this))
     }
 
     render() {
@@ -116,7 +126,7 @@ export class LumavateCamera {
                 <div class="camera">
                     <video autoplay style={{ width: "100%", height: "100%" }}> </video>
                     <button onClick={() => this.changeFilter()}>Change Filter</button>
-                    <button onClick={() => this.takePicture()}>Take a Picture</button>
+                    <button onClick={() => this.takePicture()}>Take this picture</button>
                 </div>
 
                 <div>
