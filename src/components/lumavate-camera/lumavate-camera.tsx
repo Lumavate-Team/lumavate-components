@@ -19,8 +19,8 @@ export class LumavateCamera {
     constraints = {
         audio: false,
         video: {
-            width: { min: 200, ideal: 375, max: 375 },
-            height: { min: 200, ideal: 300, max: 400}
+            width: { min: 320, max: 414 },
+            height: { min: 568, max: 812}
             // this will prefer the front camera facingMode: "user",
             // this will require the rear camera facingMode: { exact: "environment" }
         }
@@ -113,7 +113,7 @@ export class LumavateCamera {
             },
         })
             .then(function(response) {
-                console.log(response)
+                console.log(response);
             }.bind(this))
             .catch(function(err) {
                 console.log(err)
@@ -125,12 +125,11 @@ export class LumavateCamera {
             <div>
                 <div class="camera">
                     <video autoplay style={{ width: "100%", height: "100%" }}> </video>
-                    <button onClick={() => this.changeFilter()}>Change Filter</button>
-                    <button onClick={() => this.takePicture()}>Take this picture</button>
+                    <button class="button" onClick={() => this.takePicture()}></button>
                 </div>
 
                 <div>
-                    <canvas style={{ width: "100%", height: "100%" }}></canvas>
+                    <canvas style={{ width: "100%", height: "100%" }} hidden></canvas>
                 </div>
             </div>
         )

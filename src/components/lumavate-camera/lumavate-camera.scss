@@ -2,6 +2,20 @@ lumavate-camera{
     
 }
 
+.button {
+    width: 63pt;
+    background: transparent;
+    height: 63pt;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 80%;
+    border: solid white;
+    border-radius: 50px;
+    outline: none;
+}
+
 .blur{
     -webkit-filter: blur(3px);
     filter: blur(3px)
