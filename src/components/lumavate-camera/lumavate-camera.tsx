@@ -118,7 +118,7 @@ export class LumavateCamera {
         return (
             <div class="videoContainer">
                 <div>
-                    <video autoplay></video>
+                    <video playsinline autoplay muted></video>
                     <button class="button" onClick={() => this.takePicture()}></button>
                 </div>
 
