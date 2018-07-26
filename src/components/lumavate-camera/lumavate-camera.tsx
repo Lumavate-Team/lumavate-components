@@ -18,12 +18,7 @@ export class LumavateCamera {
 
     constraints = {
         audio: false,
-        video: {
-            width: { min: 320, max: 414 },
-            height: { min: 568, max: 812}
-            // this will prefer the front camera facingMode: "user",
-            // this will require the rear camera facingMode: { exact: "environment" }
-        }
+        video: true
     }
 
     video: any = document.querySelector('video') as HTMLVideoElement;
@@ -108,8 +103,7 @@ export class LumavateCamera {
             body: JSON.stringify(dataWrap),
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
-                'Authorization': 'Bearer ' + this.getAuthToken(),
-                'PWA-S': this.getSessionToken()
+                'Authorization': 'Bearer ' + this.getAuthToken()
             },
         })
             .then(function(response) {
@@ -122,15 +116,13 @@ export class LumavateCamera {
 
     render() {
         return (
-            <div>
-                <div class="camera">
-                    <video autoplay style={{ width: "100%", height: "100%" }}> </video>
+            <div class="videoContainer">
+                <div>
+                    <video autoplay></video>
                     <button class="button" onClick={() => this.takePicture()}></button>
                 </div>
 
-                <div>
-                    <canvas style={{ width: "100%", height: "100%" }} hidden></canvas>
-                </div>
+                <canvas></canvas>
             </div>
         )
     }
