@@ -1,4 +1,6 @@
 import { Component, Prop, Event, EventEmitter, Element, Method } from '@stencil/core';
+import PinchZoom from 'pinch-zoom-js'
+
 
 @Component({
   tag: 'lumavate-carousel',
@@ -14,14 +16,29 @@ export class LumavateCarosel {
 
   images: Array<any>
   carouselIndex: number = 1
+  pinchEL: any
+  pz: any
 
   componentWillLoad() {
     this.images = JSON.parse(this.CarouselImages)
   }
 
   componentDidLoad() {
+    this.initPinchZoom()
     this.showSlides(this.carouselIndex)
     this.setArrowColor()
+  }
+
+  @Method()
+  initPinchZoom() {
+    this.pinchEL = document.querySelector('div.pinch-zoom');
+    this.pz = new PinchZoom(this.pinchEL, {});
+    let modal: any = document.getElementsByClassName('modal')
+    let slides: any = document.getElementsByClassName("pinch-zoom-container")
+    let closeButton: any = document.getElementsByClassName('close')
+    modal[0].style.display = 'none'
+    slides[0].style.position = ''
+    closeButton[0].style.display = 'none'
   }
 
   @Method()
@@ -70,15 +87,47 @@ export class LumavateCarosel {
 
   }
 
+  @Method()
+  lightBox(url) {
+    let modal: any = document.getElementsByClassName('modal')
+    let slides: any = document.getElementsByClassName("pinch-zoom")
+    let closeButton: any = document.getElementsByClassName('close')
+    slides[0].childNodes[0].src = url
+
+    modal[0].style.display = 'inline'
+    // if (n > slides.length) { this.carouselIndex = 1 }
+    // if (n < 1) { this.carouselIndex = slides.length }
+
+
+    // slides[this.carouselIndex - 1].div.style.display = 'block'
+    // slides[this.carouselIndex].classList.remove('carouselImage')
+    slides[0].style.display = 'inline';
+    closeButton[0].style.display = 'inline'
+    // console.log(slides[this.carouselIndex]);
+
+    // console.log(this.carouselIndex);
+
+  }
+
+  @Method()
+  closeModal() {
+    let modal: any = document.getElementsByClassName('modal')
+    let slides: any = document.getElementsByClassName("pinch-zoom")
+    let closeButton: any = document.getElementsByClassName('close')
+    modal[0].style.display = 'none'
+    slides[0].style.display = "none"
+    closeButton[0].style.display = 'none'
+  }
+
+
   render() {
     return (
       <div class="slideshow-container" style={{ width: "100%", height: "100%" }}>
         {this.images.map((item) =>
-          <div class="carouselImage fade" style={{ width: "100%", height: "100%" }}>
+          <div onClick={() => this.lightBox(item.url)} class="carouselImage fade" style={{ width: "100%", height: "100%" }}>
             <lumavate-image
               src={item.url}
               mode={this.mode}>
-
             </lumavate-image>
           </div>
         )}
@@ -91,7 +140,23 @@ export class LumavateCarosel {
             <span class="dot" onClick={() => this.setSlide(index + 1)}></span>
           )}
         </div>
-      </div>
+
+
+
+        <span class="close cursor" onClick={() => this.closeModal()}>&times;</span>
+        <div class='modal'>
+          <div class="pinch-zoom" style={{ width: "100%", height: "100%" }}>
+            <lumavate-image
+              src=''
+              mode="contain" />
+          </div>
+        </div >
+        {/* <div class="pinch-zoom" style={{ width: "100%", height: "100%" }}>
+          <lumavate-image
+            src=''
+            mode="contain"/>
+        </div> */}
+      </div >
     )
   }
 }
