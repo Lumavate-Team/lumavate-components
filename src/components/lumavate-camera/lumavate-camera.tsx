@@ -18,7 +18,7 @@ export class LumavateCamera {
 
     constraints = {
         audio: false,
-        video: true
+        video: { facingMode: { exact: "environment" }}
     }
 
     video: any = document.querySelector('video') as HTMLVideoElement;
@@ -33,6 +33,7 @@ export class LumavateCamera {
         let video: any = document.querySelector('video') as HTMLVideoElement;
 
         video.srcObject = stream;
+        video.play();
     }
 
     @Method()
@@ -118,7 +119,7 @@ export class LumavateCamera {
         return (
             <div class="videoContainer">
                 <div>
-                    <video autoplay></video>
+                    <video></video>
                     <button class="button" onClick={() => this.takePicture()}></button>
                 </div>
 
