@@ -33,7 +33,6 @@ export class LumavateCamera {
         let video: any = document.querySelector('video') as HTMLVideoElement;
 
         video.srcObject = stream;
-        video.play();
     }
 
     @Method()
@@ -119,7 +118,7 @@ export class LumavateCamera {
         return (
             <div class="videoContainer">
                 <div>
-                    <video></video>
+                    <video autoplay></video>
                     <button class="button" onClick={() => this.takePicture()}></button>
                 </div>
 
