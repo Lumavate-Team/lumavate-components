@@ -18,7 +18,7 @@ export class LumavateCamera {
 
     constraints = {
         audio: false,
-        video: true
+        video: { facingMode: "environment"}
     }
 
     video: any = document.querySelector('video') as HTMLVideoElement;
