@@ -2,7 +2,8 @@ import { Component,Prop } from '@stencil/core';
 
 @Component({
   tag: 'lumavate-small-nav-card',
-  styleUrl: 'lumavate-small-nav-card.scss'
+  styleUrl: 'lumavate-small-nav-card.scss',
+  shadow:true
 })
 export class LumavateSmallNavCard {
 
