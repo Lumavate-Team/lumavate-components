@@ -45,8 +45,12 @@ declare global {
   }
   namespace JSXElements {
     export interface LumavateCameraAttributes extends HTMLAttributes {
-      
-      
+      buttonLabel?: string;
+      headers?: Headers;
+      method?: string;
+      url?: string;
+      onError?: (event: CustomEvent) => void;
+      onResolved?: (event: CustomEvent) => void;
     }
   }
 }
