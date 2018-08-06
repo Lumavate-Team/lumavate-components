@@ -10,7 +10,6 @@ div.pinch-zoom lumavate-image{
   display: inline;
   position: fixed;
   z-index: 100;
-  // padding-top: 100px;
   left: 0;
   top: 0;
   width: 100%;
@@ -20,36 +19,21 @@ div.pinch-zoom lumavate-image{
 }
 
 .pinch-zoom{
-  // display: none;
   position: absolute;
   z-index: 100;
-  // padding-top: 100px;
-  // left: 0;
-  // top: 0;
   width: 100%;
   height: 100%;
-  // overflow: none;
+
 }
-
-
-
-// .modal-content {
-//   // position: relative;
-//   // background-color: #fefefe;
-//   // margin: auto;
-//   // padding: 0;
-//   // width: 90%;
-//   // opacity: 1;
-// }
-
 
 .close {
   z-index: 101;
   display: inline;
   color: white;
+  right: 8px;
+  padding: 10px;
   position: fixed;
   top: 10px;
-  left: 25px;
   font-size: 35px;
   font-weight: bold;
 }
@@ -96,20 +80,35 @@ div.pinch-zoom lumavate-image{
   background-color: rgba(0,0,0,0.5);
 }
 
-// .expand {
-//   cursor: pointer;
-//   position: absolute;
-//   top: 10%;
-//   width: auto;
-//   margin-top: -22px;
-//   padding: 10px;
-//   color: white;
-//   font-weight: bold;
-//   font-size: 20px;
-//   transition: 0.6s ease;
-//   border-radius: 0 3px 3px 0;
-//   background-color: rgba(0,0,0,0.5);
-// }
+
+.expand {
+  position: absolute;
+  top: 10%;
+  right: 5px;
+  width: auto;
+  margin-top: -22px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.previous_fullscreen, .next_fullscreen {
+  z-index: 101;
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  background-color: rgba(0,0,0,0.5);
+}
 
 
 /* Position the "next button" to the right */
@@ -118,6 +117,11 @@ div.pinch-zoom lumavate-image{
   border-radius: 3px 0 0 3px;
 }
 
+
+.next_fullscreen{
+  right: 3px;
+  border-radius: 3px 0 0 3px;
+}
 /* On hover, add a black background color with a little bit see-through */
 // .previous:hover, .next:hover {
 //   background-color: rgba(0,0,0,0.8);
