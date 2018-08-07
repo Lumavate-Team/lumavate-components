@@ -32,7 +32,7 @@ export class LumavateCarosel {
   @Method()
   initPinchZoom() {
     this.pinchEL = document.querySelector('div.pinch-zoom');
-    this.pz = new PinchZoom(this.pinchEL, {});
+    this.pz = new PinchZoom(this.pinchEL, { zoomOutFactor: 9, maxZoom: 2 });
     let modal: any = document.getElementsByClassName('modal')
     let slides: any = document.getElementsByClassName("pinch-zoom-container")
     let closeButton: any = document.getElementsByClassName('close')
@@ -89,15 +89,11 @@ export class LumavateCarosel {
 
   @Method()
   nextLightBox(n) {
-    this.pinchEL = document.querySelector('div.pinch-zoom');
-    this.pz = new PinchZoom(this.pinchEL, {});
     this.lightBox(this.carouselIndex += n)
   }
 
   @Method()
   previousLightBox(n) {
-    this.pinchEL = document.querySelector('div.pinch-zoom');
-    this.pz = new PinchZoom(this.pinchEL, {});
     this.lightBox(this.carouselIndex -= n)
   }
 
@@ -118,9 +114,9 @@ export class LumavateCarosel {
     previous[0].style.display = 'inline'
 
     if (n > this.images.length) { this.carouselIndex = 1 }
-    if (n < 1) { this.carouselIndex = slides.length }
+    if (n < 1) { this.carouselIndex = this.images.length }
 
-    slides[0].childNodes[0].src = this.images[this.carouselIndex -1].url
+    slides[0].childNodes[0].src = this.images[this.carouselIndex - 1].url
     slides[0].style.display = 'inline'
 
     closeButton[0].style.display = 'inline'
@@ -141,49 +137,48 @@ export class LumavateCarosel {
     previous[0].style.display = 'none'
     closeButton[0].style.display = 'none'
     expandButton[0].style.display = 'inline'
-    // slides[this.carouselIndex - 1].style.display = "none"
-    console.log(closeButton[0])
   }
 
 
   render() {
     return (
       <div class="slideshow-container" style={{ width: "100%", height: "100%" }}>
-        <style>
-          @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-        </style>
-        {this.images.map((item) =>
-          <div class="carouselImage fade" style={{ width: "100%", height: "100%" }}>
-            <lumavate-image
-              src={item.url}
-              mode={this.mode}>
-            </lumavate-image>
-          </div>
-        )}
-
-        <a class="previous" onClick={() => this.previous(1)}>&#10094;</a>
-        <a class="next" onClick={() => this.next(1)}>&#10095;</a>
-
-        <div class="dot-container">
-          {this.images.map((_, index) =>
-            <span class="dot" onClick={() => this.setSlide(index + 1)}></span>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+          <style>
+            @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+          </style>
+          {this.images.map((item) =>
+            <div class="carouselImage fade" style={{ width: "100%", height: "100%" }}>
+              <lumavate-image
+                src={item.url}
+                mode={this.mode}>
+              </lumavate-image>
+            </div>
           )}
-        </div>
 
-        <a class="expand material-icons" onClick={() => this.lightBox(this.carouselIndex)}>fullscreen</a>
+          <a class="previous" onClick={() => this.previous(1)}>&#10094;</a>
+          <a class="next" onClick={() => this.next(1)}>&#10095;</a>
 
-        <a class="previous_fullscreen" onClick={() => this.previousLightBox(1)}>&#10094;</a>
-        <a class="next_fullscreen" onClick={() => this.nextLightBox(1)}>&#10095;</a>
-
-        <span class="close material-icons" onClick={() => this.closeModal()}>fullscreen_exit</span>
-        <div class='modal'>
-          <div class="pinch-zoom" style={{ width: "100%", height: "100%" }}>
-            <lumavate-image
-              src=''
-              mode="contain" />
+          <div class="dot-container">
+            {this.images.map((_, index) =>
+              <span class="dot" onClick={() => this.setSlide(index + 1)}></span>
+            )}
           </div>
-        </div >
+
+          <a class="expand material-icons" onClick={() => this.lightBox(this.carouselIndex)}>fullscreen</a>
+
+          <a class="previous_fullscreen" onClick={() => this.previousLightBox(1)}>&#10094;</a>
+          <a class="next_fullscreen" onClick={() => this.nextLightBox(1)}>&#10095;</a>
+
+          <span class="close material-icons" onClick={() => this.closeModal()}>fullscreen_exit</span>
+          <div class='modal'>
+            <div class="pinch-zoom" style={{ width: "100%", height: "100%" }}>
+              <lumavate-image
+                src=''
+                mode="contain" />
+            </div>
+          </div >
       </div >
-    )
-  }
+        )
+      }
 }
