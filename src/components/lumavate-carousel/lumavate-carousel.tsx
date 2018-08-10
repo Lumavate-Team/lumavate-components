@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, Element, Method } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, Element, Method, Listen } from '@stencil/core';
 import PinchZoom from 'pinch-zoom-js'
 
 
@@ -11,20 +11,32 @@ export class LumavateCarosel {
   @Event() clicked: EventEmitter;
   @Element() el: HTMLElement;
   @Prop() CarouselImages: string = '';
-  @Prop() mode: string = 'contain';
+  @Prop() mode: string = 'cover';
   @Prop() arrowColor: string = 'white';
+  @Prop() pinchZoom: boolean = true;
+  @Prop() holdToZoom: boolean = false;
 
   images: Array<any>
   carouselIndex: number = 1
   pinchEL: any
   pz: any
+  zoomed: boolean = false
 
   componentWillLoad() {
     this.images = JSON.parse(this.CarouselImages)
   }
 
   componentDidLoad() {
-    this.initPinchZoom()
+
+    if(this.pinchZoom){
+      this.initPinchZoom()
+    } else{
+      let modal: any = document.getElementsByClassName('modal')
+      let closeButton: any = document.getElementsByClassName('close')
+      modal[0].style.display = 'none'
+      closeButton[0].style.display = 'none'
+    }
+
     this.showSlides(this.carouselIndex)
     this.setArrowColor()
   }
@@ -32,7 +44,12 @@ export class LumavateCarosel {
   @Method()
   initPinchZoom() {
     this.pinchEL = document.querySelector('div.pinch-zoom');
-    this.pz = new PinchZoom(this.pinchEL, { zoomOutFactor: 9, maxZoom: 2 });
+    if(this.holdToZoom){
+      this.pz = new PinchZoom(this.pinchEL, { zoomOutFactor: 9, maxZoom: 2 });
+    } else{
+      this.pz = new PinchZoom(this.pinchEL, {zoomOutFactor: 1.3});
+    }
+
     let modal: any = document.getElementsByClassName('modal')
     let slides: any = document.getElementsByClassName("pinch-zoom-container")
     let closeButton: any = document.getElementsByClassName('close')
@@ -63,6 +80,29 @@ export class LumavateCarosel {
   @Method()
   previous(n) {
     this.showSlides(this.carouselIndex -= n)
+  }
+
+  @Listen('pz_zoomupdate')
+  hideLightBoxButtonsend(){
+    let slides: any = document.getElementsByClassName("pinch-zoom")
+    let next: any = document.getElementsByClassName('next_fullscreen')
+    let previous: any = document.getElementsByClassName('previous_fullscreen')
+
+    let scale3D = slides[0].style.transform.split(' t', 1)
+    scale3D = scale3D[0].slice(8,-1)
+    scale3D = scale3D.split(',', 2)
+    let x: number = parseFloat(scale3D[0])
+    let y: number = parseFloat(scale3D[1])
+
+    if((0.99 <= x && x<= 1.4) && (0.99 <= y && y<= 1.4) ){
+      next[0].style.display = 'inline'
+      previous[0].style.display = 'inline'
+    }
+
+    if((0.99 > x || x> 1.01) && (0.99 > y || y> 1.01) ){
+      next[0].style.display = 'none'
+      previous[0].style.display = 'none'
+    }
   }
 
   @Method()
@@ -148,7 +188,7 @@ export class LumavateCarosel {
             @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
           </style>
           {this.images.map((item) =>
-            <div class="carouselImage fade" style={{ width: "100%", height: "100%" }}>
+            <div class="carouselImage" style={{ width: "100%", height: "100%" }}>
               <lumavate-image
                 src={item.url}
                 mode={this.mode}>
