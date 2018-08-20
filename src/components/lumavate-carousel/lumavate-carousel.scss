@@ -51,6 +51,9 @@
 .is-animating{
   transition: transform 400ms cubic-bezier( 0.5, 0, 0.5, 1 );
 }
+.pzcontainer{
+  height: 100% !important;
+}
 
 //has-slider
 /* Slideshow container */

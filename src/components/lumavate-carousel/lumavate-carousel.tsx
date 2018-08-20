@@ -1,6 +1,7 @@
 import { Component, Prop, Event, EventEmitter, Element, Method, Listen } from '@stencil/core'
 import HammerJS from 'hammerjs'
-import pinchZoom from './pinch-zoom'
+// import pinchZoom from './pinch-zoom'
+import pinchZoom from 'pinch-zoom-js'
 
 
 @Component({
@@ -31,6 +32,7 @@ export class LumavateCarosel {
   activeSlide = 0
   slideCount = 0
   timer: any
+  lightboxEnabled: boolean = false
 
 
 
@@ -47,6 +49,8 @@ export class LumavateCarosel {
     modal[0].style.width = 100 * this.slideCount + '%'
     this.initSwipe()
     this.initPinchZoom()
+    this.removeArrowsStartEndSlideDeck()
+    this.setupDots()
 
     let wrapper: any = document.getElementsByClassName('wrapper')
     let closeButton: any = document.getElementsByClassName('close')
@@ -65,7 +69,7 @@ export class LumavateCarosel {
     this.swipeManagerLbox.add(new HammerJS.Pan({ threshold: 0, pointers: 0 }))
     this.swipeManager.on('pan', (e) => {
 
-      if(!this.zooming){
+      if (!this.zooming) {
         //Calculate pixel movements into 1:1 screen percents so gestures track with motion
         let percentage = 100 / this.slideCount * e.deltaX / window.innerWidth
         //Multiply percent by # of slide we’re on
@@ -76,7 +80,7 @@ export class LumavateCarosel {
     })
 
     this.swipeManagerLbox.on('pan', (e) => {
-      if(!this.zooming){
+      if (!this.zooming) {
         //Calculate pixel movements into 1:1 screen percents so gestures track with motion
         let percentage = 100 / this.slideCount * e.deltaX / window.innerWidth
         //Multiply percent by # of slide we’re on
@@ -92,16 +96,54 @@ export class LumavateCarosel {
 
   @Method()
   initPinchZoom() {
-      let i = 0
-      let images = document.getElementsByClassName('pinchzoom')
-      this.pinchZoomManager = []
+    let i = 0
+    let images = document.getElementsByClassName('pinchzoom')
+    let imageContainers: any = document.getElementsByClassName('pinch-zoom-container')
+    this.pinchZoomManager = []
 
-      for(i; i< images.length; i++){
-        this.pinchZoomManager.push(new pinchZoom(images[i]))
-      }
+    for (i; i < images.length; i++) {
+      this.pinchZoomManager.push(new pinchZoom(images[i]), { zoomOutFactor: 1.3 })
+    }
+
+    for (i = 0; i < imageContainers.length; i++) {
+      imageContainers[i].style.height = ''
+      imageContainers[i].classList.add('pzcontainer')
+    }
 
   }
 
+  @Listen('pz_zoomupdate')
+  hideLightBoxButtonsend() {
+    let upperbound: number = 1.3
+    let lowerbound: number = 0.97
+    let slides: any = document.getElementsByClassName("pinchzoom")
+    let close: any = document.getElementsByClassName('close')
+    let next: any = document.getElementsByClassName('next_fullscreen')
+    let previous: any = document.getElementsByClassName('previous_fullscreen')
+
+    let scale3D = slides[this.activeSlide].style.transform.split(' t', 1)
+    scale3D = scale3D[0].slice(8, -1)
+    scale3D = scale3D.split(',', 2)
+    let x: number = parseFloat(scale3D[0])
+    let y: number = parseFloat(scale3D[1])
+
+    if ((lowerbound < x && x <= upperbound) && (lowerbound < y && y < upperbound)) {
+      next[0].style.display = 'inline'
+      previous[0].style.display = 'inline'
+      close[0].style.display = 'inline'
+      this.zooming = false
+      this.goTo(this.activeSlide)
+    }
+
+    if ((lowerbound > x || x > upperbound) && (lowerbound > y || y > upperbound)) {
+      next[0].style.display = 'none'
+      previous[0].style.display = 'none'
+      close[0].style.display = 'none'
+      this.zooming = true
+      this.goTo(this.activeSlide)
+    }
+    this.removeArrowsStartEndSlideDeck()
+  }
 
   @Method()
   determineValidSwipe(e, percentage) {
@@ -121,8 +163,45 @@ export class LumavateCarosel {
     }
   }
 
+
+  @Method()
+  removeArrowsStartEndSlideDeck() {
+    let nextFullscreen: any = document.getElementsByClassName('next_fullscreen')
+    let previousFullscreen: any = document.getElementsByClassName('previous_fullscreen')
+    let next: any = document.getElementsByClassName('next')
+    let previous: any = document.getElementsByClassName('previous')
+
+    if (this.activeSlide == 0) {
+      if (this.lightboxEnabled && this.zooming != true) {
+        previousFullscreen[0].style.display = 'none'
+        nextFullscreen[0].style.display = 'inline'
+      } else {
+        previous[0].style.display = 'none'
+        next[0].style.display = 'inline'
+      }
+    } else if (this.activeSlide == this.images.length - 1 && this.zooming != true) {
+      if (this.lightboxEnabled) {
+        previousFullscreen[0].style.display = 'inline'
+        nextFullscreen[0].style.display = 'none'
+      } else {
+        previous[0].style.display = 'inline'
+        next[0].style.display = 'none'
+      }
+    }
+    else {
+      if(this.lightboxEnabled && (this.activeSlide != 0 && this.activeSlide != this.images.length -1)&&(this.zooming != true)){
+        previousFullscreen[0].style.display = 'inline'
+        nextFullscreen[0].style.display = 'inline'
+      }else{
+        previous[0].style.display = 'inline'
+        next[0].style.display = 'inline'
+      }
+    }
+  }
+6
   @Method()
   goTo(number) {
+
     if (number < 0)
       this.activeSlide = 0
     else if (number > this.slideCount - 1)
@@ -143,6 +222,20 @@ export class LumavateCarosel {
       self.swipeEL.classList.remove('is-animating')
       self.swipeElLbox.classList.remove('is-animating')
     }, 400)
+
+    this.setupDots()
+    this.removeArrowsStartEndSlideDeck()
+  }
+
+  @Method()
+  setupDots(){
+    let dots: any = document.getElementsByClassName("dot")
+    let i
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace('active', '')
+    }
+
+    dots[this.activeSlide].className += ' active'
   }
 
   @Method()
@@ -168,26 +261,23 @@ export class LumavateCarosel {
 
   @Method()
   lightBox(n) {
-    // this.checkForSlideEnds()
+    this.lightboxEnabled = true
     this.goTo(n)
 
     let modal: any = document.getElementsByClassName('modal')
     let wrapper: any = document.getElementsByClassName('wrapper')
     let closeButton: any = document.getElementsByClassName('close')
     let expandButton: any = document.getElementsByClassName('expand')
-    let next: any = document.getElementsByClassName('next_fullscreen')
-    let previous: any = document.getElementsByClassName('previous_fullscreen')
 
     modal[0].style.display = 'flex'
     wrapper[0].style.display = 'inline'
-    next[0].style.display = 'inline'
-    previous[0].style.display = 'inline'
     closeButton[0].style.display = 'inline'
     expandButton[0].style.display = 'none'
   }
 
   @Method()
   closeModal() {
+    this.lightboxEnabled = false
     let modal: any = document.getElementsByClassName('modal')
     let wrapper: any = document.getElementsByClassName('wrapper')
     let expandButton: any = document.getElementsByClassName('expand')
@@ -201,10 +291,11 @@ export class LumavateCarosel {
     previous[0].style.display = 'none'
     closeButton[0].style.display = 'none'
     expandButton[0].style.display = 'inline'
+    this.removeArrowsStartEndSlideDeck()
   }
 
   @Listen('pinch')
-  pinchHandler(){
+  pinchHandler() {
     let next: any = document.getElementsByClassName('next_fullscreen')
     let previous: any = document.getElementsByClassName('previous_fullscreen')
     next[0].style.display = 'none'
@@ -213,35 +304,16 @@ export class LumavateCarosel {
   }
 
   @Listen('pinchend')
-  pinchendHandler(){
+  pinchendHandler() {
     let scale = this.pinchZoomManager[this.activeSlide].getScale()
     let zoomThreshold = this.pinchZoomManager[this.activeSlide].getzoomThreshold()
-    // console.log('pz scale: ' + scale)
-    // console.log(scale<zoomThreshold)
-    // console.log('--------------------------------')
 
-    if(scale<zoomThreshold){
+    if (scale < zoomThreshold) {
       let next: any = document.getElementsByClassName('next_fullscreen')
       let previous: any = document.getElementsByClassName('previous_fullscreen')
       next[0].style.display = 'inline'
       previous[0].style.display = 'inline'
       this.zooming = false
-    }
-  }
-
-
-  @Method()
-  checkForSlideEnds(){
-    let next: any = document.getElementsByClassName('next_fullscreen')
-    let previous: any = document.getElementsByClassName('previous_fullscreen')
-
-    if(this.activeSlide == 0){
-      previous[0].style.display = 'none'
-    } else if(this.activeSlide == this.images.length-1){
-      next[0].style.display = 'none'
-    } else if((this.activeSlide >0)&&(this.activeSlide<this.images.length-1)){
-      next[0].style.display = 'inline'
-      previous[0].style.display = 'inline'
     }
   }
 
@@ -269,7 +341,7 @@ export class LumavateCarosel {
 
         <div class="dot-container">
           {this.images.map((_, index) =>
-            <span class="dot" onClick={() => this.goTo(index + 1)}></span>
+            <span class="dot" onClick={() => this.goTo(index)}></span>
           )}
         </div>
 
@@ -285,7 +357,8 @@ export class LumavateCarosel {
           {this.images.map((item) =>
             <div style={{ width: "100%", height: "100%" }}>
               <lumavate-image
-                class = 'pinchzoom'
+                style={{ width: "100%" }}
+                class='pinchzoom'
                 src={item.url}
                 mode="contain" />
             </div>
