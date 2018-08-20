@@ -47,9 +47,7 @@ declare global {
     export interface LumavateCarouselAttributes extends HTMLAttributes {
       CarouselImages?: string;
       arrowColor?: string;
-      holdToZoom?: boolean;
       mode?: string;
-      pinchZoom?: boolean;
       onClicked?: (event: CustomEvent) => void;
     }
   }

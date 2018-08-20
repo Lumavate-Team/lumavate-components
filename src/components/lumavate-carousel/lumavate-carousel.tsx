@@ -16,8 +16,6 @@ export class LumavateCarosel {
   @Prop() CarouselImages: string = ''
   @Prop() mode: string = 'cover'
   @Prop() arrowColor: string = 'white'
-  @Prop() pinchZoom: boolean = true
-  @Prop() holdToZoom: boolean = false
 
   images: Array<any>
   pinchZoomManager: any
@@ -33,9 +31,6 @@ export class LumavateCarosel {
   slideCount = 0
   timer: any
   lightboxEnabled: boolean = false
-
-
-
 
   componentWillLoad() {
     this.images = JSON.parse(this.CarouselImages)
@@ -91,9 +86,6 @@ export class LumavateCarosel {
     })
   }
 
-
-
-
   @Method()
   initPinchZoom() {
     let i = 0
@@ -109,40 +101,6 @@ export class LumavateCarosel {
       imageContainers[i].style.height = ''
       imageContainers[i].classList.add('pzcontainer')
     }
-
-  }
-
-  @Listen('pz_zoomupdate')
-  hideLightBoxButtonsend() {
-    let upperbound: number = 1.3
-    let lowerbound: number = 0.97
-    let slides: any = document.getElementsByClassName("pinchzoom")
-    let close: any = document.getElementsByClassName('close')
-    let next: any = document.getElementsByClassName('next_fullscreen')
-    let previous: any = document.getElementsByClassName('previous_fullscreen')
-
-    let scale3D = slides[this.activeSlide].style.transform.split(' t', 1)
-    scale3D = scale3D[0].slice(8, -1)
-    scale3D = scale3D.split(',', 2)
-    let x: number = parseFloat(scale3D[0])
-    let y: number = parseFloat(scale3D[1])
-
-    if ((lowerbound < x && x <= upperbound) && (lowerbound < y && y < upperbound)) {
-      next[0].style.display = 'inline'
-      previous[0].style.display = 'inline'
-      close[0].style.display = 'inline'
-      this.zooming = false
-      this.goTo(this.activeSlide)
-    }
-
-    if ((lowerbound > x || x > upperbound) && (lowerbound > y || y > upperbound)) {
-      next[0].style.display = 'none'
-      previous[0].style.display = 'none'
-      close[0].style.display = 'none'
-      this.zooming = true
-      this.goTo(this.activeSlide)
-    }
-    this.removeArrowsStartEndSlideDeck()
   }
 
   @Method()
@@ -163,7 +121,6 @@ export class LumavateCarosel {
     }
   }
 
-
   @Method()
   removeArrowsStartEndSlideDeck() {
     let nextFullscreen: any = document.getElementsByClassName('next_fullscreen')
@@ -179,7 +136,7 @@ export class LumavateCarosel {
         previous[0].style.display = 'none'
         next[0].style.display = 'inline'
       }
-    } else if (this.activeSlide == this.images.length - 1 && this.zooming != true) {
+    } else if (this.activeSlide == this.slideCount - 1 && this.zooming != true) {
       if (this.lightboxEnabled) {
         previousFullscreen[0].style.display = 'inline'
         nextFullscreen[0].style.display = 'none'
@@ -189,16 +146,16 @@ export class LumavateCarosel {
       }
     }
     else {
-      if(this.lightboxEnabled && (this.activeSlide != 0 && this.activeSlide != this.images.length -1)&&(this.zooming != true)){
+      if (this.lightboxEnabled && (this.activeSlide != 0 && this.activeSlide != this.slideCount - 1) && (this.zooming != true)) {
         previousFullscreen[0].style.display = 'inline'
         nextFullscreen[0].style.display = 'inline'
-      }else{
+      } else {
         previous[0].style.display = 'inline'
         next[0].style.display = 'inline'
       }
     }
   }
-6
+
   @Method()
   goTo(number) {
 
@@ -228,7 +185,7 @@ export class LumavateCarosel {
   }
 
   @Method()
-  setupDots(){
+  setupDots() {
     let dots: any = document.getElementsByClassName("dot")
     let i
     for (i = 0; i < dots.length; i++) {
@@ -315,6 +272,39 @@ export class LumavateCarosel {
       previous[0].style.display = 'inline'
       this.zooming = false
     }
+  }
+
+  @Listen('pz_zoomupdate')
+  hideLightBoxButtonsend() {
+    let upperbound: number = 1.3
+    let lowerbound: number = 0.97
+    let slides: any = document.getElementsByClassName("pinchzoom")
+    let close: any = document.getElementsByClassName('close')
+    let next: any = document.getElementsByClassName('next_fullscreen')
+    let previous: any = document.getElementsByClassName('previous_fullscreen')
+
+    let scale3D = slides[this.activeSlide].style.transform.split(' t', 1)
+    scale3D = scale3D[0].slice(8, -1)
+    scale3D = scale3D.split(',', 2)
+    let x: number = parseFloat(scale3D[0])
+    let y: number = parseFloat(scale3D[1])
+
+    if ((lowerbound < x && x <= upperbound) && (lowerbound < y && y < upperbound)) {
+      next[0].style.display = 'inline'
+      previous[0].style.display = 'inline'
+      close[0].style.display = 'inline'
+      this.zooming = false
+      this.goTo(this.activeSlide)
+    }
+
+    if ((lowerbound > x || x > upperbound) && (lowerbound > y || y > upperbound)) {
+      next[0].style.display = 'none'
+      previous[0].style.display = 'none'
+      close[0].style.display = 'none'
+      this.zooming = true
+      this.goTo(this.activeSlide)
+    }
+    this.removeArrowsStartEndSlideDeck()
   }
 
   render() {
