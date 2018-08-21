@@ -251,23 +251,32 @@ export class LumavateCarosel {
   lightBox(n) {
     this.lightboxEnabled = true
     this.goTo(n)
-    this.lightbox.style.display = 'flex'
-    this.wrapper.style.display = 'inline'
-    this.closeButton.style.display = 'inline'
-    this.expandButton.style.display = 'none'
+    this.toggleLightboxCSS()
   }
 
   @Method()
   closeLightBox() {
     this.lightboxEnabled = false
-    this.lightbox.style.display = 'none'
-    this.wrapper.style.display = 'none'
-    this.nextFullscreen.style.display = 'none'
-    this.previousFullscreen.style.display = 'none'
-    this.closeButton.style.display = 'none'
-    this.expandButton.style.display = 'inline'
+    this.toggleLightboxCSS()
     this.toggleLightBoxArrows()
     this.updateCurrentSlideCounter()
+  }
+
+  @Method()
+  toggleLightboxCSS(){
+    if(this.lightboxEnabled){
+      this.lightbox.style.display = 'flex'
+      this.wrapper.style.display = 'inline'
+      this.closeButton.style.display = 'inline'
+      this.expandButton.style.display = 'none'
+    }else{
+      this.lightbox.style.display = 'none'
+      this.wrapper.style.display = 'none'
+      this.nextFullscreen.style.display = 'none'
+      this.previousFullscreen.style.display = 'none'
+      this.closeButton.style.display = 'none'
+      this.expandButton.style.display = 'inline'
+    }
   }
 
   @Method()
