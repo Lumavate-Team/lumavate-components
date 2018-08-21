@@ -321,10 +321,10 @@ export class LumavateCarosel {
   render() {
     return (
       <div class="slideshow-container" style={{ width: "100%", height: "100%" }}>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
         <style>
           @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-          </style>
+        </style>
 
         <div class='swipecontainer'>
           {this.images.map((item) =>
@@ -342,7 +342,7 @@ export class LumavateCarosel {
 
         <div class="dot-container">
           {this.images.map((_, index) =>
-            <span class="dot" onClick={() => this.goTo(index)}></span>
+            <span class="dot" onClick={() => this.goTo(index)}/>
           )}
         </div>
 
@@ -350,9 +350,9 @@ export class LumavateCarosel {
 
         <a class="previous_fullscreen" onClick={() => this.previousLightBox(1)}>&#10094;</a>
         <a class="next_fullscreen" onClick={() => this.nextLightBox(1)}>&#10095;</a>
-        <div class='currentSlideDisplay'></div>
+        <div class='currentSlideDisplay'/>
         <span class="close material-icons" onClick={() => this.closeLightBox()}>fullscreen_exit</span>
-        <div class='wrapper'> </div>
+        <div class='wrapper'/>
 
         <div class='lightbox'>
           {this.images.map((item) =>
