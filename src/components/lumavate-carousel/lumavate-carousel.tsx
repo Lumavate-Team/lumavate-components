@@ -85,11 +85,11 @@ export class LumavateCarosel {
     let imageContainers: any = document.getElementsByClassName('pinch-zoom-container')
     this.pinchZoomManager = []
 
-    for (i; i < this.pinchZoomImages.length; i++) {
+    for (i; i < this.slideCount; i++) {
       this.pinchZoomManager.push(new pinchZoom(this.pinchZoomImages[i]), { zoomOutFactor: 1.3 })
     }
 
-    for (i = 0; i < imageContainers.length; i++) {
+    for (i = 0; i < this.slideCount; i++) {
       imageContainers[i].style.height = ''
       imageContainers[i].classList.add('pzcontainer')
     }
@@ -204,12 +204,12 @@ export class LumavateCarosel {
   updateDots() {
     let i
     if(this.displayDots){
-      for (i = 0; i < this.dots.length; i++) {
+      for (i = 0; i < this.slideCount; i++) {
         this.dots[i].className = this.dots[i].className.replace('active', '')
       }
       this.dots[this.activeSlide].className += ' active'
     }else{
-      for (i = 0; i < this.dots.length; i++) {
+      for (i = 0; i < this.slideCount; i++) {
         this.dots[i].style.display = 'none'
       }
     }
