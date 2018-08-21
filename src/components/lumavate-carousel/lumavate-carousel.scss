@@ -1,188 +1,206 @@
-* {box-sizing:border-box}
+:host {
+  * {box-sizing:border-box}
 
-.close {
-  z-index: 101;
-  display: inline;
-  color: white;
-  left: 8px;
-  padding: 10px;
-  position: fixed;
-  top: 10px;
-  font-size: 35px;
-  font-weight: bold;
-}
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+  }
 
-.currentSlideDisplay{
-  z-index: 101;
-  display: flex;
-  color: white;
-  justify-content: center;
-  width: 100%;
-  position: fixed;
-  top: 10px;
-  font-size: 18px;
-  font-family: sans-serif;
-  font-weight: bold;
-}
+  .close {
+    z-index: 101;
+    display: inline;
+    color: white;
+    right: 16px;
+    padding: 10px;
+    position: fixed;
+    top: 10px;
+    font-size: 35px;
+    font-weight: bold;
+  }
 
-//slider
-.swipecontainer{
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
+  .currentSlideDisplay{
+    z-index: 101;
+    display: flex;
+    color: white;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    top: 20px;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: bold;
+  }
 
-.lightbox {
-  display: flex;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  // overflow: hidden;
-}
+  //slider
+  .swipecontainer{
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
 
-.wrapper{
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  // background-color: rgba(0,0,0,0.75);
-  background-color: rgba(0,0,0,1);
+  .lightbox {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    // overflow: hidden;
+  }
 
-  z-index: 99;
-}
-.is-animating{
-  transition: transform 400ms cubic-bezier( 0.5, 0, 0.5, 1 );
-}
-.pzcontainer{
-  height: 100% !important;
-}
+  .wrapper{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    // background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0,0,0,1);
 
-//has-slider
-/* Slideshow container */
-.slideshow-container {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-     -moz-user-select: none; /* Firefox */
-      -ms-user-select: none; /* Internet Explorer/Edge */
-          user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  margin: auto;
-}
+    z-index: 99;
+  }
+  .is-animating{
+    transition: transform 400ms cubic-bezier( 0.5, 0, 0.5, 1 );
+  }
+  .pzcontainer{
+    height: 100% !important;
+  }
 
-/* Hide the images by default */
-.carouselImage {
-  width: 100%
-}
+  //has-slider
+  /* Slideshow container */
+  .slideshow-container {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: auto;
+  }
 
-/* Next & previous buttons */
-.previous, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 10px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  background-color: rgba(0,0,0,0.5);
-}
+  /* Hide the images by default */
+  .carouselImage {
+    width: 100%
+  }
 
-
-.expand {
-  position: absolute;
-  top: 10%;
-  right: 5px;
-  width: auto;
-  margin-top: -22px;
-  padding: 10px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.previous_fullscreen, .next_fullscreen {
-  z-index: 101;
-  cursor: pointer;
-  display: none;
-  position: fixed;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 10px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  background-color: rgba(0,0,0,0.5);
-}
+  /* Next & previous buttons */
+  .previous, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    background-color: rgba(0,0,0,0.5);
+  }
 
 
-/* Position the "next button" to the right */
-.next{
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
+  .expand {
+    position: absolute;
+    top: 10%;
+    right: 5px;
+    width: auto;
+    margin-top: -22px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+  }
 
-.next_fullscreen{
-  right: 3px;
-  border-radius: 3px 0 0 3px;
-}
-/* On hover, add a black background color with a little bit see-through */
-// .previous:hover, .next:hover {
-//   background-color: rgba(0,0,0,0.8);
-// }
+  .previous_fullscreen, .next_fullscreen {
+    z-index: 101;
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    background-color: rgba(0,0,0,0.5);
+  }
 
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
 
-.dot-container{
-  z-index: 1;
-  display: flex;
-  margin-top: -30px;
-  justify-content: center;
-}
+  /* Position the "next button" to the right */
+  .next{
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
 
-/* The dots/bullets/indicators */
-.dot {
-  z-index: 1;
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.4s ease;
-}
+  .next_fullscreen{
+    right: 3px;
+    border-radius: 3px 0 0 3px;
+  }
+  /* On hover, add a black background color with a little bit see-through */
+  // .previous:hover, .next:hover {
+  //   background-color: rgba(0,0,0,0.8);
+  // }
 
-.active, .dot:hover {
-  background-color: #575757;
-}
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
 
-/* Fading animation */
-.fade {
-  z-index: 0;
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+  .dot-container{
+    z-index: 1;
+    display: flex;
+    margin-top: -30px;
+    justify-content: center;
+  }
+
+  /* The dots/bullets/indicators */
+  .dot {
+    z-index: 1;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.4s ease;
+  }
+
+  .active, .dot:hover {
+    background-color: #575757;
+  }
+
+  /* Fading animation */
+  .fade {
+    z-index: 0;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
 }

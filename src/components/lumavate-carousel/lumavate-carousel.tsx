@@ -5,7 +5,8 @@ import pinchZoom from 'pinch-zoom-js'
 
 @Component({
   tag: 'lumavate-carousel',
-  styleUrl: 'lumavate-carousel.scss'
+  styleUrl: 'lumavate-carousel.scss',
+  shadow: true
 })
 
 export class LumavateCarosel {
@@ -64,31 +65,31 @@ export class LumavateCarosel {
 
   @Method()
   initHtmlVariables() {
-    this.lightbox = document.querySelector('.lightbox')
-    this.swipeContainer = document.querySelector('.swipecontainer')
-    this.wrapper = document.querySelector('.wrapper')
-    this.closeButton = document.querySelector('.close')
-    this.expandButton = document.querySelector('.expand')
-    this.nextFullscreen = document.querySelector('.next_fullscreen')
-    this.previousFullscreen = document.querySelector('.previous_fullscreen')
-    this.next = document.querySelector('.next')
-    this.previous = document.querySelector('.previous')
-    this.currentSlideCounter = document.querySelector('.currentSlideDisplay')
+    this.lightbox = this.el.shadowRoot.querySelector('.lightbox')
+    this.swipeContainer = this.el.shadowRoot.querySelector('.swipecontainer')
+    this.wrapper = this.el.shadowRoot.querySelector('.wrapper')
+    this.closeButton = this.el.shadowRoot.querySelector('.close')
+    this.expandButton = this.el.shadowRoot.querySelector('.expand')
+    this.nextFullscreen = this.el.shadowRoot.querySelector('.next_fullscreen')
+    this.previousFullscreen = this.el.shadowRoot.querySelector('.previous_fullscreen')
+    this.next = this.el.shadowRoot.querySelector('.next')
+    this.previous = this.el.shadowRoot.querySelector('.previous')
+    this.currentSlideCounter = this.el.shadowRoot.querySelector('.currentSlideDisplay')
 
-    this.dots = document.getElementsByClassName("dot")
-    this.pinchZoomImages = document.getElementsByClassName('pinchzoom')
+    this.dots = this.el.shadowRoot.querySelectorAll(".dot")
+    this.pinchZoomImages = this.el.shadowRoot.querySelectorAll('.pinchzoom')
   }
 
   @Method()
   initPinchZoom() {
     let i = 0
-    let imageContainers: any = document.getElementsByClassName('pinch-zoom-container')
+   
     this.pinchZoomManager = []
 
     for (i; i < this.slideCount; i++) {
       this.pinchZoomManager.push(new pinchZoom(this.pinchZoomImages[i]), { zoomOutFactor: 1.3 })
     }
-
+    let imageContainers: any = this.el.shadowRoot.querySelectorAll('.pinch-zoom-container')
     for (i = 0; i < this.slideCount; i++) {
       imageContainers[i].style.height = ''
       imageContainers[i].classList.add('pzcontainer')
@@ -322,9 +323,6 @@ export class LumavateCarosel {
     return (
       <div class="slideshow-container" style={{ width: "100%", height: "100%" }}>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
-        <style>
-          @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-        </style>
 
         <div class='swipecontainer'>
           {this.images.map((item) =>

@@ -599,7 +599,7 @@
             "type": "image-upload"
         }
     ],
-    "template": "<lumavate-nav-bar arrowColor=\"{{ componentData.arrowColor }}\" mode=\"{{ componentData.mode }}\" CarouselImages='[{\"url\":\"{{ componentData.ImageLink1 }}\",\"url\":\"{{componentData.ImageLink2}}\",\"url\":\"{{componentData.ImageLink3}}\",\"url\":\"{{componentData.ImageLink4}}\",,\"url\":\"{{componentData.ImageLink5}}\"},,\"url\":\"{{componentData.ImageLink6}}\"}}]'></lumavate-nav-bar>"
+    "template": "<lumavate-carousel arrow-color=\"{{ componentData.arrowColor }}\" mode=\"{{ componentData.mode }}\" carousel-images='[{{ '{\"url\": \"' + componentData.ImageLink1.preview + '\"}' if componentData.ImageLink1 else '' }}{{ ',{\"url\": \"' + componentData.ImageLink2.preview + '\"}' if componentData.ImageLink2 else '' }}{{ ',{\"url\": \"' + componentData.ImageLink3.preview + '\"}' if componentData.ImageLink3 else '' }}{{ ',{\"url\": \"' + componentData.ImageLink4.preview + '\"}' if componentData.ImageLink4 else '' }}{{ ',{\"url\": \"' + componentData.ImageLink5.preview + '\"}' if componentData.ImageLink5 else '' }}{{ ',{\"url\": \"' + componentData.ImageLink6.preview + '\"}' if componentData.ImageLink6 else '' }}]'></lumavate-carousel>"
   },
   {
     "label":"Modal",
