@@ -8,9 +8,10 @@ exports.config = {
     { type: 'dist' },
     { type: 'www' }
   ],
+  globalStyle: 'src/global/index.scss',
   plugins: [
     sass({
-      injectGlobalPaths: [ 'src/global/index.scss' ]
+      injectGlobalPaths: [  'src/global/mixins.scss' ]
     }),
     postcss({
       plugins: [autoprefixer()]

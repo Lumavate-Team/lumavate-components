@@ -2,7 +2,8 @@ import { Component,Prop } from '@stencil/core';
 
 @Component({
   tag: 'lumavate-nav-bar-item',
-  styleUrl: 'lumavate-nav-bar-item.scss'
+  styleUrl: 'lumavate-nav-bar-item.scss',
+  shadow:true
 })
 export class LumavateNavBarItem {
   @Prop() NavBarItemLink: string = ''
@@ -12,7 +13,14 @@ export class LumavateNavBarItem {
 
   buttonClicked() {
     if(this.NavBarItemLink) {
-      window.location.href = this.NavBarItemLink;
+
+      if(this.NavBarItemLink.indexOf('modal:')>-1) {
+        let sub = this.NavBarItemLink.substr(6);
+        let m : any =  document.querySelector(`#${sub}`)
+        m.showModal()
+      } else {
+        window.location.href = this.NavBarItemLink;
+      }
     }
   }
 
@@ -34,7 +42,7 @@ export class LumavateNavBarItem {
         <div style={{color:this.NavBarItemColor ? this.NavBarItemColor : "#000"}} class="button-text">{this.NavBarItemText}</div>
         : ''
       }
-      
+
       </div>
     );
   }

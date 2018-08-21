@@ -18,7 +18,7 @@
   color: white;
   justify-content: center;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 10px;
   font-size: 18px;
   font-family: sans-serif;
@@ -40,7 +40,7 @@
   z-index: 100;
   left: 0;
   top: 0;
-  // overflow: none;
+  // overflow: hidden;
 }
 
 .wrapper{

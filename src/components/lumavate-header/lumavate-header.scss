@@ -1,0 +1,25 @@
+:host {
+
+  .nav-wrapper{
+    display: flex;
+    flex: 0 0 auto;
+    height: 56px;
+  }
+
+  .back-button{
+    align-self: center;
+  }
+
+  .text{
+    margin: auto;
+    align-self: center;
+    font-family: 'Roboto', sans-serif;
+    font-size:18px;
+  }
+
+  .forward-button{
+    //This was added to center the text. It's lopsided without
+    width: 24px;
+  }
+}
+
