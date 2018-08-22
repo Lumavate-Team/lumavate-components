@@ -8,7 +8,7 @@ import pinchZoom from './../lumavate-carousel/pinch-zoom'
   shadow: true
 })
 
-export class LumavateCarosel {
+export class LumavateCarousel {
 
   @Event() clicked: EventEmitter
   @Element() el: HTMLElement
