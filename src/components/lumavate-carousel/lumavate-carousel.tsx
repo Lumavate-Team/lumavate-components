@@ -1,7 +1,6 @@
 import { Component, Prop, Event, EventEmitter, Element, Method, Listen } from '@stencil/core'
 import HammerJS from 'hammerjs'
-import pinchZoom from 'pinch-zoom-js'
-
+import pinchZoom from './../lumavate-carousel/pinch-zoom'
 
 @Component({
   tag: 'lumavate-carousel',
