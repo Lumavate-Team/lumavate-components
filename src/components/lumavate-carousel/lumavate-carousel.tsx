@@ -23,9 +23,10 @@ export class LumavateCarosel {
   swipeManager: any
   swipeManagerLbox: any
   zooming: boolean = false
-  sensitivity = 18 // horizontal % needed to trigger swipe
+  sensitivity = 25 // horizontal % needed to trigger swipe
   activeSlide = 0
   slideCount = 0
+  zoomOutFactor = 1.3
   timer: any
   lightboxEnabled: boolean = false
   lightbox: any
@@ -87,7 +88,7 @@ export class LumavateCarosel {
     this.pinchZoomManager = []
 
     for (i; i < this.slideCount; i++) {
-      this.pinchZoomManager.push(new pinchZoom(this.pinchZoomImages[i]), { zoomOutFactor: 1.3 })
+      this.pinchZoomManager.push(new pinchZoom(this.pinchZoomImages[i]), { zoomOutFactor: this.zoomOutFactor})
     }
     let imageContainers: any = this.el.shadowRoot.querySelectorAll('.pinch-zoom-container')
     for (i = 0; i < this.slideCount; i++) {
@@ -105,7 +106,7 @@ export class LumavateCarosel {
     this.swipeManager.on('pan', (e) => {
       if (!this.zooming) {
         //Calculate pixel movements into 1:1 screen percents so gestures track with motion
-        let percentage = 100 / this.slideCount * e.deltaX / window.innerWidth
+        let percentage = 100 / this.slideCount * e.deltaX / this.swipeContainer.parentElement.clientWidth
         //Multiply percent by # of slide we’re on
         let percentageCalculated = percentage - 100 / this.slideCount * this.activeSlide
         this.swipeContainer.style.transform = 'translateX( ' + percentageCalculated + '% )'
@@ -293,7 +294,6 @@ export class LumavateCarosel {
 
   @Listen('pz_zoomupdate')
   RemoveLightBoxUIZooming() {
-    let upperbound: number = 1.3
     let lowerbound: number = 0.97
 
     let scale3D = this.pinchZoomImages[this.activeSlide].style.transform.split(' t', 1)
@@ -302,7 +302,7 @@ export class LumavateCarosel {
     let x: number = parseFloat(scale3D[0])
     let y: number = parseFloat(scale3D[1])
 
-    if ((lowerbound < x && x <= upperbound) && (lowerbound < y && y < upperbound)) {
+    if ((lowerbound < x && x <= this.zoomOutFactor) && (lowerbound < y && y < this.zoomOutFactor)) {
       this.nextFullscreen.style.display = 'inline'
       this.previousFullscreen.style.display = 'inline'
       this.closeButton.style.display = 'inline'
@@ -310,7 +310,7 @@ export class LumavateCarosel {
       this.goTo(this.activeSlide)
     }
 
-    if ((lowerbound > x || x > upperbound) && (lowerbound > y || y > upperbound)) {
+    if ((lowerbound > x || x > this.zoomOutFactor) && (lowerbound > y || y > this.zoomOutFactor)) {
       this.nextFullscreen.style.display = 'none'
       this.previousFullscreen.style.display = 'none'
       this.closeButton.style.display = 'none'
