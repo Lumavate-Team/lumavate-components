@@ -599,7 +599,7 @@
             "type": "image-upload"
         }
     ],
-    "template": "<lumavate-carousel arrow-color=\"{{ componentData.arrowColor }}\" mode=\"{{ componentData.mode }}\" carousel-images='[{{ '{\"url\": \"' + componentData.ImageLink1.preview + '\"}' if componentData.ImageLink1 else '' }}{{ ',{\"url\": \"' + componentData.ImageLink2.preview + '\"}' if componentData.ImageLink2 else '' }}{{ ',{\"url\": \"' + componentData.ImageLink3.preview + '\"}' if componentData.ImageLink3 else '' }}{{ ',{\"url\": \"' + componentData.ImageLink4.preview + '\"}' if componentData.ImageLink4 else '' }}{{ ',{\"url\": \"' + componentData.ImageLink5.preview + '\"}' if componentData.ImageLink5 else '' }}{{ ',{\"url\": \"' + componentData.ImageLink6.preview + '\"}' if componentData.ImageLink6 else '' }}]'></lumavate-carousel>"
+    "template": "<lumavate-carousel arrow-color=\"{{ componentData.arrowColor }}\" mode=\"{{ componentData.mode }}\" carousel-images='[{% set images = ['ImageLink1','ImageLink2','ImageLink3','ImageLink4','ImageLink5','ImageLink6']%}{% for imageId in images %}{{ ',' if imageId != 'ImageLink1' and componentData[imageId] and (componentData[imageId].preview != '/iot/v1/icons/no_image_available.png')}}{{ ('{\"url\": \"' ~ componentData[imageId].preview ~ '\"}') if  componentData[imageId] and (componentData[imageId].preview != '/iot/v1/icons/no_image_available.png')}}{% endfor %}]'></lumavate-carousel>"
   },
   {
     "label":"Modal",
