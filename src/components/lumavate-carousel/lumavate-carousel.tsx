@@ -104,23 +104,28 @@ export class LumavateCarousel {
     this.swipeManagerLbox.add(new HammerJS.Pan({ threshold: 0, pointers: 0 }))
     this.swipeManager.on('pan', (e) => {
       if (!this.zooming) {
-        //Calculate pixel movements into 1:1 screen percents so gestures track with motion
-        let percentage = 100 / this.slideCount * e.deltaX / this.swipeContainer.parentElement.clientWidth
-        //Multiply percent by # of slide we’re on
-        let percentageCalculated = percentage - 100 / this.slideCount * this.activeSlide
-        this.swipeContainer.style.transform = 'translateX( ' + percentageCalculated + '% )'
-        this.determineValidSwipe(e, percentage)
+        if(this.slideCount != 1 ){
+          //Calculate pixel movements into 1:1 screen percents so gestures track with motion
+          let percentage = 100 / this.slideCount * e.deltaX / this.swipeContainer.parentElement.clientWidth
+          //Multiply percent by # of slide we’re on
+          let percentageCalculated = percentage - 100 / this.slideCount * this.activeSlide
+          this.swipeContainer.style.transform = 'translateX( ' + percentageCalculated + '% )'
+          this.determineValidSwipe(e, percentage)
+        }
       }
     })
 
     this.swipeManagerLbox.on('pan', (e) => {
       if (!this.zooming) {
-        //Calculate pixel movements into 1:1 screen percents so gestures track with motion
-        let percentage = 100 / this.slideCount * e.deltaX / window.innerWidth
-        //Multiply percent by # of slide we’re on
-        let percentageCalculated = percentage - 100 / this.slideCount * this.activeSlide
-        this.lightbox.style.transform = 'translateX( ' + percentageCalculated + '% )'
-        this.determineValidSwipe(e, percentage)
+        if(this.slideCount != 1){
+
+          //Calculate pixel movements into 1:1 screen percents so gestures track with motion
+          let percentage = 100 / this.slideCount * e.deltaX / window.innerWidth
+          //Multiply percent by # of slide we’re on
+          let percentageCalculated = percentage - 100 / this.slideCount * this.activeSlide
+          this.lightbox.style.transform = 'translateX( ' + percentageCalculated + '% )'
+          this.determineValidSwipe(e, percentage)
+        }
       }
     })
   }
@@ -173,14 +178,29 @@ export class LumavateCarousel {
 
   @Method()
   toggleLightBoxArrows() {
-    if (this.activeSlide == 0) {
+    if ((this.activeSlide == 0) && (this.slideCount != 0) ) {
       if (this.lightboxEnabled && this.zooming != true) {
-        this.previousFullscreen.style.display = 'none'
-        this.nextFullscreen.style.display = 'inline'
+        if(this.slideCount == 1){
+          this.previousFullscreen.style.display = 'none'
+          this.nextFullscreen.style.display = 'none'
+        }else{
+          this.previousFullscreen.style.display = 'none'
+          this.nextFullscreen.style.display = 'inline'
+        }
       } else {
-        this.previous.style.display = 'none'
-        this.next.style.display = 'inline'
+        if(this.slideCount == 1){
+          this.previous.style.display = 'none'
+          this.next.style.display = 'none'
+        }else{
+          this.previous.style.display = 'none'
+          this.next.style.display = 'inline'
+        }
       }
+    } else if(this.slideCount == 0){
+      this.previous.style.display = 'none'
+      this.next.style.display = 'none'
+      this.previousFullscreen.style.display = 'none'
+      this.nextFullscreen.style.display = 'none'
     } else if (this.activeSlide == this.slideCount - 1 && this.zooming != true) {
       if (this.lightboxEnabled) {
         this.previousFullscreen.style.display = 'inline'
@@ -189,8 +209,7 @@ export class LumavateCarousel {
         this.previous.style.display = 'inline'
         this.next.style.display = 'none'
       }
-    }
-    else {
+    } else {
       if (this.lightboxEnabled && (this.activeSlide != 0 && this.activeSlide != this.slideCount - 1) && (this.zooming != true)) {
         this.previousFullscreen.style.display = 'inline'
         this.nextFullscreen.style.display = 'inline'
@@ -204,7 +223,7 @@ export class LumavateCarousel {
   @Method()
   updateDots() {
     let i
-    if(this.displayDots){
+    if(this.displayDots && this.slideCount != 0){
       for (i = 0; i < this.slideCount; i++) {
         this.dots[i].className = this.dots[i].className.replace('active', '')
       }
@@ -221,7 +240,12 @@ export class LumavateCarousel {
   updateCurrentSlideCounter(){
     if(this.lightboxEnabled){
       this.currentSlideCounter.style.display = 'flex'
-      this.currentSlideCounter.innerText = (this.activeSlide + 1) + "/" + this.slideCount
+      if(this.slideCount != 0){
+        this.currentSlideCounter.innerText = (this.activeSlide + 1) + "/" + this.slideCount
+      }else{
+        this.currentSlideCounter.innerText = "0/0"
+      }
+
     }else{
       this.currentSlideCounter.style.display = 'none'
     }
