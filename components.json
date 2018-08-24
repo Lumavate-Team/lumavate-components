@@ -639,46 +639,4 @@
     ],
     "template": "<lumavate-header font-color=\"{{ componentData.fontColor }}\" background-color=\"{{ componentData.backgroundColor }}\" show-back-button=\"{{ componentData.showBackButton|lower }}\" text=\"{{ componentData.text }}\"></lumavate-header>"
   }
-  {
-    "label": "Map",
-    "icon": "/assets/map.svg",
-    "tags": ["body"],
-    "type":"Map",
-    "properties": [
-      {
-        "classification": null,
-        "helpText": null,
-        "label": "Address",
-        "name": "address",
-        "options": {
-
-        },
-        "section": null,
-        "type": "text"
-      },
-      {
-        "classification": null,
-        "helpText": null,
-        "label": "Google Maps Embed API Key",
-        "name": "key",
-        "options": {
-
-        },
-        "section": null,
-        "type": "text"
-      },
-      {
-        "classification": null,
-        "helpText": null,
-        "label": "Map Zoom",
-        "name": "zoom",
-        "options": {
-
-        },
-        "section": null,
-        "type": "text"
-      }
-    ],
-    "template": "<air-map address=\"{{ componentData.address }}\" key=\"{{ componentData.key }}\" zoom=\"{{ componentData.zoom }}\"></air-map>"
-  }
 ]
