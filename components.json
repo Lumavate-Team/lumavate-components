@@ -641,7 +641,7 @@
   }
   {
     "label": "Map",
-    "icon": "/assets/image.svg",
+    "icon": "/assets/map.svg",
     "tags": ["body"],
     "type":"Map",
     "properties": [
