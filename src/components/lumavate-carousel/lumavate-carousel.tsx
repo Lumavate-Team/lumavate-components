@@ -372,7 +372,7 @@ export class LumavateCarousel {
         <a class="previous_fullscreen" onClick={() => this.previousLightBox(1)}>&#10094;</a>
         <a class="next_fullscreen" onClick={() => this.nextLightBox(1)}>&#10095;</a>
         <div class='currentSlideDisplay'/>
-        <span class="close material-icons" onClick={() => this.closeLightBox()}>fullscreen_exit</span>
+        <a class="close material-icons" onClick={() => this.closeLightBox()}>fullscreen_exit</a>
         <div class='wrapper'/>
 
         <div class='lightbox'>
