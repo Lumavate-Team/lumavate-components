@@ -73,7 +73,10 @@
     z-index: 99;
   }
   .is-animating{
-    transition: transform 400ms cubic-bezier( 0.5, 0, 0.5, 1 );
+    -webkit-transition: -webkit-transform 400ms cubic-bezier( 0.55, 0, 0.45, 1 );
+    -moz-transition: -moz-transform 400ms cubic-bezier( 0.55, 0, 0.45, 1 );
+    -ms-transition: -ms-transform 400ms cubic-bezier( 0.55, 0, 0.45, 1 );
+    transition: transform 400ms cubic-bezier( 0.55, 0, 0.45, 1 );
   }
   .pzcontainer{
     height: 100% !important;
