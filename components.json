@@ -528,7 +528,7 @@
             "label": "Arrow Color",
             "name": "arrowColor",
             "options": {},
-            "section": "",
+            "section": null,
             "type": "color"
         },
         {
