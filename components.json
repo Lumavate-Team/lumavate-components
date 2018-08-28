@@ -528,7 +528,7 @@
             "label": "Arrow Color",
             "name": "arrowColor",
             "options": {},
-            "section": "UI Color",
+            "section": "",
             "type": "color"
         },
         {
@@ -543,6 +543,18 @@
             },
             "section": null,
             "type": "dropdown"
+        },
+        {
+          "classification": null,
+          "default": true,
+          "helpText": null,
+          "label": "Display Dots",
+          "name": "displayDots",
+          "options": {
+
+          },
+          "section": null,
+          "type": "toggle"
         },
         {
             "classification": null,
