@@ -550,7 +550,7 @@
             "label": "Image Link",
             "name": "ImageLink1",
             "options": {},
-            "section": "Images",
+            "section": "Carousel Images",
             "type": "image-upload"
         },
         {
@@ -559,7 +559,7 @@
             "label": "Image Link",
             "name": "ImageLink2",
             "options": {},
-            "section": "Images",
+            "section": "Carousel Images",
             "type": "image-upload"
         },
         {
@@ -568,7 +568,7 @@
             "label": "Image Link",
             "name": "ImageLink3",
             "options": {},
-            "section": "Images",
+            "section": "Carousel Images",
             "type": "image-upload"
         },
         {
@@ -577,7 +577,7 @@
             "label": "Image Link",
             "name": "ImageLink4",
             "options": {},
-            "section": "Images",
+            "section": "Carousel Images",
             "type": "image-upload"
         },
         {
@@ -586,7 +586,7 @@
             "label": "Image Link",
             "name": "ImageLink5",
             "options": {},
-            "section": "Images",
+            "section": "Carousel Images",
             "type": "image-upload"
         },
         {
@@ -595,7 +595,7 @@
             "label": "Image Link",
             "name": "ImageLink6",
             "options": {},
-            "section": "Images",
+            "section": "Carousel Images",
             "type": "image-upload"
         }
     ],
