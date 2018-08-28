@@ -40,6 +40,8 @@ export class LumavateCarousel {
   dots: any
   pinchZoomImages: any
   currentSlideCounter:any
+  swipeContainerImages: any
+  loaded: boolean = false
 
   componentWillLoad() {
     this.images = JSON.parse(this.CarouselImages)
@@ -57,10 +59,12 @@ export class LumavateCarousel {
     this.updateDots()
     this.updateCurrentSlideCounter()
     this.setUIColor(this.arrowColor)
+    this.setSwipeContainerHeight()
 
     this.lightbox.style.display = 'none'
     this.wrapper.style.display = 'none'
     this.closeButton.style.display = 'none'
+    this.loaded = true
   }
 
   @Method()
@@ -78,6 +82,18 @@ export class LumavateCarousel {
 
     this.dots = this.el.shadowRoot.querySelectorAll(".dot")
     this.pinchZoomImages = this.el.shadowRoot.querySelectorAll('.pinchzoom')
+    this.swipeContainerImages = this.el.shadowRoot.querySelectorAll('.swipecontainerimages')
+
+  }
+
+  @Method()
+  setSwipeContainerHeight(){
+    //THIS IS A BUGFIX FOR OLD IPHONES
+    let height = this.swipeContainer.scrollHeight
+    let i
+    for (i = 0; i < this.slideCount; i++) {
+      this.swipeContainerImages[i].shadowRoot.childNodes[1].style.height = height + 'px'
+    }
   }
 
   @Method()
@@ -315,6 +331,13 @@ export class LumavateCarousel {
     this.currentSlideCounter.style.color = color
   }
 
+  @Listen('window:devicemotion')
+  updateSwipeContainerHeight(){
+    if(this.loaded){
+      this.setSwipeContainerHeight()
+    }
+  }
+
   @Listen('pz_zoomupdate')
   RemoveLightBoxUIZooming() {
     let lowerbound: number = 0.97
@@ -351,6 +374,7 @@ export class LumavateCarousel {
           {this.images.map((item) =>
             <div class="carouselImage" >
               <lumavate-image
+                class="swipecontainerimages"
                 src={item.url}
                 mode={this.mode}>
               </lumavate-image>

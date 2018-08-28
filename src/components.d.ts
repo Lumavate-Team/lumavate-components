@@ -43,6 +43,7 @@ declare global {
       'nextSlide': (n: any) => void;
       'previousLightBox': (n: any) => void;
       'previousSlide': (n: any) => void;
+      'setSwipeContainerHeight': () => void;
       'setUIColor': (color: any) => void;
       'toggleLightBoxArrows': () => void;
       'toggleLightboxCSS': () => void;
@@ -275,6 +276,43 @@ declare global {
       'CardLink'?: string;
       'ImageScaling'?: string;
       'ImageSource'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface LumavateMap {
+      'address': string;
+      'key': string;
+      'zoom': string;
+    }
+  }
+
+  interface HTMLLumavateMapElement extends StencilComponents.LumavateMap, HTMLStencilElement {}
+
+  var HTMLLumavateMapElement: {
+    prototype: HTMLLumavateMapElement;
+    new (): HTMLLumavateMapElement;
+  };
+  interface HTMLElementTagNameMap {
+    'lumavate-map': HTMLLumavateMapElement;
+  }
+  interface ElementTagNameMap {
+    'lumavate-map': HTMLLumavateMapElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'lumavate-map': JSXElements.LumavateMapAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateMapAttributes extends HTMLAttributes {
+      'address'?: string;
+      'key'?: string;
+      'zoom'?: string;
     }
   }
 }
