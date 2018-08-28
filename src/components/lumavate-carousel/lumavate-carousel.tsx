@@ -1,5 +1,5 @@
 import { Component, Prop, Event, EventEmitter, Element, Method, Listen } from '@stencil/core'
-import HammerJS from 'hammerjs'
+import HammerJS from 'hammerjs' //v2.0.8
 import pinchZoom from './../lumavate-carousel/pinch-zoom'
 
 @Component({
@@ -39,7 +39,7 @@ export class LumavateCarousel {
   previousFullscreen: any
   dots: any
   pinchZoomImages: any
-  currentSlideCounter:any
+  currentSlideCounter: any
   swipeContainerImages: any
   loaded: boolean = false
 
@@ -87,7 +87,7 @@ export class LumavateCarousel {
   }
 
   @Method()
-  setSwipeContainerHeight(){
+  setSwipeContainerHeight() {
     //THIS IS A BUGFIX FOR OLD IPHONES
     let height = this.swipeContainer.scrollHeight
     let i
@@ -99,11 +99,11 @@ export class LumavateCarousel {
   @Method()
   initPinchZoom() {
     let i = 0
-   
+
     this.pinchZoomManager = []
 
     for (i; i < this.slideCount; i++) {
-      this.pinchZoomManager.push(new pinchZoom(this.pinchZoomImages[i]), { zoomOutFactor: this.zoomOutFactor})
+      this.pinchZoomManager.push(new pinchZoom(this.pinchZoomImages[i]), { zoomOutFactor: this.zoomOutFactor })
     }
     let imageContainers: any = this.el.shadowRoot.querySelectorAll('.pinch-zoom-container')
     for (i = 0; i < this.slideCount; i++) {
@@ -114,26 +114,29 @@ export class LumavateCarousel {
 
   @Method()
   initSwipe() {
-    this.swipeManager = new HammerJS.Manager(this.swipeContainer)
+    this.swipeManager = new HammerJS.Manager(this.swipeContainer, { touchAction: 'pan-y' })
     this.swipeManagerLbox = new HammerJS.Manager(this.lightbox)
     this.swipeManager.add(new HammerJS.Pan({ threshold: 0, pointers: 0 }))
     this.swipeManagerLbox.add(new HammerJS.Pan({ threshold: 0, pointers: 0 }))
     this.swipeManager.on('pan', (e) => {
       if (!this.zooming) {
-        if(this.slideCount != 1 ){
+        if (this.slideCount != 1) {
           //Calculate pixel movements into 1:1 screen percents so gestures track with motion
           let percentage = 100 / this.slideCount * e.deltaX / this.swipeContainer.parentElement.clientWidth
           //Multiply percent by # of slide we’re on
           let percentageCalculated = percentage - 100 / this.slideCount * this.activeSlide
-          this.swipeContainer.style.transform = 'translateX( ' + percentageCalculated + '% )'
+          if (this.notVerticallyScrolling(e.deltaY)) {
+            this.swipeContainer.style.transform = 'translateX( ' + percentageCalculated + '% )'
+          }
           this.determineValidSwipe(e, percentage)
+          this.checkForImageOverlap(e)
         }
       }
     })
 
     this.swipeManagerLbox.on('pan', (e) => {
       if (!this.zooming) {
-        if(this.slideCount != 1){
+        if (this.slideCount != 1) {
 
           //Calculate pixel movements into 1:1 screen percents so gestures track with motion
           let percentage = 100 / this.slideCount * e.deltaX / window.innerWidth
@@ -146,6 +149,15 @@ export class LumavateCarousel {
     })
   }
 
+  checkForImageOverlap(e) {
+    //sometimes a little bit of an adjacent image is showing so this makes sure
+    //the carousel is always current active slide
+    if (!this.notVerticallyScrolling(e.deltaY) && e.isFinal == true) {
+      this.goTo(this.activeSlide)
+      console.log(e)
+    }
+  }
+
   @Method()
   determineValidSwipe(e, percentage) {
     if (e.isFinal) {
@@ -154,13 +166,25 @@ export class LumavateCarousel {
       } else if (e.velocityX < -1) {
         this.goTo(this.activeSlide + 1)
       } else {
-        if (percentage <= -(this.sensitivity / this.slideCount))
-          this.goTo(this.activeSlide + 1)
+        if (percentage <= -(this.sensitivity / this.slideCount)) {
+          if (this.notVerticallyScrolling(e.deltaY)) {
+            this.goTo(this.activeSlide + 1)
+          }
+        }
         else if (percentage >= (this.sensitivity / this.slideCount))
           this.goTo(this.activeSlide - 1)
         else
           this.goTo(this.activeSlide)
       }
+    }
+  }
+
+  @Method()
+  notVerticallyScrolling(deltaY) {
+    if ((deltaY < -50 ) || (deltaY > 50)) {
+      return false
+    } else {
+      return true
     }
   }
 
@@ -194,25 +218,25 @@ export class LumavateCarousel {
 
   @Method()
   toggleLightBoxArrows() {
-    if ((this.activeSlide == 0) && (this.slideCount != 0) ) {
+    if ((this.activeSlide == 0) && (this.slideCount != 0)) {
       if (this.lightboxEnabled && this.zooming != true) {
-        if(this.slideCount == 1){
+        if (this.slideCount == 1) {
           this.previousFullscreen.style.display = 'none'
           this.nextFullscreen.style.display = 'none'
-        }else{
+        } else {
           this.previousFullscreen.style.display = 'none'
           this.nextFullscreen.style.display = 'inline'
         }
       } else {
-        if(this.slideCount == 1){
+        if (this.slideCount == 1) {
           this.previous.style.display = 'none'
           this.next.style.display = 'none'
-        }else{
+        } else {
           this.previous.style.display = 'none'
           this.next.style.display = 'inline'
         }
       }
-    } else if(this.slideCount == 0){
+    } else if (this.slideCount == 0) {
       this.previous.style.display = 'none'
       this.next.style.display = 'none'
       this.previousFullscreen.style.display = 'none'
@@ -239,12 +263,12 @@ export class LumavateCarousel {
   @Method()
   updateDots() {
     let i
-    if(this.displayDots && this.slideCount != 0){
+    if (this.displayDots && this.slideCount != 0) {
       for (i = 0; i < this.slideCount; i++) {
         this.dots[i].className = this.dots[i].className.replace('active', '')
       }
       this.dots[this.activeSlide].className += ' active'
-    }else{
+    } else {
       for (i = 0; i < this.slideCount; i++) {
         this.dots[i].style.display = 'none'
       }
@@ -253,16 +277,16 @@ export class LumavateCarousel {
   }
 
   @Method()
-  updateCurrentSlideCounter(){
-    if(this.lightboxEnabled){
+  updateCurrentSlideCounter() {
+    if (this.lightboxEnabled) {
       this.currentSlideCounter.style.display = 'flex'
-      if(this.slideCount != 0){
+      if (this.slideCount != 0) {
         this.currentSlideCounter.innerText = (this.activeSlide + 1) + "/" + this.slideCount
-      }else{
+      } else {
         this.currentSlideCounter.innerText = "0/0"
       }
 
-    }else{
+    } else {
       this.currentSlideCounter.style.display = 'none'
     }
   }
@@ -304,13 +328,13 @@ export class LumavateCarousel {
   }
 
   @Method()
-  toggleLightboxCSS(){
-    if(this.lightboxEnabled){
+  toggleLightboxCSS() {
+    if (this.lightboxEnabled) {
       this.lightbox.style.display = 'flex'
       this.wrapper.style.display = 'inline'
       this.closeButton.style.display = 'inline'
       this.expandButton.style.display = 'none'
-    }else{
+    } else {
       this.lightbox.style.display = 'none'
       this.wrapper.style.display = 'none'
       this.nextFullscreen.style.display = 'none'
@@ -321,7 +345,7 @@ export class LumavateCarousel {
   }
 
   @Method()
-  setUIColor(color){
+  setUIColor(color) {
     this.closeButton.style.color = color
     this.expandButton.style.color = color
     this.nextFullscreen.style.color = color
@@ -332,8 +356,8 @@ export class LumavateCarousel {
   }
 
   @Listen('window:devicemotion')
-  updateSwipeContainerHeight(){
-    if(this.loaded){
+  updateSwipeContainerHeight() {
+    if (this.loaded) {
       this.setSwipeContainerHeight()
     }
   }
@@ -368,7 +392,7 @@ export class LumavateCarousel {
   render() {
     return (
       <div class="slideshow-container" style={{ width: "100%", height: "100%" }}>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
         <div class='swipecontainer'>
           {this.images.map((item) =>
@@ -387,7 +411,7 @@ export class LumavateCarousel {
 
         <div class="dot-container">
           {this.images.map((_, index) =>
-            <span class="dot" onClick={() => this.goTo(index)}/>
+            <span class="dot" onClick={() => this.goTo(index)} />
           )}
         </div>
 
@@ -395,9 +419,9 @@ export class LumavateCarousel {
 
         <a class="previous_fullscreen" onClick={() => this.previousLightBox(1)}>&#10094;</a>
         <a class="next_fullscreen" onClick={() => this.nextLightBox(1)}>&#10095;</a>
-        <div class='currentSlideDisplay'/>
+        <div class='currentSlideDisplay' />
         <a class="close material-icons" onClick={() => this.closeLightBox()}>fullscreen_exit</a>
-        <div class='wrapper'/>
+        <div class='wrapper' />
 
         <div class='lightbox'>
           {this.images.map((item) =>

@@ -41,6 +41,7 @@ declare global {
       'mode': string;
       'nextLightBox': (n: any) => void;
       'nextSlide': (n: any) => void;
+      'notVerticallyScrolling': (deltaY: any) => boolean;
       'previousLightBox': (n: any) => void;
       'previousSlide': (n: any) => void;
       'setSwipeContainerHeight': () => void;
