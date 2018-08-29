@@ -142,10 +142,10 @@
 
         },
         "section": null,
-        "type": "text"
+        "type": "page-link"
       }
     ],
-    "template": "<lumavate-large-nav-card caption=\"{{ componentData.caption|lower }}\" caption-text=\"{{ componentData.captionText }}\" caption-text-color=\"{{ componentData.captionTextColor }}\" caption-background-color=\"{{ componentData.captionBackgroundColor }}\" card-color=\"{{ componentData.cardColor }}\" card-image=\"{{ componentData.cardImage|lower }}\" image-source=\"{{ componentData.imageSource.previewMedium }}\" image-scaling=\"{{ componentData.imageScaling }}\" card-link=\"{{ componentData.cardLink }}\"></lumavate-large-nav-card>"
+    "template": "<lumavate-large-nav-card caption=\"{{ componentData.caption|lower }}\" caption-text=\"{{ componentData.captionText }}\" caption-text-color=\"{{ componentData.captionTextColor }}\" caption-background-color=\"{{ componentData.captionBackgroundColor }}\" card-color=\"{{ componentData.cardColor }}\" card-image=\"{{ componentData.cardImage|lower }}\" image-source=\"{{ componentData.imageSource.previewMedium }}\" image-scaling=\"{{ componentData.imageScaling }}\" card-link=\"{{ componentData.cardLink.url }}\"></lumavate-large-nav-card>"
   },
   {
     "label": "Nav-Bar",
@@ -510,10 +510,10 @@
 
         },
         "section": null,
-        "type": "text"
+        "type": "page-link"
       }
     ],
-    "template": "<lumavate-small-nav-card sub-title=\"{{ componentData.subTitle|lower }}\" sub-title-text=\"{{ componentData.subTitleText }}\" title-text=\"{{ componentData.titleText }}\" title-text-color=\"{{ componentData.titleTextColor }}\" card-color=\"{{ componentData.cardColor }}\" card-image=\"{{ componentData.cardImage|lower }}\" image-source=\"{{ componentData.imageSource.previewMedium }}\" image-scaling=\"{{ componentData.imageScaling }}\" card-link=\"{{ componentData.cardLink }}\"></lumavate-small-nav-card>"
+    "template": "<lumavate-small-nav-card sub-title=\"{{ componentData.subTitle|lower }}\" sub-title-text=\"{{ componentData.subTitleText }}\" title-text=\"{{ componentData.titleText }}\" title-text-color=\"{{ componentData.titleTextColor }}\" card-color=\"{{ componentData.cardColor }}\" card-image=\"{{ componentData.cardImage|lower }}\" image-source=\"{{ componentData.imageSource.previewMedium }}\" image-scaling=\"{{ componentData.imageScaling }}\" card-link=\"{{ componentData.cardLink.url }}\"></lumavate-small-nav-card>"
   },
   {
     "label": "Carousel",
