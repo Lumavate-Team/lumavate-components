@@ -2,6 +2,7 @@ import { Component, Prop, Event, EventEmitter, Element, Method, Listen } from '@
 import HammerJS from 'hammerjs' //v2.0.8
 import pinchZoom from './../lumavate-carousel/pinch-zoom'
 
+
 @Component({
   tag: 'lumavate-carousel',
   styleUrl: 'lumavate-carousel.scss',
@@ -103,8 +104,10 @@ export class LumavateCarousel {
     this.pinchZoomManager = []
 
     for (i; i < this.slideCount; i++) {
-      this.pinchZoomManager.push(new pinchZoom(this.pinchZoomImages[i]), { zoomOutFactor: this.zoomOutFactor })
+      this.pinchZoomManager.push(new pinchZoom(this.pinchZoomImages[i], { zoomOutFactor: this.zoomOutFactor }))
     }
+    console.log(this.pinchZoomManager)
+
     let imageContainers: any = this.el.shadowRoot.querySelectorAll('.pinch-zoom-container')
     for (i = 0; i < this.slideCount; i++) {
       imageContainers[i].style.height = ''
@@ -154,7 +157,6 @@ export class LumavateCarousel {
     //the carousel is always current active slide
     if (!this.notVerticallyScrolling(e.deltaY) && e.isFinal == true) {
       this.goTo(this.activeSlide)
-      console.log(e)
     }
   }
 
@@ -190,6 +192,9 @@ export class LumavateCarousel {
 
   @Method()
   goTo(number) {
+    let previousSlide = this.activeSlide
+    console.log(previousSlide)
+    this.pinchZoomManager[previousSlide].disable()
     if (number < 0)
       this.activeSlide = 0
     else if (number > this.slideCount - 1)
@@ -214,6 +219,7 @@ export class LumavateCarousel {
     this.toggleLightBoxArrows()
     this.updateDots()
     this.updateCurrentSlideCounter()
+    this.pinchZoomManager[previousSlide].enable()
   }
 
   @Method()
@@ -293,23 +299,31 @@ export class LumavateCarousel {
 
   @Method()
   nextSlide(n) {
-    this.goTo(this.activeSlide += n)
+    let temp = this.activeSlide + n
+    this.goTo(temp)
   }
 
   @Method()
   previousSlide(n) {
-    this.goTo(this.activeSlide -= n)
+    let temp = this.activeSlide - n
+    this.goTo(temp)
   }
 
 
   @Method()
   nextLightBox(n) {
-    this.goTo(this.activeSlide += n)
+    if (!this.zooming) {
+      let temp = this.activeSlide + n
+      this.goTo(temp)
+    }
   }
 
   @Method()
   previousLightBox(n) {
-    this.goTo(this.activeSlide -= n)
+    if (!this.zooming) {
+      let temp = this.activeSlide - n
+      this.goTo(temp)
+    }
   }
 
   @Method()
@@ -362,9 +376,29 @@ export class LumavateCarousel {
     }
   }
 
+  @Listen('pz_zoomstart')
+  zoomstart() {
+    this.zooming = true
+  }
+
+  @Listen('pz_dragend')
+  dragend() {
+    this.RemoveLightBoxUIZooming()
+  }
+
+  @Listen('pz_doubletap')
+  doubletap() {
+    if (this.zooming) {
+      this.zooming = false
+    } else {
+      this.zooming = true
+    }
+  }
+
   @Listen('pz_zoomupdate')
   RemoveLightBoxUIZooming() {
     let lowerbound: number = 0.97
+    let upperbound: number = 1.08
 
     let scale3D = this.pinchZoomImages[this.activeSlide].style.transform.split(' t', 1)
     scale3D = scale3D[0].slice(8, -1)
@@ -372,19 +406,19 @@ export class LumavateCarousel {
     let x: number = parseFloat(scale3D[0])
     let y: number = parseFloat(scale3D[1])
 
-    if ((lowerbound < x && x <= this.zoomOutFactor) && (lowerbound < y && y < this.zoomOutFactor)) {
+    if ((lowerbound < x && x <= upperbound) && (lowerbound < y && y < upperbound)) {
+      this.zooming = false
       this.nextFullscreen.style.display = 'inline'
       this.previousFullscreen.style.display = 'inline'
       this.closeButton.style.display = 'inline'
-      this.zooming = false
       this.goTo(this.activeSlide)
     }
 
-    if ((lowerbound > x || x > this.zoomOutFactor) && (lowerbound > y || y > this.zoomOutFactor)) {
+    if ((lowerbound > x || x > upperbound) && (lowerbound > y || y > upperbound)) {
+      this.zooming = true
       this.nextFullscreen.style.display = 'none'
       this.previousFullscreen.style.display = 'none'
       this.closeButton.style.display = 'none'
-      this.zooming = true
       this.goTo(this.activeSlide)
     }
   }
