@@ -617,7 +617,7 @@
             "type": "image-upload"
         }
     ],
-    "template": "<lumavate-carousel arrow-color=\"{{ componentData.arrowColor }}\" mode=\"{{ componentData.mode }}\" carousel-images='[{% set images = ['ImageLink1','ImageLink2','ImageLink3','ImageLink4','ImageLink5','ImageLink6']%}{% for imageId in images %}{{ ',' if imageId != 'ImageLink1' and componentData[imageId] and (componentData[imageId].preview != '/iot/v1/icons/no_image_available.png')}}{{ ('{\"url\": \"' ~ componentData[imageId].preview ~ '\"}') if  componentData[imageId] and (componentData[imageId].preview != '/iot/v1/icons/no_image_available.png')}}{% endfor %}]'></lumavate-carousel>"
+    "template": "<lumavate-carousel display-dots=\"{{ componentData.displayDots|lower }}\" arrow-color=\"{{ componentData.arrowColor }}\" mode=\"{{ componentData.mode }}\" carousel-images='[{% set images = ['ImageLink1','ImageLink2','ImageLink3','ImageLink4','ImageLink5','ImageLink6']%}{% for imageId in images %}{{ ',' if imageId != 'ImageLink1' and componentData[imageId] and (componentData[imageId].preview != '/iot/v1/icons/no_image_available.png')}}{{ ('{\"url\": \"' ~ componentData[imageId].preview ~ '\"}') if  componentData[imageId] and (componentData[imageId].preview != '/iot/v1/icons/no_image_available.png')}}{% endfor %}]'></lumavate-carousel>"
   },
   {
     "label":"Modal",
