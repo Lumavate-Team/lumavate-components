@@ -1,6 +1,7 @@
 [
   {
     "label": "Image",
+    "section":"Base Components (v{{version}})",
     "icon": "/assets/image.svg",
     "tags": ["body"],
     "type":"Image",
@@ -32,6 +33,7 @@
   },
   {
     "label": "Large-Nav-Card",
+    "section":"Base Components (v{{version}})",
     "icon": "/assets/largenav.svg",
     "tags": ["body"],
     "type":"Large-Nav-Card",
@@ -149,6 +151,7 @@
   },
   {
     "label": "Nav-Bar",
+    "section":"Base Components (v{{version}})",
     "icon": "a",
     "tags": ["footer"],
     "type":"Nav-Bar",
@@ -319,6 +322,7 @@
   },
   {
     "label": "Quote",
+    "section":"Base Components (v{{version}})",
     "icon":"/assets/quote.svg",
     "tags": ["body"],
     "type":"Quote",
@@ -400,6 +404,7 @@
   },
   {
     "label": "Small-Nav-Card",
+    "section":"Base Components (v{{version}})",
     "icon": "/assets/smallnav.svg",
     "tags": ["body"],
     "type":"Small-Nav-Card",
@@ -517,6 +522,7 @@
   },
   {
     "label": "Carousel",
+    "section":"Base Components (v{{version}})",
     "icon": "/assets/carousel.svg",
     "tags": ["body"],
     "type": "Carousel",
@@ -615,6 +621,7 @@
   },
   {
     "label":"Modal",
+    "section":"Base Components (v{{version}})",
     "icon":"/assets/modal.svg",
     "tags":["modal"],
     "type":"Modal",
@@ -636,6 +643,7 @@
   },
   {
     "label": "Header",
+    "section":"Base Components (v{{version}})",
     "icon":"/assets/header.svg",
     "tags": ["header"],
     "type":"Header",
@@ -693,6 +701,7 @@
   },
   {
     "label": "Map",
+    "section":"Base Components (v{{version}})",
     "icon": "/assets/map.svg",
     "tags": ["body"],
     "type":"Map",
