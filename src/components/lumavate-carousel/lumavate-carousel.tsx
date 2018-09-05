@@ -106,7 +106,6 @@ export class LumavateCarousel {
     for (i; i < this.slideCount; i++) {
       this.pinchZoomManager.push(new pinchZoom(this.pinchZoomImages[i], { zoomOutFactor: this.zoomOutFactor }))
     }
-    console.log(this.pinchZoomManager)
 
     let imageContainers: any = this.el.shadowRoot.querySelectorAll('.pinch-zoom-container')
     for (i = 0; i < this.slideCount; i++) {
@@ -193,7 +192,6 @@ export class LumavateCarousel {
   @Method()
   goTo(number) {
     let previousSlide = this.activeSlide
-    console.log(previousSlide)
     this.pinchZoomManager[previousSlide].disable()
     if (number < 0)
       this.activeSlide = 0
@@ -205,7 +203,6 @@ export class LumavateCarousel {
     // 5b. Apply transformation & smoothly animate via .is-animating CSS
     this.swipeContainer.classList.add('is-animating')
     this.lightbox.classList.add('is-animating')
-    // console.log(this.swipeEL.classList)
     var percentage = -(100 / this.slideCount) * this.activeSlide
     this.swipeContainer.style.transform = 'translateX( ' + percentage + '% )'
     this.lightbox.style.transform = 'translateX( ' + percentage + '% )'
