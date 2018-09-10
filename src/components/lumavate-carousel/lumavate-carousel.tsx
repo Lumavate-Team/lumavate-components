@@ -43,6 +43,7 @@ export class LumavateCarousel {
   currentSlideCounter: any
   swipeContainerImages: any
   loaded: boolean = false
+  originalCarouselImages: any
 
   componentWillLoad() {
     this.images = JSON.parse(this.CarouselImages)
@@ -66,6 +67,17 @@ export class LumavateCarousel {
     this.wrapper.style.display = 'none'
     this.closeButton.style.display = 'none'
     this.loaded = true
+    this.originalCarouselImages = this.CarouselImages
+  }
+
+  componentWillUpdate() {
+    if (this.originalCarouselImages != this.CarouselImages) {
+      this.images = JSON.parse(this.CarouselImages)
+      this.slideCount = this.images.length
+      this.swipeContainer.style.width = 100 * this.slideCount + '%'
+      this.lightbox.style.width = 100 * this.slideCount + '%'
+      this.originalCarouselImages = this.CarouselImages
+    }
   }
 
   @Method()
