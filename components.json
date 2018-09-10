@@ -563,6 +563,18 @@
           "type": "toggle"
         },
         {
+          "classification": null,
+          "default": false,
+          "helpText": null,
+          "label": "Lower Lightbox Icons",
+          "name": "lowerLightboxIcons",
+          "options": {
+
+          },
+          "section": null,
+          "type": "toggle"
+        },
+        {
             "classification": null,
             "helpText": null,
             "label": "Image Link",
@@ -617,7 +629,7 @@
             "type": "image-upload"
         }
     ],
-    "template": "<lumavate-carousel display-dots=\"{{ componentData.displayDots|lower }}\" arrow-color=\"{{ componentData.arrowColor }}\" mode=\"{{ componentData.mode }}\" carousel-images='[{% set images = ['ImageLink1','ImageLink2','ImageLink3','ImageLink4','ImageLink5','ImageLink6']%}{% for imageId in images %}{{ ',' if imageId != 'ImageLink1' and componentData[imageId] and (componentData[imageId].preview != '/iot/v1/icons/no_image_available.png')}}{{ ('{\"url\": \"' ~ componentData[imageId].preview ~ '\"}') if  componentData[imageId] and (componentData[imageId].preview != '/iot/v1/icons/no_image_available.png')}}{% endfor %}]'></lumavate-carousel>"
+    "template": "<lumavate-carousel lower-lightbox-icons=\"{{ componentData.lowerLightboxIcons|lower }}\"  display-dots=\"{{ componentData.displayDots|lower }}\" arrow-color=\"{{ componentData.arrowColor }}\" mode=\"{{ componentData.mode }}\" carousel-images='[{% set images = ['ImageLink1','ImageLink2','ImageLink3','ImageLink4','ImageLink5','ImageLink6']%}{% for imageId in images %}{{ ',' if imageId != 'ImageLink1' and componentData[imageId] and (componentData[imageId].preview != '/iot/v1/icons/no_image_available.png')}}{{ ('{\"url\": \"' ~ componentData[imageId].preview ~ '\"}') if  componentData[imageId] and (componentData[imageId].preview != '/iot/v1/icons/no_image_available.png')}}{% endfor %}]'></lumavate-carousel>"
   },
   {
     "label":"Modal",

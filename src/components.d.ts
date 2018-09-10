@@ -31,6 +31,7 @@ declare global {
       'arrowColor': string;
       'carouselImages': string;
       'displayDots': boolean;
+      'lowerLightboxIcons': boolean;
       'mode': string;
     }
   }
@@ -57,6 +58,7 @@ declare global {
       'arrowColor'?: string;
       'carouselImages'?: string;
       'displayDots'?: boolean;
+      'lowerLightboxIcons'?: boolean;
       'mode'?: string;
       'onClicked'?: (event: CustomEvent) => void;
     }

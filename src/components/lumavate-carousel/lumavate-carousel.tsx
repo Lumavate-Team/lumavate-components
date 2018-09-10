@@ -17,6 +17,7 @@ export class LumavateCarousel {
   @Prop() mode: string = 'cover'
   @Prop() arrowColor: string = 'white'
   @Prop() displayDots: boolean = true
+  @Prop() lowerLightboxIcons: boolean = true
 
   images: Array<any>
   pinchZoomManager: any
@@ -62,6 +63,7 @@ export class LumavateCarousel {
     this.updateCurrentSlideCounter()
     this.setUIColor(this.arrowColor)
     this.setSwipeContainerHeight()
+    this.lowerLightboxIconHeight()
 
     this.lightbox.style.display = 'none'
     this.wrapper.style.display = 'none'
@@ -96,6 +98,13 @@ export class LumavateCarousel {
     this.pinchZoomImages = this.el.shadowRoot.querySelectorAll('.pinchzoom')
     this.swipeContainerImages = this.el.shadowRoot.querySelectorAll('.swipecontainerimages')
 
+  }
+
+  lowerLightboxIconHeight(){
+    if(this.lowerLightboxIcons){
+      this.closeButton.style.top = '72px'
+      this.currentSlideCounter.style.top = '79px'
+    }
   }
 
   setSwipeContainerHeight() {
