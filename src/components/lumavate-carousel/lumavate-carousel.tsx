@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, Element, Method, Listen } from '@stencil/core'
+import { Component, Prop, Event, EventEmitter, Element, Listen } from '@stencil/core'
 import HammerJS from 'hammerjs' //v2.0.8
 import pinchZoom from './../lumavate-carousel/pinch-zoom'
 
@@ -80,7 +80,6 @@ export class LumavateCarousel {
     }
   }
 
-  @Method()
   initHtmlVariables() {
     this.lightbox = this.el.shadowRoot.querySelector('.lightbox')
     this.swipeContainer = this.el.shadowRoot.querySelector('.swipecontainer')
@@ -99,7 +98,6 @@ export class LumavateCarousel {
 
   }
 
-  @Method()
   setSwipeContainerHeight() {
     //THIS IS A BUGFIX FOR OLD IPHONES
     let height = this.swipeContainer.scrollHeight
@@ -109,7 +107,6 @@ export class LumavateCarousel {
     }
   }
 
-  @Method()
   initPinchZoom() {
     let i = 0
 
@@ -126,7 +123,6 @@ export class LumavateCarousel {
     }
   }
 
-  @Method()
   initSwipe() {
     this.swipeManager = new HammerJS.Manager(this.swipeContainer, { touchAction: 'pan-y' })
     this.swipeManagerLbox = new HammerJS.Manager(this.lightbox)
@@ -171,7 +167,6 @@ export class LumavateCarousel {
     }
   }
 
-  @Method()
   determineValidSwipe(e, percentage) {
     if (e.isFinal) {
       if (e.velocityX > 1) {
@@ -192,7 +187,6 @@ export class LumavateCarousel {
     }
   }
 
-  @Method()
   notVerticallyScrolling(deltaY) {
     if ((deltaY < -50 ) || (deltaY > 50)) {
       return false
@@ -201,7 +195,6 @@ export class LumavateCarousel {
     }
   }
 
-  @Method()
   goTo(number) {
     let previousSlide = this.activeSlide
     this.pinchZoomManager[previousSlide].disable()
@@ -231,7 +224,6 @@ export class LumavateCarousel {
     this.pinchZoomManager[previousSlide].enable()
   }
 
-  @Method()
   toggleLightBoxArrows() {
     if ((this.activeSlide == 0) && (this.slideCount != 0)) {
       if (this.lightboxEnabled && this.zooming != true) {
@@ -275,7 +267,6 @@ export class LumavateCarousel {
     }
   }
 
-  @Method()
   updateDots() {
     let i
     if (this.displayDots && this.slideCount != 0) {
@@ -291,7 +282,6 @@ export class LumavateCarousel {
 
   }
 
-  @Method()
   updateCurrentSlideCounter() {
     if (this.lightboxEnabled) {
       this.currentSlideCounter.style.display = 'flex'
@@ -306,20 +296,16 @@ export class LumavateCarousel {
     }
   }
 
-  @Method()
   nextSlide(n) {
     let temp = this.activeSlide + n
     this.goTo(temp)
   }
 
-  @Method()
   previousSlide(n) {
     let temp = this.activeSlide - n
     this.goTo(temp)
   }
 
-
-  @Method()
   nextLightBox(n) {
     if (!this.zooming) {
       let temp = this.activeSlide + n
@@ -327,7 +313,6 @@ export class LumavateCarousel {
     }
   }
 
-  @Method()
   previousLightBox(n) {
     if (!this.zooming) {
       let temp = this.activeSlide - n
@@ -335,14 +320,12 @@ export class LumavateCarousel {
     }
   }
 
-  @Method()
   lightBox(n) {
     this.lightboxEnabled = true
     this.goTo(n)
     this.toggleLightboxCSS()
   }
 
-  @Method()
   closeLightBox() {
     this.lightboxEnabled = false
     this.toggleLightboxCSS()
@@ -350,7 +333,6 @@ export class LumavateCarousel {
     this.updateCurrentSlideCounter()
   }
 
-  @Method()
   toggleLightboxCSS() {
     if (this.lightboxEnabled) {
       this.lightbox.style.display = 'flex'
@@ -367,7 +349,6 @@ export class LumavateCarousel {
     }
   }
 
-  @Method()
   setUIColor(color) {
     this.closeButton.style.color = color
     this.expandButton.style.color = color

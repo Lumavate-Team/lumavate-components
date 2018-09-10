@@ -30,26 +30,8 @@ declare global {
     interface LumavateCarousel {
       'CarouselImages': string;
       'arrowColor': string;
-      'closeLightBox': () => void;
-      'determineValidSwipe': (e: any, percentage: any) => void;
       'displayDots': boolean;
-      'goTo': (number: any) => void;
-      'initHtmlVariables': () => void;
-      'initPinchZoom': () => void;
-      'initSwipe': () => void;
-      'lightBox': (n: any) => void;
       'mode': string;
-      'nextLightBox': (n: any) => void;
-      'nextSlide': (n: any) => void;
-      'notVerticallyScrolling': (deltaY: any) => boolean;
-      'previousLightBox': (n: any) => void;
-      'previousSlide': (n: any) => void;
-      'setSwipeContainerHeight': () => void;
-      'setUIColor': (color: any) => void;
-      'toggleLightBoxArrows': () => void;
-      'toggleLightboxCSS': () => void;
-      'updateCurrentSlideCounter': () => void;
-      'updateDots': () => void;
     }
   }
 
