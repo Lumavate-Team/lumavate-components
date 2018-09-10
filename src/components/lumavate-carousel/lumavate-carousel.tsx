@@ -17,7 +17,7 @@ export class LumavateCarousel {
   @Prop() mode: string = 'cover'
   @Prop() arrowColor: string = 'white'
   @Prop() displayDots: boolean = true
-  @Prop() lowerLightboxIcons: boolean = true
+  @Prop() lowerLightboxIcons: boolean = false
 
   images: Array<any>
   pinchZoomManager: any
