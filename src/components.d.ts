@@ -28,8 +28,8 @@ declare global {
 
   namespace StencilComponents {
     interface LumavateCarousel {
-      'CarouselImages': string;
       'arrowColor': string;
+      'carouselImages': string;
       'displayDots': boolean;
       'mode': string;
     }
@@ -54,8 +54,8 @@ declare global {
   }
   namespace JSXElements {
     export interface LumavateCarouselAttributes extends HTMLAttributes {
-      'CarouselImages'?: string;
       'arrowColor'?: string;
+      'carouselImages'?: string;
       'displayDots'?: boolean;
       'mode'?: string;
       'onClicked'?: (event: CustomEvent) => void;

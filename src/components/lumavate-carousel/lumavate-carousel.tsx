@@ -13,7 +13,7 @@ export class LumavateCarousel {
 
   @Event() clicked: EventEmitter
   @Element() el: HTMLElement
-  @Prop() CarouselImages: string = ''
+  @Prop() carouselImages: string = ''
   @Prop() mode: string = 'cover'
   @Prop() arrowColor: string = 'white'
   @Prop() displayDots: boolean = true
@@ -46,7 +46,7 @@ export class LumavateCarousel {
   originalCarouselImages: any
 
   componentWillLoad() {
-    this.images = JSON.parse(this.CarouselImages)
+    this.images = JSON.parse(this.carouselImages)
     this.slideCount = this.images.length
   }
 
@@ -67,16 +67,16 @@ export class LumavateCarousel {
     this.wrapper.style.display = 'none'
     this.closeButton.style.display = 'none'
     this.loaded = true
-    this.originalCarouselImages = this.CarouselImages
+    this.originalCarouselImages = this.carouselImages
   }
 
   componentWillUpdate() {
-    if (this.originalCarouselImages != this.CarouselImages) {
-      this.images = JSON.parse(this.CarouselImages)
+    if (this.originalCarouselImages != this.carouselImages) {
+      this.images = JSON.parse(this.carouselImages)
       this.slideCount = this.images.length
       this.swipeContainer.style.width = 100 * this.slideCount + '%'
       this.lightbox.style.width = 100 * this.slideCount + '%'
-      this.originalCarouselImages = this.CarouselImages
+      this.originalCarouselImages = this.carouselImages
     }
   }
 
