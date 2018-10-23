@@ -29,6 +29,48 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface LumavateCarousel {
+      'arrowColor': string;
+      'carouselImages': string;
+      'displayDots': boolean;
+      'lowerLightboxIcons': boolean;
+      'mode': string;
+    }
+  }
+
+  interface HTMLLumavateCarouselElement extends StencilComponents.LumavateCarousel, HTMLStencilElement {}
+
+  var HTMLLumavateCarouselElement: {
+    prototype: HTMLLumavateCarouselElement;
+    new (): HTMLLumavateCarouselElement;
+  };
+  interface HTMLElementTagNameMap {
+    'lumavate-carousel': HTMLLumavateCarouselElement;
+  }
+  interface ElementTagNameMap {
+    'lumavate-carousel': HTMLLumavateCarouselElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'lumavate-carousel': JSXElements.LumavateCarouselAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateCarouselAttributes extends HTMLAttributes {
+      'arrowColor'?: string;
+      'carouselImages'?: string;
+      'displayDots'?: boolean;
+      'lowerLightboxIcons'?: boolean;
+      'mode'?: string;
+      'onClicked'?: (event: CustomEvent) => void;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface LumavateHeader {
       'BackgroundColor': string;
       'FontColor': string;
