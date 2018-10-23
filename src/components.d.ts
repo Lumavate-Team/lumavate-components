@@ -69,6 +69,72 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface LumavateDisclosure {
+      'buttonColor': string;
+      'buttonText': string;
+      'buttonTextColor': string;
+      'buttonTextFont': string;
+      'close': () => void;
+      'disclosureBackgroundColor': string;
+      'disclosureText': string;
+      'disclosureTextColor': string;
+      'disclosureTextFont': string;
+      'link1': string;
+      'link1Text': string;
+      'link1TextColor': string;
+      'link2': string;
+      'link2Text': string;
+      'link2TextColor': string;
+      'link3': string;
+      'link3Text': string;
+      'link3TextColor': string;
+    }
+  }
+
+  interface HTMLLumavateDisclosureElement extends StencilComponents.LumavateDisclosure, HTMLStencilElement {}
+
+  var HTMLLumavateDisclosureElement: {
+    prototype: HTMLLumavateDisclosureElement;
+    new (): HTMLLumavateDisclosureElement;
+  };
+  interface HTMLElementTagNameMap {
+    'lumavate-disclosure': HTMLLumavateDisclosureElement;
+  }
+  interface ElementTagNameMap {
+    'lumavate-disclosure': HTMLLumavateDisclosureElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'lumavate-disclosure': JSXElements.LumavateDisclosureAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LumavateDisclosureAttributes extends HTMLAttributes {
+      'buttonColor'?: string;
+      'buttonText'?: string;
+      'buttonTextColor'?: string;
+      'buttonTextFont'?: string;
+      'disclosureBackgroundColor'?: string;
+      'disclosureText'?: string;
+      'disclosureTextColor'?: string;
+      'disclosureTextFont'?: string;
+      'link1'?: string;
+      'link1Text'?: string;
+      'link1TextColor'?: string;
+      'link2'?: string;
+      'link2Text'?: string;
+      'link2TextColor'?: string;
+      'link3'?: string;
+      'link3Text'?: string;
+      'link3TextColor'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface LumavateHeader {
       'BackgroundColor': string;
       'FontColor': string;
