@@ -117,9 +117,7 @@ export class LumavateCarousel {
 
   initPinchZoom() {
     let i = 0
-
     this.pinchZoomManager = []
-
     for (i; i < this.slideCount; i++) {
       this.pinchZoomManager.push(new pinchZoom(this.pinchZoomImages[i], { zoomOutFactor: this.zoomOutFactor }))
     }
@@ -155,7 +153,6 @@ export class LumavateCarousel {
     this.swipeManagerLbox.on('pan', (e) => {
       if (!this.zooming) {
         if (this.slideCount != 1) {
-
           //Calculate pixel movements into 1:1 screen percents so gestures track with motion
           let percentage = 100 / this.slideCount * e.deltaX / window.innerWidth
           //Multiply percent by # of slide we’re on
@@ -225,7 +222,6 @@ export class LumavateCarousel {
       self.swipeContainer.classList.remove('is-animating')
       self.lightbox.classList.remove('is-animating')
     }, 400)
-
     this.toggleLightBoxArrows()
     this.updateDots()
     this.updateCurrentSlideCounter()
@@ -287,7 +283,6 @@ export class LumavateCarousel {
         this.dots[i].style.display = 'none'
       }
     }
-
   }
 
   updateCurrentSlideCounter() {
@@ -298,7 +293,6 @@ export class LumavateCarousel {
       } else {
         this.currentSlideCounter.innerText = "0/0"
       }
-
     } else {
       this.currentSlideCounter.style.display = 'none'
     }
