@@ -22,7 +22,7 @@ export class LumavateShareText {
       backButton.style.display = 'none'
     }
   }
-
+ 
   componentDidLoad() {
     this.showBackButton()
   }
@@ -49,4 +49,3 @@ export class LumavateShareText {
     )
   }
 }
-

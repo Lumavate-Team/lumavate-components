@@ -29,82 +29,6 @@ declare global {
 declare global {
 
   namespace StencilComponents {
-    interface LumavateGridItem {
-      'gridStartCol': string;
-      'gridStartRow': string;
-      'gridStopCol': string;
-      'gridStopRow': string;
-      'mode': string;
-    }
-  }
-
-  interface HTMLLumavateGridItemElement extends StencilComponents.LumavateGridItem, HTMLStencilElement {}
-
-  var HTMLLumavateGridItemElement: {
-    prototype: HTMLLumavateGridItemElement;
-    new (): HTMLLumavateGridItemElement;
-  };
-  interface HTMLElementTagNameMap {
-    'lumavate-grid-item': HTMLLumavateGridItemElement;
-  }
-  interface ElementTagNameMap {
-    'lumavate-grid-item': HTMLLumavateGridItemElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'lumavate-grid-item': JSXElements.LumavateGridItemAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface LumavateGridItemAttributes extends HTMLAttributes {
-      'gridStartCol'?: string;
-      'gridStartRow'?: string;
-      'gridStopCol'?: string;
-      'gridStopRow'?: string;
-      'mode'?: string;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface LumavateGrid {
-      'gridColumns': string;
-      'gridRows': string;
-    }
-  }
-
-  interface HTMLLumavateGridElement extends StencilComponents.LumavateGrid, HTMLStencilElement {}
-
-  var HTMLLumavateGridElement: {
-    prototype: HTMLLumavateGridElement;
-    new (): HTMLLumavateGridElement;
-  };
-  interface HTMLElementTagNameMap {
-    'lumavate-grid': HTMLLumavateGridElement;
-  }
-  interface ElementTagNameMap {
-    'lumavate-grid': HTMLLumavateGridElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'lumavate-grid': JSXElements.LumavateGridAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface LumavateGridAttributes extends HTMLAttributes {
-      'gridColumns'?: string;
-      'gridRows'?: string;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
     interface LumavateHeader {
       'BackgroundColor': string;
       'FontColor': string;
@@ -180,81 +104,35 @@ declare global {
 declare global {
 
   namespace StencilComponents {
-    interface LumavateLargeNavCard {
-      'Caption': boolean;
-      'CaptionBackgroundColor': string;
-      'CaptionText': string;
-      'CaptionTextColor': string;
-      'CardColor': string;
-      'CardImage': boolean;
-      'CardLink': string;
-      'ImageScaling': string;
-      'ImageSource': string;
+    interface LumavateMap {
+      'address': string;
+      'key': string;
+      'zoom': string;
     }
   }
 
-  interface HTMLLumavateLargeNavCardElement extends StencilComponents.LumavateLargeNavCard, HTMLStencilElement {}
+  interface HTMLLumavateMapElement extends StencilComponents.LumavateMap, HTMLStencilElement {}
 
-  var HTMLLumavateLargeNavCardElement: {
-    prototype: HTMLLumavateLargeNavCardElement;
-    new (): HTMLLumavateLargeNavCardElement;
+  var HTMLLumavateMapElement: {
+    prototype: HTMLLumavateMapElement;
+    new (): HTMLLumavateMapElement;
   };
   interface HTMLElementTagNameMap {
-    'lumavate-large-nav-card': HTMLLumavateLargeNavCardElement;
+    'lumavate-map': HTMLLumavateMapElement;
   }
   interface ElementTagNameMap {
-    'lumavate-large-nav-card': HTMLLumavateLargeNavCardElement;
+    'lumavate-map': HTMLLumavateMapElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      'lumavate-large-nav-card': JSXElements.LumavateLargeNavCardAttributes;
+      'lumavate-map': JSXElements.LumavateMapAttributes;
     }
   }
   namespace JSXElements {
-    export interface LumavateLargeNavCardAttributes extends HTMLAttributes {
-      'Caption'?: boolean;
-      'CaptionBackgroundColor'?: string;
-      'CaptionText'?: string;
-      'CaptionTextColor'?: string;
-      'CardColor'?: string;
-      'CardImage'?: boolean;
-      'CardLink'?: string;
-      'ImageScaling'?: string;
-      'ImageSource'?: string;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface LumavateModal {
-      'Id': string;
-      'showModal': () => void;
-    }
-  }
-
-  interface HTMLLumavateModalElement extends StencilComponents.LumavateModal, HTMLStencilElement {}
-
-  var HTMLLumavateModalElement: {
-    prototype: HTMLLumavateModalElement;
-    new (): HTMLLumavateModalElement;
-  };
-  interface HTMLElementTagNameMap {
-    'lumavate-modal': HTMLLumavateModalElement;
-  }
-  interface ElementTagNameMap {
-    'lumavate-modal': HTMLLumavateModalElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'lumavate-modal': JSXElements.LumavateModalAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface LumavateModalAttributes extends HTMLAttributes {
-      'Id'?: string;
+    export interface LumavateMapAttributes extends HTMLAttributes {
+      'address'?: string;
+      'key'?: string;
+      'zoom'?: string;
     }
   }
 }
@@ -333,98 +211,6 @@ declare global {
       'NavBarItemColor'?: string;
       'NavBarItems'?: string;
       'NavBarPosition'?: string;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface LumavateQuote {
-      'CardColor': string;
-      'Color': string;
-      'FontSize': number;
-      'QuotationMarks': boolean;
-      'QuoteText': string;
-      'ShowCard': boolean;
-    }
-  }
-
-  interface HTMLLumavateQuoteElement extends StencilComponents.LumavateQuote, HTMLStencilElement {}
-
-  var HTMLLumavateQuoteElement: {
-    prototype: HTMLLumavateQuoteElement;
-    new (): HTMLLumavateQuoteElement;
-  };
-  interface HTMLElementTagNameMap {
-    'lumavate-quote': HTMLLumavateQuoteElement;
-  }
-  interface ElementTagNameMap {
-    'lumavate-quote': HTMLLumavateQuoteElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'lumavate-quote': JSXElements.LumavateQuoteAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface LumavateQuoteAttributes extends HTMLAttributes {
-      'CardColor'?: string;
-      'Color'?: string;
-      'FontSize'?: number;
-      'QuotationMarks'?: boolean;
-      'QuoteText'?: string;
-      'ShowCard'?: boolean;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface LumavateSmallNavCard {
-      'CardColor': string;
-      'CardImage': boolean;
-      'CardLink': string;
-      'ImageScaling': string;
-      'ImageSource': string;
-      'SubTitle': boolean;
-      'SubTitleText': string;
-      'TitleText': string;
-      'TitleTextColor': string;
-    }
-  }
-
-  interface HTMLLumavateSmallNavCardElement extends StencilComponents.LumavateSmallNavCard, HTMLStencilElement {}
-
-  var HTMLLumavateSmallNavCardElement: {
-    prototype: HTMLLumavateSmallNavCardElement;
-    new (): HTMLLumavateSmallNavCardElement;
-  };
-  interface HTMLElementTagNameMap {
-    'lumavate-small-nav-card': HTMLLumavateSmallNavCardElement;
-  }
-  interface ElementTagNameMap {
-    'lumavate-small-nav-card': HTMLLumavateSmallNavCardElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'lumavate-small-nav-card': JSXElements.LumavateSmallNavCardAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface LumavateSmallNavCardAttributes extends HTMLAttributes {
-      'CardColor'?: string;
-      'CardImage'?: boolean;
-      'CardLink'?: string;
-      'ImageScaling'?: string;
-      'ImageSource'?: string;
-      'SubTitle'?: boolean;
-      'SubTitleText'?: string;
-      'TitleText'?: string;
-      'TitleTextColor'?: string;
     }
   }
 }

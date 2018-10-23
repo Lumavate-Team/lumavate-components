@@ -11,9 +11,10 @@ export class LumavateNavBarItem {
   @Prop() NavBarItemText: string = ''
   @Prop() NavBarItemColor: string = '#FFF'
 
+  displayImage: boolean = false;
+
   buttonClicked() {
     if(this.NavBarItemLink) {
-
       if(this.NavBarItemLink.indexOf('modal:')>-1) {
         let sub = this.NavBarItemLink.substr(6);
         let m : any =  document.querySelector(`#${sub}`)
@@ -24,8 +25,6 @@ export class LumavateNavBarItem {
     }
   }
 
-  displayImage: boolean = false;
-
   componentWillLoad() {
     this.displayImage = this.NavBarItemImageLink.length > 0 ? true : false;
   }
@@ -33,18 +32,15 @@ export class LumavateNavBarItem {
   render() {
     return (
       <div onClick={() => this.buttonClicked()}>
-      {this.displayImage ?
-        <div class="icon" style={{webkitMaskImage:"url(" + this.NavBarItemImageLink + ")",maskImage:"url(" + this.NavBarItemImageLink + ")",backgroundColor:this.NavBarItemColor}}></div>
-        : ''
-      }
-
-      {this.NavBarItemText ?
-        <div style={{color:this.NavBarItemColor ? this.NavBarItemColor : "#000"}} class="button-text">{this.NavBarItemText}</div>
-        : ''
-      }
-
+        {this.displayImage ?
+          <div class="icon" style={{webkitMaskImage:"url(" + this.NavBarItemImageLink + ")",maskImage:"url(" + this.NavBarItemImageLink + ")",backgroundColor:this.NavBarItemColor}}></div>
+          : ''
+        }
+        {this.NavBarItemText ?
+          <div style={{color:this.NavBarItemColor ? this.NavBarItemColor : "#000"}} class="button-text">{this.NavBarItemText}</div>
+          : ''
+        }
       </div>
     );
   }
 }
-
