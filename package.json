@@ -2,14 +2,14 @@
   "name": "@lumavate/components",
   "version": "0.5.15",
   "description": "Lumavate Component Library",
-  "main": "dist/index.js",
+  "main": "dist/lumavate-components.js",
   "types": "dist/types/index.d.ts",
   "module": "dist/esm/index.js",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/",
     "src/assets",
-    "components.json"
+    "components.json" 
   ],
   "scripts": {
     "build": "stencil build",
