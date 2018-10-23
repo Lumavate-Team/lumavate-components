@@ -9,7 +9,7 @@
   "files": [
     "dist/",
     "src/assets",
-    "components.json" 
+    "components.json"
   ],
   "scripts": {
     "build": "stencil build",
