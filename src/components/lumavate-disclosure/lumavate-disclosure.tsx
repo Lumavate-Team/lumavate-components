@@ -13,22 +13,22 @@ export class LumavateDisclosure {
   @Prop() buttonText: string = 'Got it!';
   @Prop() buttonTextFont: string = 'sans-serif';
 
-  @Prop() disclosureBackgroundColor: string = "#000000";
-  @Prop() disclosureTextColor: string = "#ffffff";
-  @Prop() disclosureText: string = 'This PWA uses cookies to provide you with a better experience. By clicking the button below you agree to the Privacy Agreement below.'
+  @Prop() disclosureBackgroundColor: string = "#ffffff";
+  @Prop() disclosureTextColor: string = "#000000";
+  @Prop() disclosureText: string = 'This PWA uses cookies to provide you with a better experience.'
   @Prop() disclosureTextFont: string = 'sans-serif';
 
   @Prop() link1Text: string = "Privacy Agreement";
   @Prop() link1TextColor: string = "#4177b5";
-  @Prop() link1: string = "https://www.google.com";
+  @Prop() link1: string = "";
 
-  @Prop() link2Text: string = "Privacy Agreement";
+  @Prop() link2Text: string = "";
   @Prop() link2TextColor: string = "#4177b5";
-  @Prop() link2: string = "https://www.google.com";
+  @Prop() link2: string = "";
 
-  @Prop() link3Text: string = "Privacy Agreement";
+  @Prop() link3Text: string = "";
   @Prop() link3TextColor: string = "#4177b5";
-  @Prop() link3: string = "https://www.google.com";
+  @Prop() link3: string = "";
 
   @State() cookieExists: boolean = false;
   @State() closeBox: boolean = false;
