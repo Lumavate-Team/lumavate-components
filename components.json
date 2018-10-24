@@ -380,42 +380,6 @@
     "properties": [
       {
         "classification": null,
-        "default": "#4177b5",
-        "helpText": null,
-        "label": "Button Color",
-        "name": "buttonColor",
-        "options": {
-
-        },
-        "section": null,
-        "type": "color"
-      },
-      {
-        "classification": null,
-        "default": "#ffffff",
-        "helpText": null,
-        "label": "Button Text Color",
-        "name": "buttonTextColor",
-        "options": {
-
-        },
-        "section": null,
-        "type": "color"
-      },
-      {
-        "classification": null,
-        "default": "Got it!",
-        "helpText": null,
-        "label": "Button Text",
-        "name": "buttonText",
-        "options": {
-
-        },
-        "section": null,
-        "type": "text"
-      },
-      {
-        "classification": null,
         "default": "#ffffff",
         "helpText": null,
         "label": "Disclosure Background Color",
@@ -423,7 +387,7 @@
         "options": {
 
         },
-        "section": null,
+        "section": "Disclosure",
         "type": "color"
       },
       {
@@ -435,7 +399,7 @@
         "options": {
 
         },
-        "section": null,
+        "section": "Disclosure",
         "type": "color"
       },
       {
@@ -447,7 +411,43 @@
         "options": {
 
         },
-        "section": null,
+        "section": "Disclosure",
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "#4177b5",
+        "helpText": null,
+        "label": "Button Color",
+        "name": "buttonColor",
+        "options": {
+
+        },
+        "section": "Button",
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "#ffffff",
+        "helpText": null,
+        "label": "Button Text Color",
+        "name": "buttonTextColor",
+        "options": {
+
+        },
+        "section": "Button",
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "Got it!",
+        "helpText": null,
+        "label": "Button Text",
+        "name": "buttonText",
+        "options": {
+
+        },
+        "section": "Button",
         "type": "text"
       },
       {
@@ -459,7 +459,7 @@
         "options": {
 
         },
-        "section": null,
+        "section": "Link 1",
         "type": "text"
       },
       {
@@ -471,7 +471,7 @@
         "options": {
 
         },
-        "section": null,
+        "section": "Link 1",
         "type": "color"
       },
       {
@@ -482,7 +482,7 @@
         "options": {
 
         },
-        "section": "null",
+        "section": "Link 1",
         "type": "page-link"
       },
       {
@@ -493,7 +493,7 @@
         "options": {
 
         },
-        "section": null,
+        "section": "Link 2",
         "type": "text"
       },
       {
@@ -505,7 +505,7 @@
         "options": {
 
         },
-        "section": null,
+        "section": "Link 2",
         "type": "color"
       },
       {
@@ -516,7 +516,7 @@
         "options": {
 
         },
-        "section": "null",
+        "section": "Link 2",
         "type": "page-link"
       },
       {
@@ -527,7 +527,7 @@
         "options": {
 
         },
-        "section": null,
+        "section": "Link 3",
         "type": "text"
       },
       {
@@ -539,7 +539,7 @@
         "options": {
 
         },
-        "section": null,
+        "section": "Link 3",
         "type": "color"
       },
       {
@@ -550,7 +550,7 @@
         "options": {
 
         },
-        "section": "null",
+        "section": "Link 3",
         "type": "page-link"
       }
     ],
