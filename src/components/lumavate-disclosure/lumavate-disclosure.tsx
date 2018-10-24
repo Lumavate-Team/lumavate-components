@@ -30,7 +30,6 @@ export class LumavateDisclosure {
   @Prop() link3TextColor: string = "#4177b5";
   @Prop() link3: string = "https://www.google.com";
 
-
   @State() cookieExists: boolean = false;
   @State() closeBox: boolean = false;
 
@@ -38,7 +37,6 @@ export class LumavateDisclosure {
 
   getCookie(name) {
     var value = "; " + document.cookie;
-    // value = "";
     var parts = value.split("; " + name + "=");
     if (parts.length == 2) return parts.pop().split(";").shift();
   }
