@@ -1,0 +1,57 @@
+:host {
+    width:100%;
+    height:100%;
+    .image {
+      width:100%;
+      height:100%;
+      font-family:  'Source Sans Pro', sans-serif;
+    }
+
+    .confirm-container {
+      background: white;
+      margin: 10px;
+      height: 80%;
+      border-radius: 7px;
+      border: 2px solid black;
+      display: grid;
+      grid-template-rows: 35% 60%;
+    }
+
+    .confirm-header {
+      background: black;
+      border-radius: 5px 5px 0px 0px;
+    }
+
+    .confirm-header img {
+      width: 70px;
+      padding: 5px;
+      position: absolute;
+    }
+
+    .confirm-text {
+      margin: auto auto;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 20px;
+    }
+
+    .confirm-inputs {
+      margin: auto auto;
+    }
+
+    .confirm-inputs input {
+      border: 2px solid black;
+      border-radius: 4px;
+      padding: 5px 15px;
+      margin: 10px;
+    }
+
+    .confirm-inputs button {
+      border: 2px solid black;
+      border-radius: 4px;
+      padding: 5px 15px;
+      background: black;
+      color: white;
+    }
+  }
