@@ -20,7 +20,7 @@ export class LumavateMap {
                     <div class="gmap_canvas" style={{background:"none !important", height:"100%"}}>
                         <iframe id="gmap_canvas" src={address}
                             frameborder="0"
-                            scrolling="no"
+                            scrolling="yes"
                             marginheight="0"
                             marginwidth="0"
                             height="100%"

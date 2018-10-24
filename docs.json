@@ -1,0 +1,344 @@
+{
+  "components": [
+    {
+      "tag": "lumavate-carousel",
+      "docs": "Creates an image carousel",
+      "readme": "# lumavate-carousel\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "arrowColor",
+          "type": "string",
+          "attr": "arrow-color",
+          "docs": ""
+        },
+        {
+          "name": "carouselImages",
+          "type": "string",
+          "attr": "carousel-images",
+          "docs": ""
+        },
+        {
+          "name": "displayDots",
+          "type": "boolean",
+          "attr": "display-dots",
+          "docs": "Determine if dots should be displayed at bottom of carousel"
+        },
+        {
+          "name": "lowerLightboxIcons",
+          "type": "boolean",
+          "attr": "lower-lightbox-icons",
+          "docs": ""
+        },
+        {
+          "name": "mode",
+          "type": "string",
+          "attr": "mode",
+          "docs": ""
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "clicked",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "detail": ""
+        }
+      ],
+      "styles": []
+    },
+    {
+      "tag": "lumavate-disclosure",
+      "docs": "",
+      "readme": "# lumavate-disclosure\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "buttonColor",
+          "type": "string",
+          "attr": "button-color",
+          "docs": ""
+        },
+        {
+          "name": "buttonText",
+          "type": "string",
+          "attr": "button-text",
+          "docs": ""
+        },
+        {
+          "name": "buttonTextColor",
+          "type": "string",
+          "attr": "button-text-color",
+          "docs": ""
+        },
+        {
+          "name": "buttonTextFont",
+          "type": "string",
+          "attr": "button-text-font",
+          "docs": ""
+        },
+        {
+          "name": "disclosureBackgroundColor",
+          "type": "string",
+          "attr": "disclosure-background-color",
+          "docs": ""
+        },
+        {
+          "name": "disclosureText",
+          "type": "string",
+          "attr": "disclosure-text",
+          "docs": ""
+        },
+        {
+          "name": "disclosureTextColor",
+          "type": "string",
+          "attr": "disclosure-text-color",
+          "docs": ""
+        },
+        {
+          "name": "disclosureTextFont",
+          "type": "string",
+          "attr": "disclosure-text-font",
+          "docs": ""
+        },
+        {
+          "name": "link1",
+          "type": "string",
+          "attr": "link-1",
+          "docs": ""
+        },
+        {
+          "name": "link1Text",
+          "type": "string",
+          "attr": "link-1-text",
+          "docs": ""
+        },
+        {
+          "name": "link1TextColor",
+          "type": "string",
+          "attr": "link-1-text-color",
+          "docs": ""
+        },
+        {
+          "name": "link2",
+          "type": "string",
+          "attr": "link-2",
+          "docs": ""
+        },
+        {
+          "name": "link2Text",
+          "type": "string",
+          "attr": "link-2-text",
+          "docs": ""
+        },
+        {
+          "name": "link2TextColor",
+          "type": "string",
+          "attr": "link-2-text-color",
+          "docs": ""
+        },
+        {
+          "name": "link3",
+          "type": "string",
+          "attr": "link-3",
+          "docs": ""
+        },
+        {
+          "name": "link3Text",
+          "type": "string",
+          "attr": "link-3-text",
+          "docs": ""
+        },
+        {
+          "name": "link3TextColor",
+          "type": "string",
+          "attr": "link-3-text-color",
+          "docs": ""
+        }
+      ],
+      "methods": [
+        {
+          "name": "close",
+          "docs": "",
+          "returns": {
+            "type": "void",
+            "docs": ""
+          },
+          "parameters": []
+        }
+      ],
+      "events": [],
+      "styles": []
+    },
+    {
+      "tag": "lumavate-header",
+      "docs": "",
+      "readme": "# lumavate-header\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "BackgroundColor",
+          "type": "string",
+          "attr": "background-color",
+          "docs": ""
+        },
+        {
+          "name": "FontColor",
+          "type": "string",
+          "attr": "font-color",
+          "docs": ""
+        },
+        {
+          "name": "ShowBackButton",
+          "type": "boolean",
+          "attr": "show-back-button",
+          "docs": ""
+        },
+        {
+          "name": "Text",
+          "type": "string",
+          "attr": "text",
+          "docs": ""
+        }
+      ],
+      "methods": [
+        {
+          "name": "showBackButton",
+          "docs": "",
+          "returns": {
+            "type": "void",
+            "docs": ""
+          },
+          "parameters": []
+        }
+      ],
+      "events": [],
+      "styles": []
+    },
+    {
+      "tag": "lumavate-image",
+      "docs": "",
+      "readme": "# lumavate-image\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "mode",
+          "type": "string",
+          "attr": "mode",
+          "docs": ""
+        },
+        {
+          "name": "src",
+          "type": "string",
+          "attr": "src",
+          "docs": ""
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": []
+    },
+    {
+      "tag": "lumavate-map",
+      "docs": "",
+      "readme": "# lumavate-map\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "address",
+          "type": "string",
+          "attr": "address",
+          "docs": ""
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "attr": "key",
+          "docs": ""
+        },
+        {
+          "name": "zoom",
+          "type": "string",
+          "attr": "zoom",
+          "docs": ""
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": []
+    },
+    {
+      "tag": "lumavate-nav-bar",
+      "docs": "",
+      "readme": "# lumavate-nav-bar\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "NavBarBackgroundColor",
+          "type": "string",
+          "attr": "nav-bar-background-color",
+          "docs": ""
+        },
+        {
+          "name": "NavBarItemColor",
+          "type": "string",
+          "attr": "nav-bar-item-color",
+          "docs": ""
+        },
+        {
+          "name": "NavBarItems",
+          "type": "string",
+          "attr": "nav-bar-items",
+          "docs": ""
+        },
+        {
+          "name": "NavBarPosition",
+          "type": "string",
+          "attr": "nav-bar-position",
+          "docs": ""
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": []
+    },
+    {
+      "tag": "lumavate-nav-bar-item",
+      "docs": "",
+      "readme": "# lumavate-nav-bar-item\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "NavBarItemColor",
+          "type": "string",
+          "attr": "nav-bar-item-color",
+          "docs": ""
+        },
+        {
+          "name": "NavBarItemImageLink",
+          "type": "string",
+          "attr": "nav-bar-item-image-link",
+          "docs": ""
+        },
+        {
+          "name": "NavBarItemLink",
+          "type": "string",
+          "attr": "nav-bar-item-link",
+          "docs": ""
+        },
+        {
+          "name": "NavBarItemText",
+          "type": "string",
+          "attr": "nav-bar-item-text",
+          "docs": ""
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": []
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 [
   {
     "label": "Image",
+    "section":"Base Components (v{{version}})",
     "icon": "/assets/image.svg",
     "tags": ["body"],
     "type":"Image",
@@ -31,124 +32,8 @@
     "template": "<lumavate-image src=\"{{ componentData.src.previewMedium }}\" mode=\"{{ componentData.mode }}\"></lumavate-image>"
   },
   {
-    "label": "Large-Nav-Card",
-    "icon": "/assets/largenav.svg",
-    "tags": ["body"],
-    "type":"Large-Nav-Card",
-    "properties": [
-      {
-        "classification": null,
-        "default": true,
-        "helpText": null,
-        "label": "Caption",
-        "name": "caption",
-        "options": {
-
-        },
-        "section": null,
-        "type": "toggle"
-      },
-      {
-        "classification": null,
-        "default": "",
-        "helpText": null,
-        "label": "Caption Text",
-        "name": "captionText",
-        "options": {
-
-        },
-        "section": null,
-        "type": "text"
-      },
-      {
-        "classification": null,
-        "default": "#000000",
-        "helpText": null,
-        "label": "Caption Text Color",
-        "name": "captionTextColor",
-        "options": {
-
-        },
-        "section": null,
-        "type": "color"
-      },
-      {
-        "classification": null,
-        "default": "#ffffff",
-        "helpText": null,
-        "label": "Caption Background Color",
-        "name": "captionBackgroundColor",
-        "options": {
-
-        },
-        "section": null,
-        "type": "color"
-      },
-      {
-        "classification": null,
-        "default": "#ffffff",
-        "helpText": null,
-        "label": "Card Color",
-        "name": "cardColor",
-        "options": {
-
-        },
-        "section": null,
-        "type": "color"
-      },
-      {
-        "classification": null,
-        "default": true,
-        "helpText": null,
-        "label": "Card Image",
-        "name": "cardImage",
-        "options": {
-
-        },
-        "section": null,
-        "type": "toggle"
-      },
-      {
-        "classification": null,
-        "helpText": null,
-        "label": "Image Source",
-        "name": "imageSource",
-        "options": {
-
-        },
-        "section": null,
-        "type": "image-upload"
-      },
-      {
-        "classification": null,
-        "default": "contain",
-        "helpText": null,
-        "label": "Image Scaling",
-        "name": "imageScaling",
-        "options": {
-          "contain": "Contain",
-          "cover": "Cover"
-        },
-        "section": null,
-        "type": "dropdown"
-      },
-      {
-        "classification": null,
-        "default": "",
-        "helpText": null,
-        "label": "Card Link",
-        "name": "cardLink",
-        "options": {
-
-        },
-        "section": null,
-        "type": "text"
-      }
-    ],
-    "template": "<lumavate-large-nav-card caption=\"{{ componentData.caption|lower }}\" caption-text=\"{{ componentData.captionText }}\" caption-text-color=\"{{ componentData.captionTextColor }}\" caption-background-color=\"{{ componentData.captionBackgroundColor }}\" card-color=\"{{ componentData.cardColor }}\" card-image=\"{{ componentData.cardImage|lower }}\" image-source=\"{{ componentData.imageSource.previewMedium }}\" image-scaling=\"{{ componentData.imageScaling }}\" card-link=\"{{ componentData.cardLink }}\"></lumavate-large-nav-card>"
-  },
-  {
     "label": "Nav-Bar",
+    "section":"Base Components (v{{version}})",
     "icon": "a",
     "tags": ["footer"],
     "type":"Nav-Bar",
@@ -318,272 +203,119 @@
     "template": "<lumavate-nav-bar nav-bar-background-color=\"{{ componentData.navBarBackgroundColor }}\" nav-bar-item-color=\"{{ componentData.navBarItemColor }}\" nav-bar-items='[{\"text\":\"{{ componentData.navBarItemText1 }}\",\"linkTo\":\"{{componentData.navBarItemLink1.url}}\",\"imageSource\":{{componentData.navBarItemImageLink1|tojson}}},{\"text\":\"{{ componentData.navBarItemText2 }}\",\"linkTo\":\"{{componentData.navBarItemLink2.url}}\",\"imageSource\":{{componentData.navBarItemImageLink2|tojson}}},{\"text\":\"{{ componentData.navBarItemText3 }}\",\"linkTo\":\"{{componentData.navBarItemLink3.url}}\",\"imageSource\":{{componentData.navBarItemImageLink3|tojson}}},{\"text\":\"{{ componentData.navBarItemText4 }}\",\"linkTo\":\"{{componentData.navBarItemLink4.url}}\",\"imageSource\":{{componentData.navBarItemImageLink4|tojson}}}]'></lumavate-nav-bar>"
   },
   {
-    "label": "Quote",
-    "icon":"/assets/quote.svg",
-    "tags": ["body"],
-    "type":"Quote",
-    "properties": [
-      {
-        "classification": null,
-        "default": "",
-        "helpText": null,
-        "label": "Quote Text",
-        "name": "quoteText",
-        "options": {
-
-        },
-        "section": null,
-        "type": "translated-text"
-      },
-      {
-        "classification": null,
-        "default": 12,
-        "helpText": null,
-        "label": "Font Size",
-        "name": "fontSize",
-        "options": {
-
-        },
-        "section": null,
-        "type": "numeric"
-      },
-      {
-        "classification": null,
-        "default": true,
-        "helpText": null,
-        "label": "Quotation Marks",
-        "name": "quotationMarks",
-        "options": {
-
-        },
-        "section": null,
-        "type": "toggle"
-      },
-      {
-        "classification": null,
-        "default": "#000000",
-        "helpText": null,
-        "label": "Color",
-        "name": "color",
-        "options": {
-
-        },
-        "section": null,
-        "type": "color"
-      },
-      {
-        "classification": null,
-        "default": true,
-        "helpText": null,
-        "label": "Show Card",
-        "name": "showCard",
-        "options": {
-
-        },
-        "section": null,
-        "type": "toggle"
-      },
-      {
-        "classification": null,
-        "default": "#ffffff",
-        "helpText": null,
-        "label": "Card Color",
-        "name": "cardColor",
-        "options": {
-
-        },
-        "section": null,
-        "type": "color"
-      }
-    ],
-    "template": "<lumavate-quote quote-text=\"{{ componentData.quoteText }}\" font-size=\"{{ componentData.fontSize }}\" quotation-marks=\"{{ componentData.quotationMarks|lower }}\" color=\"{{ componentData.color }}\" show-card=\"{{ componentData.showCard|lower }}\" card-color=\"{{ componentData.cardColor }}\"></lumavate-quote>"
-  },
-  {
-    "label": "Small-Nav-Card",
-    "icon": "/assets/smallnav.svg",
-    "tags": ["body"],
-    "type":"Small-Nav-Card",
-    "properties": [
-      {
-        "classification": null,
-        "default": true,
-        "helpText": null,
-        "label": "SubTitle",
-        "name": "subTitle",
-        "options": {
-
-        },
-        "section": null,
-        "type": "toggle"
-      },
-      {
-        "classification": null,
-        "default": "",
-        "helpText": null,
-        "label": "SubTitle Text",
-        "name": "subTitleText",
-        "options": {
-
-        },
-        "section": null,
-        "type": "translated-text"
-      },
-      {
-        "classification": null,
-        "default": "",
-        "helpText": null,
-        "label": "Title Text",
-        "name": "titleText",
-        "options": {
-
-        },
-        "section": null,
-        "type": "translated-text"
-      },
-      {
-        "classification": null,
-        "default": "#000000",
-        "helpText": null,
-        "label": "Title Text Color",
-        "name": "titleTextColor",
-        "options": {
-
-        },
-        "section": null,
-        "type": "color"
-      },
-      {
-        "classification": null,
-        "default": "#ffffff",
-        "helpText": null,
-        "label": "Card Color",
-        "name": "cardColor",
-        "options": {
-
-        },
-        "section": null,
-        "type": "color"
-      },
-      {
-        "classification": null,
-        "default": true,
-        "helpText": null,
-        "label": "Card Image",
-        "name": "cardImage",
-        "options": {
-
-        },
-        "section": null,
-        "type": "toggle"
-      },
-      {
-        "classification": null,
-        "helpText": null,
-        "label": "Image Source",
-        "name": "imageSource",
-        "options": {
-
-        },
-        "section": null,
-        "type": "image-upload"
-      },
-      {
-        "classification": null,
-        "default": "contain",
-        "helpText": null,
-        "label": "Image Scaling",
-        "name": "imageScaling",
-        "options": {
-          "contain": "Contain",
-          "cover": "Cover"
-        },
-        "section": null,
-        "type": "dropdown"
-      },
-      {
-        "classification": null,
-        "default": "",
-        "helpText": null,
-        "label": "Card Link",
-        "name": "cardLink",
-        "options": {
-
-        },
-        "section": null,
-        "type": "text"
-      }
-    ],
-    "template": "<lumavate-small-nav-card sub-title=\"{{ componentData.subTitle|lower }}\" sub-title-text=\"{{ componentData.subTitleText }}\" title-text=\"{{ componentData.titleText }}\" title-text-color=\"{{ componentData.titleTextColor }}\" card-color=\"{{ componentData.cardColor }}\" card-image=\"{{ componentData.cardImage|lower }}\" image-source=\"{{ componentData.imageSource.previewMedium }}\" image-scaling=\"{{ componentData.imageScaling }}\" card-link=\"{{ componentData.cardLink }}\"></lumavate-small-nav-card>"
-  },
-  {
     "label": "Carousel",
-    "icon":"/assets/carousel.svg",
+    "section":"Base Components (v{{version}})",
+    "icon": "/assets/carousel.svg",
     "tags": ["body"],
-    "type":"Carousel",
+    "type": "Carousel",
     "properties": [
-      {
-        "classification": null,
-        "default": "",
-        "helpText": null,
-        "label": "Carousel Images",
-        "name": "carouselImages",
-        "options": {
+        {
+            "classification": null,
+            "default": "#ffffff",
+            "helpText": null,
+            "label": "Arrow Color",
+            "name": "arrowColor",
+            "options": {},
+            "section": null,
+            "type": "color"
+        },
+        {
+            "classification": null,
+            "default": "cover",
+            "helpText": null,
+            "label": "Mode",
+            "name": "mode",
+            "options": {
+                "contain": "Contain",
+                "cover": "Cover"
+            },
+            "section": null,
+            "type": "dropdown"
+        },
+        {
+          "classification": null,
+          "default": true,
+          "helpText": null,
+          "label": "Display Dots",
+          "name": "displayDots",
+          "options": {
 
+          },
+          "section": null,
+          "type": "toggle"
         },
-        "section": null,
-        "type": "text"
-      },
-      {
-        "classification": null,
-        "default": "contain",
-        "helpText": null,
-        "label": "Image Scaling",
-        "name": "imageScaling",
-        "options": {
-          "contain": "Contain",
-          "cover": "Cover"
-        },
-        "section": null,
-        "type": "dropdown"
-      },
-      {
-        "classification": null,
-        "default": "white",
-        "helpText": null,
-        "label": "Arrow Color",
-        "name": "arrowColor",
-        "options": {
+        {
+          "classification": null,
+          "default": false,
+          "helpText": null,
+          "label": "Lower Lightbox Icons",
+          "name": "lowerLightboxIcons",
+          "options": {
 
+          },
+          "section": null,
+          "type": "toggle"
         },
-        "section": null,
-        "type": "text"
-      }
+        {
+            "classification": null,
+            "helpText": null,
+            "label": "Image Link",
+            "name": "ImageLink1",
+            "options": {},
+            "section": "Carousel Images",
+            "type": "image-upload"
+        },
+        {
+            "classification": null,
+            "helpText": null,
+            "label": "Image Link",
+            "name": "ImageLink2",
+            "options": {},
+            "section": "Carousel Images",
+            "type": "image-upload"
+        },
+        {
+            "classification": null,
+            "helpText": null,
+            "label": "Image Link",
+            "name": "ImageLink3",
+            "options": {},
+            "section": "Carousel Images",
+            "type": "image-upload"
+        },
+        {
+            "classification": null,
+            "helpText": null,
+            "label": "Image Link",
+            "name": "ImageLink4",
+            "options": {},
+            "section": "Carousel Images",
+            "type": "image-upload"
+        },
+        {
+            "classification": null,
+            "helpText": null,
+            "label": "Image Link",
+            "name": "ImageLink5",
+            "options": {},
+            "section": "Carousel Images",
+            "type": "image-upload"
+        },
+        {
+            "classification": null,
+            "helpText": null,
+            "label": "Image Link",
+            "name": "ImageLink6",
+            "options": {},
+            "section": "Carousel Images",
+            "type": "image-upload"
+        }
     ],
-    "template": "<lumavate-carousel carouselImages=\"{{ componentData.carouselImages }}\" mode=\"{{ componentData.mode }}\" arrowColor=\"{{ componentData.arrowColor }}\"></lumavate-carousel>"
-  },
-  {
-    "label":"Modal",
-    "icon":"/assets/modal.svg",
-    "tags":["modal"],
-    "type":"Modal",
-    "properties":[
-      {
-        "classification": null,
-        "default": "",
-        "helpText": null,
-        "label": "Modal ID",
-        "name": "modalId",
-        "options": {
-
-        },
-        "section": null,
-        "type": "text"
-      }
-    ],
-    "template":"<lumavate-modal id=\"{{ componentData.modalId }}\"></lumavate-modal>"
+    "template": "<lumavate-carousel lower-lightbox-icons=\"{{ componentData.lowerLightboxIcons|lower }}\"  display-dots=\"{{ componentData.displayDots|lower }}\" arrow-color=\"{{ componentData.arrowColor }}\" mode=\"{{ componentData.mode }}\" carousel-images='[{% set images = ['ImageLink1','ImageLink2','ImageLink3','ImageLink4','ImageLink5','ImageLink6']%}{% for imageId in images %}{{ ',' if imageId != 'ImageLink1' and componentData[imageId] and (componentData[imageId].preview != '/iot/v1/icons/no_image_available.png')}}{{ ('{\"url\": \"' ~ componentData[imageId].preview ~ '\"}') if  componentData[imageId] and (componentData[imageId].preview != '/iot/v1/icons/no_image_available.png')}}{% endfor %}]'></lumavate-carousel>"
   },
   {
     "label": "Header",
+    "section":"Base Components (v{{version}})",
     "icon":"/assets/header.svg",
     "tags": ["header"],
     "type":"Header",
@@ -638,5 +370,230 @@
       }
     ],
     "template": "<lumavate-header font-color=\"{{ componentData.fontColor }}\" background-color=\"{{ componentData.backgroundColor }}\" show-back-button=\"{{ componentData.showBackButton|lower }}\" text=\"{{ componentData.text }}\"></lumavate-header>"
+  },
+  {
+    "label": "Disclosure",
+    "section":"Base Components (v{{version}})",
+    "icon":"/assets/smallnav.svg",
+    "tags": ["body"],
+    "type":"Disclosure",
+    "properties": [
+      {
+        "classification": null,
+        "default": "#ffffff",
+        "helpText": null,
+        "label": "Disclosure Background Color",
+        "name": "disclosureBackgroundColor",
+        "options": {
+
+        },
+        "section": "Disclosure",
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "#000000",
+        "helpText": null,
+        "label": "Disclosure Text Color",
+        "name": "disclosureTextColor",
+        "options": {
+
+        },
+        "section": "Disclosure",
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "Disclosure Text",
+        "helpText": null,
+        "label": "Disclosure Text",
+        "name": "disclosureText",
+        "options": {
+
+        },
+        "section": "Disclosure",
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "#4177b5",
+        "helpText": null,
+        "label": "Button Color",
+        "name": "buttonColor",
+        "options": {
+
+        },
+        "section": "Button",
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "#ffffff",
+        "helpText": null,
+        "label": "Button Text Color",
+        "name": "buttonTextColor",
+        "options": {
+
+        },
+        "section": "Button",
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "Got it!",
+        "helpText": null,
+        "label": "Button Text",
+        "name": "buttonText",
+        "options": {
+
+        },
+        "section": "Button",
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "Link 1 Text",
+        "helpText": null,
+        "label": "Link 1 Text",
+        "name": "link1Text",
+        "options": {
+
+        },
+        "section": "Link 1",
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "#4177b5",
+        "helpText": null,
+        "label": "Link 1 Text Color",
+        "name": "link1TextColor",
+        "options": {
+
+        },
+        "section": "Link 1",
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Link 1",
+        "name": "link1",
+        "options": {
+
+        },
+        "section": "Link 1",
+        "type": "page-link"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Link 2 Text",
+        "name": "link2Text",
+        "options": {
+
+        },
+        "section": "Link 2",
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "#4177b5",
+        "helpText": null,
+        "label": "Link 2 Text Color",
+        "name": "link2TextColor",
+        "options": {
+
+        },
+        "section": "Link 2",
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Link 2",
+        "name": "link2",
+        "options": {
+
+        },
+        "section": "Link 2",
+        "type": "page-link"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Link 3 Text",
+        "name": "link3Text",
+        "options": {
+
+        },
+        "section": "Link 3",
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "#4177b5",
+        "helpText": null,
+        "label": "Link 3 Text Color",
+        "name": "link3TextColor",
+        "options": {
+
+        },
+        "section": "Link 3",
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Link 3",
+        "name": "link3",
+        "options": {
+
+        },
+        "section": "Link 3",
+        "type": "page-link"
+      }
+    ],
+    "template": "<lumavate-disclosure button-color=\"{{ componentData.buttonColor}}\" button-text=\"{{ componentData.buttonText}}\" button-text-color=\"{{ componentData.buttonTextColor}}\" disclosure-background-color=\"{{ componentData.disclosureBackgroundColor}}\" disclosure-text=\"{{ componentData.disclosureText}}\" disclosure-text-color=\"{{ componentData.disclosureTextColor}}\" link-1-text=\"{{ componentData.link1Text}}\" link-1=\"{{ componentData.link1.url}}\" link-1-text-color=\"{{ componentData.link1TextColor}}\" link-2-text=\"{{ componentData.link2Text}}\" link-2=\"{{ componentData.link2.url}}\" link-2-text-color=\"{{ componentData.link2TextColor}}\" link-3-text=\"{{ componentData.link3Text}}\" link-3=\"{{ componentData.link3.url}}\" link-3-text-color=\"{{ componentData.link3TextColor}}\"></lumavate-disclosure>"
+  },
+  {
+    "label": "Map",
+    "section":"Base Components (v{{version}})",
+    "icon": "/assets/map.svg",
+    "tags": ["body"],
+    "type":"Map",
+    "properties": [
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Address",
+        "name": "address",
+        "options": {
+        },
+        "section": null,
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Google Maps Embed API Key",
+        "name": "key",
+        "options": {
+        },
+        "section": null,
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Map Zoom",
+        "name": "zoom",
+        "options": {
+        },
+        "section": null,
+        "type": "text"
+      }
+    ],
+    "template": "<lumavate-map address=\"{{ componentData.address }}\" key=\"{{ componentData.key }}\" zoom=\"{{ componentData.zoom }}\"></lumavate-map>"
   }
 ]

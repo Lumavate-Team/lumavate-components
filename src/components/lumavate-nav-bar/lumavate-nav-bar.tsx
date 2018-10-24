@@ -5,6 +5,7 @@ import { Component, Prop } from '@stencil/core';
   styleUrl: 'lumavate-nav-bar.scss',
   shadow:true
 })
+
 export class LumavateNavBar {
   @Prop() NavBarBackgroundColor: string = '#000';
   @Prop() NavBarItemColor: string = '#FFF';
@@ -21,7 +22,6 @@ export class LumavateNavBar {
     if(i.imageSource && i.imageSource.preview && i.imageSource.key) {
       return i.imageSource.preview;
     }
-
     return '';
   }
 
