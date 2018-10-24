@@ -15,7 +15,7 @@ export class LumavateCarousel {
 
   @Event() clicked: EventEmitter
   @Element() el: HTMLElement
- 
+
   @Prop() carouselImages: string = ''
   @Prop() mode: string = 'cover'
   @Prop() arrowColor: string = 'white'

@@ -9,7 +9,7 @@
       {
         "classification": null,
         "helpText": null,
-        "label": "Src",
+        "label": "Image",
         "name": "src",
         "options": {
 },
@@ -19,7 +19,7 @@
       {
         "classification": null, "default": "contain",
         "helpText": null,
-        "label": "Mode",
+        "label": "Image Fill",
         "name": "mode",
         "options": {
           "contain": "Contain",
@@ -94,7 +94,7 @@
 
         },
         "section": "Item 1",
-        "type": "text"
+        "type": "translated-text"
       },
       {
         "classification": null,
@@ -128,7 +128,7 @@
 
         },
         "section": "Item 2",
-        "type": "text"
+        "type": "translated-text"
       },
       {
         "classification": null,
@@ -162,7 +162,7 @@
 
         },
         "section": "Item 3",
-        "type": "text"
+        "type": "translated-text"
       },
       {
         "classification": null,
@@ -196,7 +196,7 @@
 
         },
         "section": "Item 4",
-        "type": "text"
+        "type": "translated-text"
       }
 
     ],
@@ -212,7 +212,7 @@
         {
             "classification": null,
             "default": "#ffffff",
-            "helpText": null,
+            "helpText": "Color of arrows used to switch displayed images.",
             "label": "Arrow Color",
             "name": "arrowColor",
             "options": {},
@@ -222,7 +222,7 @@
         {
             "classification": null,
             "default": "cover",
-            "helpText": null,
+            "helpText": "This controls image size.  Contain scales the image as large as possible without cropping or stretching the image.  Cover scales the image with stretching the image, but may crop the image, in order to fill the element with no empty space.",
             "label": "Mode",
             "name": "mode",
             "options": {
@@ -235,7 +235,7 @@
         {
           "classification": null,
           "default": true,
-          "helpText": null,
+          "helpText": "Dots at the bottom of the image show which image in the series is being displayed.  This controls whether those dots are displayed or not.",
           "label": "Display Dots",
           "name": "displayDots",
           "options": {
@@ -247,7 +247,7 @@
         {
           "classification": null,
           "default": false,
-          "helpText": null,
+          "helpText": "When carousel image is displayed in fullscreen, if this property is set on, the icon to minimize the fullscreen image and the slide count are displayed below the header.  If it is off, the icons are displayed over the header.",
           "label": "Lower Lightbox Icons",
           "name": "lowerLightboxIcons",
           "options": {
@@ -366,7 +366,7 @@
 
         },
         "section": null,
-        "type": "text"
+        "type": "translated-text"
       }
     ],
     "template": "<lumavate-header font-color=\"{{ componentData.fontColor }}\" background-color=\"{{ componentData.backgroundColor }}\" show-back-button=\"{{ componentData.showBackButton|lower }}\" text=\"{{ componentData.text }}\"></lumavate-header>"
@@ -381,7 +381,7 @@
       {
         "classification": null,
         "default": "#ffffff",
-        "helpText": null,
+        "helpText": "Background color of the pop-up card telling users that the PWA uses cookies.",
         "label": "Disclosure Background Color",
         "name": "disclosureBackgroundColor",
         "options": {
@@ -393,7 +393,7 @@
       {
         "classification": null,
         "default": "#000000",
-        "helpText": null,
+        "helpText": "Color of the text on the pop-up card telling users that the PWA uses cookies.",
         "label": "Disclosure Text Color",
         "name": "disclosureTextColor",
         "options": {
@@ -405,19 +405,19 @@
       {
         "classification": null,
         "default": "Disclosure Text",
-        "helpText": null,
+        "helpText": "Text to let the user know that the PWA uses cookies and to make them aware that, by using the PWA, they are agreeing the use of cookies and to the privacy agreement.  Below this, links  can be placed to the privacy agreement and/or other important documents.",
         "label": "Disclosure Text",
         "name": "disclosureText",
         "options": {
 
         },
         "section": "Disclosure",
-        "type": "text"
+        "type": "translated-text"
       },
       {
         "classification": null,
         "default": "#4177b5",
-        "helpText": null,
+        "helpText": "Background color of the confirmation button.",
         "label": "Button Color",
         "name": "buttonColor",
         "options": {
@@ -429,7 +429,7 @@
       {
         "classification": null,
         "default": "#ffffff",
-        "helpText": null,
+        "helpText": "Color of the text on the confirmation button.",
         "label": "Button Text Color",
         "name": "buttonTextColor",
         "options": {
@@ -441,31 +441,31 @@
       {
         "classification": null,
         "default": "Got it!",
-        "helpText": null,
+        "helpText": "Text written on the button used for confirmation.  Examples include: 'Got it!', 'Okay!', or 'Submit'.",
         "label": "Button Text",
         "name": "buttonText",
         "options": {
 
         },
         "section": "Button",
-        "type": "text"
+        "type": "translated-text"
       },
       {
         "classification": null,
         "default": "Link 1 Text",
-        "helpText": null,
+        "helpText": "Displayed text listed below the disclosure statement that can be clicked to read important documents, such as a privacy or user agreement.",
         "label": "Link 1 Text",
         "name": "link1Text",
         "options": {
 
         },
         "section": "Link 1",
-        "type": "text"
+        "type": "translated-text"
       },
       {
         "classification": null,
         "default": "#4177b5",
-        "helpText": null,
+        "helpText": "Color of the displayed text linking to important documents, such as a privacy or user agreement.",
         "label": "Link 1 Text Color",
         "name": "link1TextColor",
         "options": {
@@ -476,7 +476,7 @@
       },
       {
         "classification": null,
-        "helpText": null,
+        "helpText": "Web address of important documents, such as a privacy or user agreement, that the user needs to have access to.",
         "label": "Link 1",
         "name": "link1",
         "options": {
@@ -487,19 +487,19 @@
       },
       {
         "classification": null,
-        "helpText": null,
+        "helpText": "Displayed text listed below the disclosure statement that can be clicked to read important documents, such as a privacy or user agreement.  If more than one of these documents are not needed, this can be left blank.",
         "label": "Link 2 Text",
         "name": "link2Text",
         "options": {
 
         },
         "section": "Link 2",
-        "type": "text"
+        "type": "translated-text"
       },
       {
         "classification": null,
         "default": "#4177b5",
-        "helpText": null,
+        "helpText": "Color of the displayed text linking to important documents, such as a privacy or user agreement.  If more than one of these documents are not needed, this can be left blank.",
         "label": "Link 2 Text Color",
         "name": "link2TextColor",
         "options": {
@@ -510,7 +510,7 @@
       },
       {
         "classification": null,
-        "helpText": null,
+        "helpText": "Web address of important documents, such as a privacy or user agreement, that the user needs to have access to.  If more than one of these documents are not needed, this can be left blank.",
         "label": "Link 2",
         "name": "link2",
         "options": {
@@ -521,19 +521,19 @@
       },
       {
         "classification": null,
-        "helpText": null,
+        "helpText": "Displayed text listed below the disclosure statement that can be clicked to read important documents, such as a privacy or user agreement.  If more than two of these documents are not needed, this can be left blank.",
         "label": "Link 3 Text",
         "name": "link3Text",
         "options": {
 
         },
         "section": "Link 3",
-        "type": "text"
+        "type": "translated-text"
       },
       {
         "classification": null,
         "default": "#4177b5",
-        "helpText": null,
+        "helpText": "Color of the displayed text linking to important documents, such as a privacy or user agreement.  If more than two of these documents are not needed, this can be left blank.",
         "label": "Link 3 Text Color",
         "name": "link3TextColor",
         "options": {
@@ -544,7 +544,7 @@
       },
       {
         "classification": null,
-        "helpText": null,
+        "helpText": "Web address of important documents, such as a privacy or user agreement, that the user needs to have access to.  If more than two of these documents are not needed, this can be left blank.",
         "label": "Link 3",
         "name": "link3",
         "options": {
@@ -565,23 +565,23 @@
     "properties": [
       {
         "classification": null,
-        "helpText": null,
+        "helpText": "Type address to be shown on map in the form 'Street Adress and Street, City, State, Zip Code'",
         "label": "Address",
         "name": "address",
         "options": {
         },
         "section": null,
-        "type": "text"
+        "type": "translated-text"
       },
       {
         "classification": null,
-        "helpText": null,
+        "helpText": "Type a Google Maps Embed API key.  You must include this to make a request to the API.  More information can be found about this at https://developers.google.com/maps/documentation/embed/guide.",
         "label": "Google Maps Embed API Key",
         "name": "key",
         "options": {
         },
         "section": null,
-        "type": "text"
+        "type": "translated-text"
       },
       {
         "classification": null,
@@ -589,9 +589,29 @@
         "label": "Map Zoom",
         "name": "zoom",
         "options": {
+          "one":"1 - World",
+          "two":"2",
+          "three":"3",
+          "four":"4",
+          "five":"5 - State & Region",
+          "six":"6",
+          "seven":"7",
+          "eight":"8",
+          "nine":"9",
+          "ten":"10 - City",
+          "eleven":"11",
+          "twelve":"12",
+          "thirteen":"13",
+          "fourteen":"14",
+          "fifteen":"15 - Neighborhood",
+          "sixteen":"16",
+          "seventeen":"17",
+          "eighteen":"18",
+          "nineteen":"19",
+          "twenty":"20 - Specific Address"
         },
         "section": null,
-        "type": "text"
+        "type": "dropdown"
       }
     ],
     "template": "<lumavate-map address=\"{{ componentData.address }}\" key=\"{{ componentData.key }}\" zoom=\"{{ componentData.zoom }}\"></lumavate-map>"
