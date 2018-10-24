@@ -1,5 +1,38 @@
 [
   {
+    "label": "Email Auth",
+    "icon": "/assets/email.svg",
+    "tags": ["body"],
+    "type":"Email Auth",
+    "properties": [
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Header Text",
+        "name": "headerText",
+        "options": {
+
+        },
+        "section": null,
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Button Text",
+        "name": "buttonText",
+        "options": {
+
+        },
+        "section": null,
+        "type": "text"
+      }
+    ],
+    "template": "<lumavate-email header-text=\"{{ componentData.headerText }}\" button-text=\"{{ componentData.buttonText }}\"></lumavate-email>"
+  },
+  {
     "label": "Image",
     "icon": "/assets/image.svg",
     "tags": ["body"],
