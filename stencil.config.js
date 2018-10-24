@@ -1,5 +1,5 @@
-const sass = require('@stencil/sass');
-const postcss = require('@stencil/postcss');
+const { sass } = require('@stencil/sass');
+const { postcss } = require('@stencil/postcss');
 const autoprefixer = require('autoprefixer');
 
 exports.config = {

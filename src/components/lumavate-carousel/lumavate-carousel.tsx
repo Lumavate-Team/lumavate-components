@@ -2,6 +2,9 @@ import { Component, Prop, Event, EventEmitter, Element, Listen } from '@stencil/
 import HammerJS from 'hammerjs' //v2.0.8
 import pinchZoom from './../lumavate-carousel/pinch-zoom'
 
+/**
+ * Creates an image carousel
+ */
 @Component({
   tag: 'lumavate-carousel',
   styleUrl: 'lumavate-carousel.scss',
@@ -12,9 +15,11 @@ export class LumavateCarousel {
 
   @Event() clicked: EventEmitter
   @Element() el: HTMLElement
+ 
   @Prop() carouselImages: string = ''
   @Prop() mode: string = 'cover'
   @Prop() arrowColor: string = 'white'
+  /** Determine if dots should be displayed at bottom of carousel */
   @Prop() displayDots: boolean = true
   @Prop() lowerLightboxIcons: boolean = false
 
