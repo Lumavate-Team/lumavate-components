@@ -12,12 +12,13 @@
         "label": "Image",
         "name": "src",
         "options": {
-},
+        },
         "section": null,
         "type": "image-upload"
       },
       {
-        "classification": null, "default": "contain",
+        "classification": null,
+        "default": "contain",
         "helpText": "This controls image size.  Contain scales the image as large as possible without cropping or stretching the image.  Cover scales the image with stretching the image, but may crop the image, in order to fill the element with no empty space.",
         "label": "Mode",
         "name": "mode",
@@ -86,7 +87,7 @@
       },
       {
         "classification": null,
-        "default": "{'en-us':""}",
+        "default": "{'en-us':''}",
         "helpText": null,
         "label": "Item Text",
         "name": "navBarItemText1",
@@ -120,7 +121,7 @@
       },
       {
         "classification": null,
-        "default": "{'en-us':""}",
+        "default": "{'en-us':''}",
         "helpText": null,
         "label": "Item Text",
         "name": "navBarItemText2",
@@ -154,7 +155,7 @@
       },
       {
         "classification": null,
-        "default": "{'en-us':""}",
+        "default": "{'en-us':''}",
         "helpText": null,
         "label": "Item Text",
         "name": "navBarItemText3",
@@ -188,7 +189,7 @@
       },
       {
         "classification": null,
-        "default": "{'en-us':""}",
+        "default": "{'en-us':''}",
         "helpText": null,
         "label": "Item Text",
         "name": "navBarItemText4",
@@ -360,7 +361,7 @@
       },
       {
         "classification": null,
-        "default": "{'en-us':""}",
+        "default": "{'en-us':''}",
         "helpText": null,
         "label": "Text",
         "name": "text",
