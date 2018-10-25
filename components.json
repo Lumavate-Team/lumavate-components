@@ -87,7 +87,7 @@
       },
       {
         "classification": null,
-        "default": "{'en-us':''}",
+        "default": {"en-us":""},
         "helpText": null,
         "label": "Item Text",
         "name": "navBarItemText1",
@@ -121,7 +121,7 @@
       },
       {
         "classification": null,
-        "default": "{'en-us':''}",
+        "default": {"en-us":""},
         "helpText": null,
         "label": "Item Text",
         "name": "navBarItemText2",
@@ -155,7 +155,7 @@
       },
       {
         "classification": null,
-        "default": "{'en-us':''}",
+        "default": {"en-us":""},
         "helpText": null,
         "label": "Item Text",
         "name": "navBarItemText3",
@@ -189,7 +189,7 @@
       },
       {
         "classification": null,
-        "default": "{'en-us':''}",
+        "default": {"en-us":""},
         "helpText": null,
         "label": "Item Text",
         "name": "navBarItemText4",
@@ -361,7 +361,7 @@
       },
       {
         "classification": null,
-        "default": "{'en-us':''}",
+        "default": {"en-us":""},
         "helpText": null,
         "label": "Text",
         "name": "text",
@@ -407,7 +407,7 @@
       },
       {
         "classification": null,
-        "default": "Disclosure Text",
+        "default": {"en-us":""},
         "helpText": "Text at the top of the card that can be used for a disclosure statement.  For example: 'This PWA uses cookies to provide you with a better experience.  By using the PWA, you agree to the User Agreement below.'",
         "label": "Disclosure Text",
         "name": "disclosureText",
@@ -443,7 +443,7 @@
       },
       {
         "classification": null,
-        "default": "Got it!",
+        "default": {"en-us":""},
         "helpText": "Text written on the button used for confirmation.  Examples include: 'Got it!', 'Okay!', or 'Submit'.",
         "label": "Button Text",
         "name": "buttonText",
@@ -455,7 +455,7 @@
       },
       {
         "classification": null,
-        "default": "Link 1 Text",
+        "default": {"en-us":""},
         "helpText": "Displayed text listed below the disclosure statement that can be clicked to read important documents, such as a privacy or user agreement.",
         "label": "Link 1 Text",
         "name": "link1Text",
@@ -490,7 +490,7 @@
       },
       {
         "classification": null,
-        "default":"Link 2 Text",
+        "default":{"en-us":""},
         "helpText": "Displayed text listed below the disclosure statement that can be clicked to read important documents, such as a privacy or user agreement.  If more than one of these documents are not needed, this should be left blank.",
         "label": "Link 2 Text",
         "name": "link2Text",
@@ -525,7 +525,7 @@
       },
       {
         "classification": null,
-        "default":"Link 3 Text",
+        "default":{"en-us":""},
         "helpText": "Displayed text listed below the disclosure statement that can be clicked to read important documents, such as a privacy or user agreement.  If more than two of these documents are not needed, this should be left blank.",
         "label": "Link 3 Text",
         "name": "link3Text",
@@ -570,7 +570,7 @@
     "properties": [
       {
         "classification": null,
-        "helpText": "Type address to be shown on map in the form 'Street Adress and Street, City, State, Zip Code'",
+        "helpText": "Type address to be shown on map in standard form, including street address, city, state, and zip code.",
         "label": "Address",
         "name": "address",
         "options": {
