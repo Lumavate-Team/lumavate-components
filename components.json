@@ -18,8 +18,8 @@
       },
       {
         "classification": null, "default": "contain",
-        "helpText": null,
-        "label": "Image Fill",
+        "helpText": "This controls image size.  Contain scales the image as large as possible without cropping or stretching the image.  Cover scales the image with stretching the image, but may crop the image, in order to fill the element with no empty space.",
+        "label": "Mode",
         "name": "mode",
         "options": {
           "contain": "Contain",
@@ -86,7 +86,7 @@
       },
       {
         "classification": null,
-        "default": "",
+        "default": "{'en-us':""}",
         "helpText": null,
         "label": "Item Text",
         "name": "navBarItemText1",
@@ -120,7 +120,7 @@
       },
       {
         "classification": null,
-        "default": "",
+        "default": "{'en-us':""}",
         "helpText": null,
         "label": "Item Text",
         "name": "navBarItemText2",
@@ -154,7 +154,7 @@
       },
       {
         "classification": null,
-        "default": "",
+        "default": "{'en-us':""}",
         "helpText": null,
         "label": "Item Text",
         "name": "navBarItemText3",
@@ -188,7 +188,7 @@
       },
       {
         "classification": null,
-        "default": "",
+        "default": "{'en-us':""}",
         "helpText": null,
         "label": "Item Text",
         "name": "navBarItemText4",
@@ -209,107 +209,109 @@
     "tags": ["body"],
     "type": "Carousel",
     "properties": [
-        {
-            "classification": null,
-            "default": "#ffffff",
-            "helpText": "Color of arrows used to switch displayed images.",
-            "label": "Arrow Color",
-            "name": "arrowColor",
-            "options": {},
-            "section": null,
-            "type": "color"
-        },
-        {
-            "classification": null,
-            "default": "cover",
-            "helpText": "This controls image size.  Contain scales the image as large as possible without cropping or stretching the image.  Cover scales the image with stretching the image, but may crop the image, in order to fill the element with no empty space.",
-            "label": "Mode",
-            "name": "mode",
-            "options": {
-                "contain": "Contain",
-                "cover": "Cover"
-            },
-            "section": null,
-            "type": "dropdown"
-        },
-        {
-          "classification": null,
-          "default": true,
-          "helpText": "Dots at the bottom of the image show which image in the series is being displayed.  This controls whether those dots are displayed or not.",
-          "label": "Display Dots",
-          "name": "displayDots",
-          "options": {
+      {
+        "classification": null,
+        "default": "#ffffff",
+        "helpText": "Color of arrows used to move through displayed images.",
+        "label": "Arrow Color",
+        "name": "arrowColor",
+        "options": {
 
-          },
-          "section": null,
-          "type": "toggle"
         },
-        {
-          "classification": null,
-          "default": false,
-          "helpText": "When carousel image is displayed in fullscreen, if this property is set on, the icon to minimize the fullscreen image and the slide count are displayed below the header.  If it is off, the icons are displayed over the header.",
-          "label": "Lower Lightbox Icons",
-          "name": "lowerLightboxIcons",
-          "options": {
+        "section": null,
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "cover",
+        "helpText": "This controls image size.  Contain scales the image as large as possible without cropping or stretching the image.  Cover scales the image with stretching the image, but may crop the image, in order to fill the element with no empty space.",
+        "label": "Mode",
+        "name": "mode",
+        "options": {
+            "contain": "Contain",
+            "cover": "Cover"
+        },
+        "section": null,
+        "type": "dropdown"
+      },
+      {
+        "classification": null,
+        "default": true,
+        "helpText": "Dots at the bottom of the image show which image in the series is being displayed.  If this property is on, the dots will be displayed.  If this property is off, the dots will not be displayed.",
+        "label": "Display Dots",
+        "name": "displayDots",
+        "options": {
 
-          },
-          "section": null,
-          "type": "toggle"
         },
-        {
-            "classification": null,
-            "helpText": null,
-            "label": "Image Link",
-            "name": "ImageLink1",
-            "options": {},
-            "section": "Carousel Images",
-            "type": "image-upload"
+        "section": null,
+        "type": "toggle"
+      },
+      {
+        "classification": null,
+        "default": false,
+        "helpText": "When carousel images are displayed in fullscreen, if this property is on, the icon to minimize the fullscreen image and the slide count are displayed below the header.  If it is off, the icons are displayed over the header.",
+        "label": "Lower Lightbox Icons",
+        "name": "lowerLightboxIcons",
+        "options": {
+
         },
-        {
-            "classification": null,
-            "helpText": null,
-            "label": "Image Link",
-            "name": "ImageLink2",
-            "options": {},
-            "section": "Carousel Images",
-            "type": "image-upload"
-        },
-        {
-            "classification": null,
-            "helpText": null,
-            "label": "Image Link",
-            "name": "ImageLink3",
-            "options": {},
-            "section": "Carousel Images",
-            "type": "image-upload"
-        },
-        {
-            "classification": null,
-            "helpText": null,
-            "label": "Image Link",
-            "name": "ImageLink4",
-            "options": {},
-            "section": "Carousel Images",
-            "type": "image-upload"
-        },
-        {
-            "classification": null,
-            "helpText": null,
-            "label": "Image Link",
-            "name": "ImageLink5",
-            "options": {},
-            "section": "Carousel Images",
-            "type": "image-upload"
-        },
-        {
-            "classification": null,
-            "helpText": null,
-            "label": "Image Link",
-            "name": "ImageLink6",
-            "options": {},
-            "section": "Carousel Images",
-            "type": "image-upload"
-        }
+        "section": null,
+        "type": "toggle"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Image Link",
+        "name": "ImageLink1",
+        "options": {},
+        "section": "Carousel Images",
+        "type": "image-upload"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Image Link",
+        "name": "ImageLink2",
+        "options": {},
+        "section": "Carousel Images",
+        "type": "image-upload"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Image Link",
+        "name": "ImageLink3",
+        "options": {},
+        "section": "Carousel Images",
+        "type": "image-upload"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Image Link",
+        "name": "ImageLink4",
+        "options": {},
+        "section": "Carousel Images",
+        "type": "image-upload"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Image Link",
+        "name": "ImageLink5",
+        "options": {},
+        "section": "Carousel Images",
+        "type": "image-upload"
+      },
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Image Link",
+        "name": "ImageLink6",
+        "options": {},
+        "section": "Carousel Images",
+        "type": "image-upload"
+      }
     ],
     "template": "<lumavate-carousel lower-lightbox-icons=\"{{ componentData.lowerLightboxIcons|lower }}\"  display-dots=\"{{ componentData.displayDots|lower }}\" arrow-color=\"{{ componentData.arrowColor }}\" mode=\"{{ componentData.mode }}\" carousel-images='[{% set images = ['ImageLink1','ImageLink2','ImageLink3','ImageLink4','ImageLink5','ImageLink6']%}{% for imageId in images %}{{ ',' if imageId != 'ImageLink1' and componentData[imageId] and (componentData[imageId].preview != '/iot/v1/icons/no_image_available.png')}}{{ ('{\"url\": \"' ~ componentData[imageId].preview ~ '\"}') if  componentData[imageId] and (componentData[imageId].preview != '/iot/v1/icons/no_image_available.png')}}{% endfor %}]'></lumavate-carousel>"
   },
@@ -358,7 +360,7 @@
       },
       {
         "classification": null,
-        "default": "",
+        "default": "{'en-us':""}",
         "helpText": null,
         "label": "Text",
         "name": "text",
@@ -375,13 +377,13 @@
     "label": "Disclosure",
     "section":"Base Components (v{{version}})",
     "icon":"/assets/smallnav.svg",
-    "tags": ["body"],
+    "tags": ["modal"],
     "type":"Disclosure",
     "properties": [
       {
         "classification": null,
         "default": "#ffffff",
-        "helpText": "Background color of the pop-up card telling users that the PWA uses cookies.",
+        "helpText": "Background color of the pop-up card.",
         "label": "Disclosure Background Color",
         "name": "disclosureBackgroundColor",
         "options": {
@@ -393,7 +395,7 @@
       {
         "classification": null,
         "default": "#000000",
-        "helpText": "Color of the text on the pop-up card telling users that the PWA uses cookies.",
+        "helpText": "Color of the text on the pop-up card.",
         "label": "Disclosure Text Color",
         "name": "disclosureTextColor",
         "options": {
@@ -405,7 +407,7 @@
       {
         "classification": null,
         "default": "Disclosure Text",
-        "helpText": "Text to let the user know that the PWA uses cookies and to make them aware that, by using the PWA, they are agreeing the use of cookies and to the privacy agreement.  Below this, links  can be placed to the privacy agreement and/or other important documents.",
+        "helpText": "Text at the top of the card that can be used for a disclosure statement.  For example: 'This PWA uses cookies to provide you with a better experience.  By using the PWA, you agree to the User Agreement below.'",
         "label": "Disclosure Text",
         "name": "disclosureText",
         "options": {
@@ -416,7 +418,7 @@
       },
       {
         "classification": null,
-        "default": "#4177b5",
+        "default": "#000000",
         "helpText": "Background color of the confirmation button.",
         "label": "Button Color",
         "name": "buttonColor",
@@ -464,7 +466,7 @@
       },
       {
         "classification": null,
-        "default": "#4177b5",
+        "default": "#000000",
         "helpText": "Color of the displayed text linking to important documents, such as a privacy or user agreement.",
         "label": "Link 1 Text Color",
         "name": "link1TextColor",
@@ -487,7 +489,8 @@
       },
       {
         "classification": null,
-        "helpText": "Displayed text listed below the disclosure statement that can be clicked to read important documents, such as a privacy or user agreement.  If more than one of these documents are not needed, this can be left blank.",
+        "default":"Link 2 Text",
+        "helpText": "Displayed text listed below the disclosure statement that can be clicked to read important documents, such as a privacy or user agreement.  If more than one of these documents are not needed, this should be left blank.",
         "label": "Link 2 Text",
         "name": "link2Text",
         "options": {
@@ -498,8 +501,8 @@
       },
       {
         "classification": null,
-        "default": "#4177b5",
-        "helpText": "Color of the displayed text linking to important documents, such as a privacy or user agreement.  If more than one of these documents are not needed, this can be left blank.",
+        "default": "#000000",
+        "helpText": "Color of the displayed text linking to important documents, such as a privacy or user agreement.",
         "label": "Link 2 Text Color",
         "name": "link2TextColor",
         "options": {
@@ -510,7 +513,7 @@
       },
       {
         "classification": null,
-        "helpText": "Web address of important documents, such as a privacy or user agreement, that the user needs to have access to.  If more than one of these documents are not needed, this can be left blank.",
+        "helpText": "Web address of important documents, such as a privacy or user agreement, that the user needs to have access to.  If more than one of these documents are not needed, this should be left blank.",
         "label": "Link 2",
         "name": "link2",
         "options": {
@@ -521,7 +524,8 @@
       },
       {
         "classification": null,
-        "helpText": "Displayed text listed below the disclosure statement that can be clicked to read important documents, such as a privacy or user agreement.  If more than two of these documents are not needed, this can be left blank.",
+        "default":"Link 3 Text",
+        "helpText": "Displayed text listed below the disclosure statement that can be clicked to read important documents, such as a privacy or user agreement.  If more than two of these documents are not needed, this should be left blank.",
         "label": "Link 3 Text",
         "name": "link3Text",
         "options": {
@@ -532,8 +536,8 @@
       },
       {
         "classification": null,
-        "default": "#4177b5",
-        "helpText": "Color of the displayed text linking to important documents, such as a privacy or user agreement.  If more than two of these documents are not needed, this can be left blank.",
+        "default": "#000000",
+        "helpText": "Color of the displayed text linking to important documents, such as a privacy or user agreement.",
         "label": "Link 3 Text Color",
         "name": "link3TextColor",
         "options": {
@@ -544,7 +548,7 @@
       },
       {
         "classification": null,
-        "helpText": "Web address of important documents, such as a privacy or user agreement, that the user needs to have access to.  If more than two of these documents are not needed, this can be left blank.",
+        "helpText": "Web address of important documents, such as a privacy or user agreement, that the user needs to have access to.  If more than two of these documents are not needed, this should be left blank.",
         "label": "Link 3",
         "name": "link3",
         "options": {
@@ -569,9 +573,10 @@
         "label": "Address",
         "name": "address",
         "options": {
+
         },
         "section": null,
-        "type": "translated-text"
+        "type": "text"
       },
       {
         "classification": null,
@@ -579,21 +584,23 @@
         "label": "Google Maps Embed API Key",
         "name": "key",
         "options": {
+
         },
         "section": null,
-        "type": "translated-text"
+        "type": "text"
       },
       {
         "classification": null,
-        "helpText": null,
+        "helpText": "This property sets the initial resolution of the displayed map.  If set to 0, a map of the entire earth will be shown.  If set to 20, a map of a small area of specific building will be shown.  Between 0 and 20 is a scale of different zoom levels, the dropdown shows some benchmarks to help better understand the zoom property.",
         "label": "Map Zoom",
         "name": "zoom",
         "options": {
+          "0":"0",
           "1":"1 - World",
           "2":"2",
           "3":"3",
           "4":"4",
-          "5":"5 - State & Region",
+          "5":"5 - Landmass/continent",
           "6":"6",
           "7":"7",
           "8":"8",
@@ -603,12 +610,12 @@
           "12":"12",
           "13":"13",
           "14":"14",
-          "15":"15 - Neighborhood",
+          "15":"15 - Streets",
           "16":"16",
           "17":"17",
           "18":"18",
           "19":"19",
-          "20":"20 - Specific Address"
+          "20":"20 - Buildings"
         },
         "section": null,
         "type": "dropdown"
