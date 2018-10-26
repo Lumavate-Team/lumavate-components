@@ -74,15 +74,6 @@
 
     }
 
-    .outside {
-      position: relative;
-      width:90%;
-      left: 50%;
-      top: 40%;
-      // height: 150px;
-      transform: translate(-50%,-50%);
-    }
-
     .text {
       font-size: 18px;
     }
@@ -94,9 +85,9 @@
       position: relative;
       width: 90%;
       left:5%;
-      height: 40px;
+      padding-top: 12px;
+      padding-bottom: 12px;
       bottom: 10px;
-      vertical-align: middle;
     }
 
     #buttonText{
@@ -108,11 +99,6 @@
     #button:hover{
       cursor: pointer;
     }
-
-    .open {
-      bottom: 0px !important;
-    }
-
 
     @keyframes slideInFromBottom {
       0% {
@@ -182,6 +168,10 @@
     #disclosureText{
       position: relative;
       margin: 10px;
+    }
+    #space{
+      background: transparent;
+      height: 10px;
     }
 
 }

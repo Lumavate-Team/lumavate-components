@@ -22,11 +22,11 @@ export class LumavateDisclosure {
   @Prop() link1TextColor: string = "#4177b5";
   @Prop() link1: string = "";
 
-  @Prop() link2Text: string = "Privacy Agreement";
+  @Prop() link2Text: string = "";
   @Prop() link2TextColor: string = "#4177b5";
   @Prop() link2: string = "";
 
-  @Prop() link3Text: string = "afsdklakhadls";
+  @Prop() link3Text: string = "";
   @Prop() link3TextColor: string = "#4177b5";
   @Prop() link3: string = "";
 
@@ -69,6 +69,7 @@ export class LumavateDisclosure {
           <a id = "link1" style={{color:this.link1TextColor}} href={this.link1}>{this.link1Text}</a>
           <a id = "link2" style={{color:this.link2TextColor}} href={this.link2}>{this.link2Text}</a>
           <a id = "link3" style={{color:this.link3TextColor}} href={this.link3}>{this.link3Text}</a>
+          <div id="space"></div>
           <div id="button" style={{backgroundColor: this.buttonColor, color: this.buttonTextColor, fontFamily: this.buttonTextFont}}>
             <div id="buttonText">{this.buttonText}</div>
           </div>
@@ -82,8 +83,9 @@ export class LumavateDisclosure {
           <a id = "link1" style={{color:this.link1TextColor}} href={this.link1}>{this.link1Text}</a>
           <a id = "link2" style={{color:this.link2TextColor}} href={this.link2}>{this.link2Text}</a>
           <a id = "link3" style={{color:this.link3TextColor}} href={this.link3}>{this.link3Text}</a>
+          <div id="space"></div>
           <div id="button" onClick={this.close.bind(this)} style={{backgroundColor: this.buttonColor, color: this.buttonTextColor, fontFamily: this.buttonTextFont}}>
-            <div id="buttonText">{this.buttonText}</div>
+            {this.buttonText}
           </div>
         </div>
       );
