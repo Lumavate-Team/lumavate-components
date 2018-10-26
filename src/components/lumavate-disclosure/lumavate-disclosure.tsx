@@ -71,7 +71,7 @@ export class LumavateDisclosure {
           <a id = "link3" style={{color:this.link3TextColor}} href={this.link3}>{this.link3Text}</a>
           <div id="space"></div>
           <div id="button" style={{backgroundColor: this.buttonColor, color: this.buttonTextColor, fontFamily: this.buttonTextFont}}>
-            <div id="buttonText">{this.buttonText}</div>
+            {this.buttonText}
           </div>
         </div>
       );
