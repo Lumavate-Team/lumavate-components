@@ -4,7 +4,7 @@
     "section":"Base Components (v{{version}})",
     "icon": "/assets/image.svg",
     "tags": ["body"],
-    "type":"Image",
+    "type":"lumavate-image",
     "properties": [
       {
         "classification": null,
@@ -37,7 +37,7 @@
     "section":"Base Components (v{{version}})",
     "icon": "a",
     "tags": ["footer"],
-    "type":"Nav-Bar",
+    "type":"lumavate-nav-bar",
     "properties": [
       {
         "classification": null,
@@ -208,7 +208,7 @@
     "section":"Base Components (v{{version}})",
     "icon": "/assets/carousel.svg",
     "tags": ["body"],
-    "type": "Carousel",
+    "type": "lumavate-carousel",
     "properties": [
       {
         "classification": null,
@@ -321,7 +321,7 @@
     "section":"Base Components (v{{version}})",
     "icon":"/assets/header.svg",
     "tags": ["header"],
-    "type":"Header",
+    "type":"lumavate-header",
     "properties": [
       {
         "classification": null,
@@ -379,7 +379,7 @@
     "section":"Base Components (v{{version}})",
     "icon":"/assets/smallnav.svg",
     "tags": ["modal"],
-    "type":"Disclosure",
+    "type":"lumavate-disclosure",
     "properties": [
       {
         "classification": null,
@@ -566,7 +566,7 @@
     "section":"Base Components (v{{version}})",
     "icon": "/assets/map.svg",
     "tags": ["body"],
-    "type":"Map",
+    "type":"lumavate-map",
     "properties": [
       {
         "classification": null,
