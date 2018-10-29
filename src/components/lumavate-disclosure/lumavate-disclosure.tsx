@@ -30,6 +30,8 @@ export class LumavateDisclosure {
   @Prop() link3TextColor: string = "#4177b5";
   @Prop() link3: string = "";
 
+  @Prop() popupDelay: string ="";
+
   @State() cookieExists: boolean = false;
   @State() closeBox: boolean = false;
 
@@ -43,7 +45,8 @@ export class LumavateDisclosure {
 
   componentDidLoad() {
     if (this.getCookie("disclosure") != "shown") {
-      document.cookie = "disclosure=shown";
+      // document.cookie = "disclosure=shown";
+      return;
     }
     else{
       this.cookieExists=true;
@@ -52,6 +55,7 @@ export class LumavateDisclosure {
 
   @Method()
   close() {
+    document.cookie = "disclosure=shown";
     this.closeBox = true;
   }
 
@@ -77,7 +81,7 @@ export class LumavateDisclosure {
     }
     else {
       return (
-        <div id="disclosure" style={{fontFamily: this.disclosureTextFont, backgroundColor: this.disclosureBackgroundColor, color: this.disclosureTextColor}}>
+        <div id="disclosure" style={{fontFamily: this.disclosureTextFont, backgroundColor: this.disclosureBackgroundColor, color: this.disclosureTextColor, animationDelay: this.popupDelay+"s" }}>
           <div id="disclosureText" class="text">{this.disclosureText}</div>
           <a id = "link1" style={{color:this.link1TextColor}} href={this.link1}>{this.link1Text}</a>
           <a id = "link2" style={{color:this.link2TextColor}} href={this.link2}>{this.link2Text}</a>
