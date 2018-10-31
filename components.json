@@ -572,7 +572,7 @@
       },
       {
         "classification": null,
-        "default": {"en-us":""},
+        "default": "#ffffff",
         "helpText": "The color of the text in the header at the top of the disclosure card.  This header will be displayed at the bottom of the screen after a user acknowledges the disclosure agreement and can be clicked at any time to allow the user to access disclosure documents.",
         "label": "Header Text Color",
         "name": "headerTextColor",
@@ -584,7 +584,7 @@
       },
       {
         "classification": null,
-        "default": {"en-us":""},
+        "default": "#000000",
         "helpText": "The color of the background of the header at the top of the disclosure card.  This header will be displayed at the bottom of the screen after a user acknowledges the disclosure agreement and can be clicked at any time to allow the user to access disclosure documents.",
         "label": "Header Background Color",
         "name": "headerBackgroundColor",
