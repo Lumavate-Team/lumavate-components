@@ -56,6 +56,7 @@ export namespace Components {
     'link3': string;
     'link3Text': string;
     'link3TextColor': string;
+    'popUpSpeed': string;
   }
   interface LumavateDisclosureAttributes extends StencilHTMLAttributes {
     'buttonColor'?: string;
@@ -78,6 +79,7 @@ export namespace Components {
     'link3'?: string;
     'link3Text'?: string;
     'link3TextColor'?: string;
+    'popUpSpeed'?: string;
   }
 
   interface LumavateHeader {

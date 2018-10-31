@@ -593,9 +593,21 @@
         },
         "section": "Disclosure",
         "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "0.75",
+        "helpText": "The speed that the disclosure card will pop-up or move down off the screen in seconds.",
+        "label": "Disclosure Pop-up Speed",
+        "name": "popUpSpeed",
+        "options": {
+
+        },
+        "section": "Disclosure",
+        "type": "text"
       }
     ],
-    "template": "<lumavate-disclosure button-color=\"{{ componentData.buttonColor}}\" button-text=\"{{ componentData.buttonText}}\" button-text-color=\"{{ componentData.buttonTextColor}}\" disclosure-background-color=\"{{ componentData.disclosureBackgroundColor}}\" disclosure-text=\"{{ componentData.disclosureText}}\" disclosure-text-color=\"{{ componentData.disclosureTextColor}}\" link-1-text=\"{{ componentData.link1Text}}\" link-1=\"{{ componentData.link1.url}}\" link-1-text-color=\"{{ componentData.link1TextColor}}\" link-2-text=\"{{ componentData.link2Text}}\" link-2=\"{{ componentData.link2.url}}\" link-2-text-color=\"{{ componentData.link2TextColor}}\" link-3-text=\"{{ componentData.link3Text}}\" link-3=\"{{ componentData.link3.url}}\" link-3-text-color=\"{{ componentData.link3TextColor}}\" popup-delay=\"{{ componentData.popupDelay}}\" header-text=\"{{ componentData.headerText}}\" header-text-color=\"{{ componentData.headerTextColor}}\" header-background-color=\"{{ componentData.headerBackgroundColor}}\"></lumavate-disclosure>"
+    "template": "<lumavate-disclosure button-color=\"{{ componentData.buttonColor}}\" button-text=\"{{ componentData.buttonText}}\" button-text-color=\"{{ componentData.buttonTextColor}}\" disclosure-background-color=\"{{ componentData.disclosureBackgroundColor}}\" disclosure-text=\"{{ componentData.disclosureText}}\" disclosure-text-color=\"{{ componentData.disclosureTextColor}}\" link-1-text=\"{{ componentData.link1Text}}\" link-1=\"{{ componentData.link1.url}}\" link-1-text-color=\"{{ componentData.link1TextColor}}\" link-2-text=\"{{ componentData.link2Text}}\" link-2=\"{{ componentData.link2.url}}\" link-2-text-color=\"{{ componentData.link2TextColor}}\" link-3-text=\"{{ componentData.link3Text}}\" link-3=\"{{ componentData.link3.url}}\" link-3-text-color=\"{{ componentData.link3TextColor}}\" popup-delay=\"{{ componentData.popupDelay}}\" header-text=\"{{ componentData.headerText}}\" header-text-color=\"{{ componentData.headerTextColor}}\" header-background-color=\"{{ componentData.headerBackgroundColor}}\" pop-up-speed=\"{{ componentData.popUpSpeed}}\"></lumavate-disclosure>"
   },
   {
     "label": "Map",

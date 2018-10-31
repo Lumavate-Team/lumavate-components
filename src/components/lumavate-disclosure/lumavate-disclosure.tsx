@@ -34,6 +34,8 @@ export class LumavateDisclosure {
   @Prop() headerBackgroundColor: string = "black";
   @Prop() headerTextColor: string = "white";
 
+  @Prop() popUpSpeed: string='0.75';
+
   @State() cookieExists: boolean = false;
   @State() closeBox: boolean = false;
   @State() openBox: boolean = false;
@@ -61,7 +63,9 @@ export class LumavateDisclosure {
       var disclosureHeight = this.el.shadowRoot.querySelector('.disclosureOpen').clientHeight;
     }
 
+
     root.style.setProperty('--box-height', disclosureHeight + "px");
+    root.style.setProperty('--pop-up-speed', this.popUpSpeed + "s");
 
     if (this.getCookie("disclosure") != "shown") {
       return;
