@@ -44,6 +44,9 @@ export namespace Components {
     'disclosureText': string;
     'disclosureTextColor': string;
     'disclosureTextFont': string;
+    'headerBackgroundColor': string;
+    'headerText': string;
+    'headerTextColor': string;
     'link1': string;
     'link1Text': string;
     'link1TextColor': string;
@@ -53,7 +56,6 @@ export namespace Components {
     'link3': string;
     'link3Text': string;
     'link3TextColor': string;
-    'popupDelay': string;
   }
   interface LumavateDisclosureAttributes extends StencilHTMLAttributes {
     'buttonColor'?: string;
@@ -64,6 +66,9 @@ export namespace Components {
     'disclosureText'?: string;
     'disclosureTextColor'?: string;
     'disclosureTextFont'?: string;
+    'headerBackgroundColor'?: string;
+    'headerText'?: string;
+    'headerTextColor'?: string;
     'link1'?: string;
     'link1Text'?: string;
     'link1TextColor'?: string;
@@ -73,7 +78,6 @@ export namespace Components {
     'link3'?: string;
     'link3Text'?: string;
     'link3TextColor'?: string;
-    'popupDelay'?: string;
   }
 
   interface LumavateHeader {
