@@ -12,7 +12,7 @@
         "label": "Body Text",
         "name": "body",
         "options": {
-
+            "rows": 5
         },
         "section": null,
         "type": "text"
