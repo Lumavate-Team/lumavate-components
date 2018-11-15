@@ -1,5 +1,62 @@
 [
-{
+  {
+    "label": "Markdown Text",
+    "icon": "/assets/markdown.svg",
+    "tags": ["body"],
+    "type":"Markdown Text",
+    "properties": [
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Body Text",
+        "name": "body",
+        "options": {
+
+        },
+        "section": null,
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Font Size",
+        "name": "fontSize",
+        "options": {
+
+        },
+        "section": null,
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Font Alignment",
+        "name": "fontAlign",
+        "options": {
+
+        },
+        "section": null,
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "white",
+        "helpText": null,
+        "label": "Font Color",
+        "name": "fontColor",
+        "options": {
+
+        },
+        "section": null,
+        "type": "color"
+      }
+    ],
+    "template": "<lumavate-button body=\"{{ componentData.body }}\" font-size=\"{{ componentData.fontSize }}\" font-align=\"{{ componentData.fontAlign }}\" font-color=\"{{ componentData.fontColor }}\"></lumavate-button>"
+  },
+  {
     "label": "Button",
     "icon": "/assets/button.svg",
     "tags": ["body"],
