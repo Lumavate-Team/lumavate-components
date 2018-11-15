@@ -12,6 +12,31 @@ import '@stencil/core';
 
 export namespace Components {
 
+  interface LumavateButton {
+    'buttonColor': string;
+    'buttonRadius': string;
+    'buttonShape': string;
+    'buttonStyle': string;
+    'buttonText': string;
+    'fontColor': string;
+    'fontSize': string;
+    'fontStyle': string;
+    'pageRedirect': string;
+    'textAlignment': string;
+  }
+  interface LumavateButtonAttributes extends StencilHTMLAttributes {
+    'buttonColor'?: string;
+    'buttonRadius'?: string;
+    'buttonShape'?: string;
+    'buttonStyle'?: string;
+    'buttonText'?: string;
+    'fontColor'?: string;
+    'fontSize'?: string;
+    'fontStyle'?: string;
+    'pageRedirect'?: string;
+    'textAlignment'?: string;
+  }
+
   interface LumavateCarousel {
     'arrowColor': string;
     'carouselImages': string;
@@ -74,6 +99,16 @@ export namespace Components {
     'link3TextColor'?: string;
   }
 
+  interface LumavateEmail {
+    'buttonText': string;
+    'handleEmail': (event: any) => void;
+    'headerText': string;
+  }
+  interface LumavateEmailAttributes extends StencilHTMLAttributes {
+    'buttonText'?: string;
+    'headerText'?: string;
+  }
+
   interface LumavateHeader {
     'BackgroundColor': string;
     'FontColor': string;
@@ -108,6 +143,21 @@ export namespace Components {
     'zoom'?: string;
   }
 
+  interface LumavateMarkdown {
+    'body': string;
+    'fontAlign': string;
+    'fontColor': string;
+    'fontSize': string;
+    'formattedText': string;
+  }
+  interface LumavateMarkdownAttributes extends StencilHTMLAttributes {
+    'body'?: string;
+    'fontAlign'?: string;
+    'fontColor'?: string;
+    'fontSize'?: string;
+    'formattedText'?: string;
+  }
+
   interface LumavateNavBarItem {
     'NavBarItemColor': string;
     'NavBarItemImageLink': string;
@@ -137,25 +187,37 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'LumavateButton': Components.LumavateButton;
     'LumavateCarousel': Components.LumavateCarousel;
     'LumavateDisclosure': Components.LumavateDisclosure;
+    'LumavateEmail': Components.LumavateEmail;
     'LumavateHeader': Components.LumavateHeader;
     'LumavateImage': Components.LumavateImage;
     'LumavateMap': Components.LumavateMap;
+    'LumavateMarkdown': Components.LumavateMarkdown;
     'LumavateNavBarItem': Components.LumavateNavBarItem;
     'LumavateNavBar': Components.LumavateNavBar;
   }
 
   interface StencilIntrinsicElements {
+    'lumavate-button': Components.LumavateButtonAttributes;
     'lumavate-carousel': Components.LumavateCarouselAttributes;
     'lumavate-disclosure': Components.LumavateDisclosureAttributes;
+    'lumavate-email': Components.LumavateEmailAttributes;
     'lumavate-header': Components.LumavateHeaderAttributes;
     'lumavate-image': Components.LumavateImageAttributes;
     'lumavate-map': Components.LumavateMapAttributes;
+    'lumavate-markdown': Components.LumavateMarkdownAttributes;
     'lumavate-nav-bar-item': Components.LumavateNavBarItemAttributes;
     'lumavate-nav-bar': Components.LumavateNavBarAttributes;
   }
 
+
+  interface HTMLLumavateButtonElement extends Components.LumavateButton, HTMLStencilElement {}
+  var HTMLLumavateButtonElement: {
+    prototype: HTMLLumavateButtonElement;
+    new (): HTMLLumavateButtonElement;
+  };
 
   interface HTMLLumavateCarouselElement extends Components.LumavateCarousel, HTMLStencilElement {}
   var HTMLLumavateCarouselElement: {
@@ -167,6 +229,12 @@ declare global {
   var HTMLLumavateDisclosureElement: {
     prototype: HTMLLumavateDisclosureElement;
     new (): HTMLLumavateDisclosureElement;
+  };
+
+  interface HTMLLumavateEmailElement extends Components.LumavateEmail, HTMLStencilElement {}
+  var HTMLLumavateEmailElement: {
+    prototype: HTMLLumavateEmailElement;
+    new (): HTMLLumavateEmailElement;
   };
 
   interface HTMLLumavateHeaderElement extends Components.LumavateHeader, HTMLStencilElement {}
@@ -187,6 +255,12 @@ declare global {
     new (): HTMLLumavateMapElement;
   };
 
+  interface HTMLLumavateMarkdownElement extends Components.LumavateMarkdown, HTMLStencilElement {}
+  var HTMLLumavateMarkdownElement: {
+    prototype: HTMLLumavateMarkdownElement;
+    new (): HTMLLumavateMarkdownElement;
+  };
+
   interface HTMLLumavateNavBarItemElement extends Components.LumavateNavBarItem, HTMLStencilElement {}
   var HTMLLumavateNavBarItemElement: {
     prototype: HTMLLumavateNavBarItemElement;
@@ -200,21 +274,27 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'lumavate-button': HTMLLumavateButtonElement
     'lumavate-carousel': HTMLLumavateCarouselElement
     'lumavate-disclosure': HTMLLumavateDisclosureElement
+    'lumavate-email': HTMLLumavateEmailElement
     'lumavate-header': HTMLLumavateHeaderElement
     'lumavate-image': HTMLLumavateImageElement
     'lumavate-map': HTMLLumavateMapElement
+    'lumavate-markdown': HTMLLumavateMarkdownElement
     'lumavate-nav-bar-item': HTMLLumavateNavBarItemElement
     'lumavate-nav-bar': HTMLLumavateNavBarElement
   }
 
   interface ElementTagNameMap {
+    'lumavate-button': HTMLLumavateButtonElement;
     'lumavate-carousel': HTMLLumavateCarouselElement;
     'lumavate-disclosure': HTMLLumavateDisclosureElement;
+    'lumavate-email': HTMLLumavateEmailElement;
     'lumavate-header': HTMLLumavateHeaderElement;
     'lumavate-image': HTMLLumavateImageElement;
     'lumavate-map': HTMLLumavateMapElement;
+    'lumavate-markdown': HTMLLumavateMarkdownElement;
     'lumavate-nav-bar-item': HTMLLumavateNavBarItemElement;
     'lumavate-nav-bar': HTMLLumavateNavBarElement;
   }

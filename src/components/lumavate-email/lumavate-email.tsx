@@ -36,7 +36,7 @@ export class LumavateEmail {
             "Lumavate-sut": singleToken
         })
 
-        fetch(window['getAuthUrl']() + "invite", {
+        fetch(window['getAuthUrl'] + "invite", {
             method: "POST",
             body: JSON.stringify(dataWrap),
             headers: reqHeaders,

@@ -1,0 +1,15 @@
+@import "@material/button/mdc-button";
+
+:host {
+    width:100%;
+    height:100%;
+    .image {
+      width:100%;
+      height:100%;
+      text-align: center;
+    }
+
+    .image a {
+      margin: 20px;
+    }
+  }

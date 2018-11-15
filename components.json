@@ -1,4 +1,124 @@
 [
+{
+    "label": "Button",
+    "icon": "/assets/button.svg",
+    "tags": ["body"],
+    "type":"Button",
+    "properties": [
+      {
+        "classification": null,
+        "helpText": null,
+        "label": "Button Redirect",
+        "name": "pageRedirect",
+        "options": {
+
+        },
+        "section": null,
+        "type": "page-link"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Button Text",
+        "name": "buttonText",
+        "options": {
+
+        },
+        "section": null,
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Button Shape",
+        "name": "buttonShape",
+        "options": {
+          "": "Text",
+          "mdc-button--raised": "Raised",
+          "mdc-button--unelevated": "Unelevated",
+          "mdc-button--outlined": "Outlined",
+        },
+        "section": null,
+        "type": "dropdown"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Button Style",
+        "name": "buttonStyle",
+        "options": {
+          "": "Normal",
+          "mdc-button--dense": "Dense",
+        },
+        "section": null,
+        "type": "dropdown"
+      },
+      {
+        "classification": null,
+        "default": "black",
+        "helpText": null,
+        "label": "Button Color",
+        "name": "buttonColor",
+        "options": {
+
+        },
+        "section": null,
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Font Size",
+        "name": "fontSize",
+        "options": {
+
+        },
+        "section": null,
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": null,
+        "label": "Font Style",
+        "name": "fontStyle",
+        "options": {
+
+        },
+        "section": null,
+        "type": "text"
+      },
+      {
+        "classification": null,
+        "default": "white",
+        "helpText": null,
+        "label": "Font Color",
+        "name": "fontColor",
+        "options": {
+
+        },
+        "section": null,
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "",
+        "helpText": "This determines the sharpness of the corners on the button. For example 7px is a good radius for buttons.",
+        "label": "Button Radius",
+        "name": "buttonRadius",
+        "options": {
+
+        },
+        "section": null,
+        "type": "text"
+      }
+    ],
+    "template": "<lumavate-button page-redirect=\"{{ componentData.pageRedirect.url }}\" button-text=\"{{ componentData.buttonText }}\" button-shape=\"{{ componentData.buttonShape }}\" button-style=\"{{ componentData.buttonStyle }}\" button-color=\"{{ componentData.buttonColor }}\" font-size=\"{{ componentData.fontSize }}\" font-style=\"{{ componentData.fontStyle }}\" font-color=\"{{ componentData.fontColor }}\" button-radius=\"{{ componentData.buttonRadius }}\"></lumavate-button>"
+  },
   {
     "label": "Email Auth",
     "icon": "/assets/email.svg",
