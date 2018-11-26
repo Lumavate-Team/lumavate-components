@@ -10,11 +10,11 @@ import {markdown} from 'markdown';
 export class LumavateMarkdown {
 
     @Prop() body: string = '';
-    @Prop({ mutable: true }) formattedText: string = '';
-
     @Prop() fontSize: string = '';
     @Prop() fontAlign: string = '';
     @Prop() fontColor: string = '';
+
+    formattedText: string = '';
 
     componentWillLoad() {
         this.formattedText = markdown.toHTML(this.body)
