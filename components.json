@@ -32,7 +32,7 @@
       },
       {
         "classification": null,
-        "default": "",
+        "default": "left",
         "helpText": "Justification of content.",
         "label": "Font Alignment",
         "name": "fontAlign",
