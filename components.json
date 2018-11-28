@@ -213,6 +213,7 @@
       },
       {
         "classification": null,
+        "default":null,
         "helpText": "Image for the background of the component.  If no background image is being used, this can be left blank.",
         "label": "Background Image",
         "name": "backgroundImage",
@@ -223,7 +224,7 @@
       },
       {
         "classification": null,
-        "default": "#4a4a4a",
+        "default": "#fafafa",
         "helpText": "Color of the background of the component.",
         "label": "Background Color",
         "name": "backgroundColor",
