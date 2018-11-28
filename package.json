@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@material/button": "^0.41.0",
+    "@material/textfield": "^0.41.0",
     "@stencil/core": "^0.14.2",
     "@stencil/sass": "0.1.1",
     "hammerjs": "^2.0.8",

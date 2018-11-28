@@ -189,8 +189,64 @@
     "properties": [
       {
         "classification": null,
+        "default": "#4a4a4a",
+        "helpText": "Color of the the button and text input label.",
+        "label": "Theme Color",
+        "name": "themeColor",
+        "options": {
+
+        },
+        "section": null,
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "#ffffff",
+        "helpText": "Color of the text on the button at the bottom of the component.",
+        "label": "Button Text Color",
+        "name": "buttonTextColor",
+        "options": {
+
+        },
+        "section": null,
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "helpText": "Image for the background of the component.  If no background image is being used, this can be left blank.",
+        "label": "Background Image",
+        "name": "backgroundImage",
+        "options": {
+        },
+        "section": null,
+        "type": "image-upload"
+      },
+      {
+        "classification": null,
+        "default": "#4a4a4a",
+        "helpText": "Color of the background of the component.",
+        "label": "Background Color",
+        "name": "backgroundColor",
+        "options": {
+
+        },
+        "section": null,
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "helpText": "Logo at the top of the component.",
+        "label": "Logo",
+        "name": "logo",
+        "options": {
+        },
+        "section": null,
+        "type": "image-upload"
+      },
+      {
+        "classification": null,
         "default": {"en-us":""},
-        "helpText": "",
+        "helpText": "Large, bold header text below the logo on the page before the email address is submitted.  This can be used for brief instructions, such as 'Sign in with email'.",
         "label": "Header Text",
         "name": "headerText",
         "options": {
@@ -202,7 +258,19 @@
       {
         "classification": null,
         "default": {"en-us":""},
-        "helpText": null,
+        "helpText": "Text at the center of the component that tells the user what to do before submitting an email address.  For example: 'Enter the email address associated with your account, and we'll send a magic link to your inbox.'",
+        "label": "Instruction Text",
+        "name": "instructionText",
+        "options": {
+
+        },
+        "section": null,
+        "type": "translated-text"
+      },
+      {
+        "classification": null,
+        "default": {"en-us":""},
+        "helpText": "Text on the button used to submit the email address.",
         "label": "Button Text",
         "name": "buttonText",
         "options": {
@@ -210,9 +278,56 @@
         },
         "section": null,
         "type": "translated-text"
+      },
+      {
+        "classification": null,
+        "default": {"en-us":""},
+        "helpText": "Large, bold header text below the logo on the page after the email address is submitted.  This can be used to give brief instructions for the user, such as 'Check your inbox'.",
+        "label": "Header Text After Submit",
+        "name": "headerTextConfirm",
+        "options": {
+
+        },
+        "section": null,
+        "type": "translated-text"
+      },
+      {
+        "classification": null,
+        "default": {"en-us":""},
+        "helpText": "Text at the center of the component that tells the user what to do after submitting an email address.  For example: 'We just emailed a confirmation link to you. Click the link, and you'll be signed in.'",
+        "label": "Instruction Text After Submit",
+        "name": "instructionTextConfirm",
+        "options": {
+
+        },
+        "section": null,
+        "type": "translated-text"
+      },
+      {
+        "classification": null,
+        "default": {"en-us":""},
+        "helpText": "Text on the button after the user submits an email address.  This button can be used to link to another page, such as a companies home page.  If no link is given to this button, then the button will not appear.",
+        "label": "Button Text After Submit",
+        "name": "buttonTextConfirm",
+        "options": {
+
+        },
+        "section": null,
+        "type": "translated-text"
+      },
+      {
+        "classification": null,
+        "helpText": "Page link for the button after the user submits an email address.  This button can be used to link to another page, such as a companies home page.  If no link is given to this button, then the button will not appear.",
+        "label": "Button After Submit Link",
+        "name": "submittedButtonLink",
+        "options": {
+
+        },
+        "section": null,
+        "type": "page-link"
       }
     ],
-    "template": "<lumavate-email header-text=\"{{ componentData.headerText }}\" button-text=\"{{ componentData.buttonText }}\"></lumavate-email>"
+    "template": "<lumavate-email submitted-button-link=\"{{ componentData.submittedButtonLink.url }}\" button-text=\"{{ componentData.buttonText }}\" instruction-text=\"{{ componentData.instructionText }}\" header-text=\"{{ componentData.headerText }}\" header-text-confirm=\"{{ componentData.headerTextConfirm }}\" instruction-text-confirm=\"{{ componentData.instructionTextConfirm }}\" button-text-confirm=\"{{ componentData.buttonTextConfirm }}\" theme-color=\"{{ componentData.themeColor }}\"  background-color=\"{{ componentData.backgroundColor }}\" background-image=\"{{ componentData.backgroundImage.previewMedium }}\" logo=\"{{ componentData.logo.previewMedium }}\" ></lumavate-email>"
   },
   {
     "label": "Image",

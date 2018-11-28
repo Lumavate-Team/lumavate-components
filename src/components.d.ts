@@ -100,13 +100,33 @@ export namespace Components {
   }
 
   interface LumavateEmail {
+    'backgroundColor': string;
+    'backgroundImage': string;
     'buttonText': string;
+    'buttonTextColor': string;
+    'buttonTextConfirm': string;
     'handleEmail': (event: any) => void;
     'headerText': string;
+    'headerTextConfirm': string;
+    'instructionText': string;
+    'instructionTextConfirm': string;
+    'logo': string;
+    'submittedButtonLink': string;
+    'themeColor': string;
   }
   interface LumavateEmailAttributes extends StencilHTMLAttributes {
+    'backgroundColor'?: string;
+    'backgroundImage'?: string;
     'buttonText'?: string;
+    'buttonTextColor'?: string;
+    'buttonTextConfirm'?: string;
     'headerText'?: string;
+    'headerTextConfirm'?: string;
+    'instructionText'?: string;
+    'instructionTextConfirm'?: string;
+    'logo'?: string;
+    'submittedButtonLink'?: string;
+    'themeColor'?: string;
   }
 
   interface LumavateHeader {
@@ -148,14 +168,12 @@ export namespace Components {
     'fontAlign': string;
     'fontColor': string;
     'fontSize': string;
-    'formattedText': string;
   }
   interface LumavateMarkdownAttributes extends StencilHTMLAttributes {
     'body'?: string;
     'fontAlign'?: string;
     'fontColor'?: string;
     'fontSize'?: string;
-    'formattedText'?: string;
   }
 
   interface LumavateNavBarItem {
