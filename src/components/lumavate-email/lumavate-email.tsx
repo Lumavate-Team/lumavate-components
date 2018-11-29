@@ -59,7 +59,6 @@ export class LumavateEmail {
       else{
         this.backgroundImageDisplay = this.backgroundImage;
       }
-
       if (this.logo == "/iot/v1/icons/no_image_available.png") {
         this.showLogo = "hide";
       }
@@ -87,7 +86,7 @@ export class LumavateEmail {
         var reqHeaders = new Headers({
             "Content-Type": "application/json",
             "Authorization": "Bearer " + this.getAuthToken(),
-            "Lumavate-Proxy-Authorization": singleToken
+            "Luma-Proxy-Authorization": singleToken
         })
 
         fetch(window['getAuthUrl']() + "invite", {
