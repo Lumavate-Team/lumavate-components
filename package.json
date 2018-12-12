@@ -15,7 +15,7 @@
     "build": "stencil build",
     "docs": "stencil build --docs readme.md",
     "docs.json": "stencil build --docs-json docs.json",
-    "postbuild": "$(pwd)/postbuild.sh",
+    "postbuild": "./postbuild.sh",
     "dev": "stencil build --dev --watch --serve",
     "serve": "stencil-dev-server",
     "start": "npm run dev",
