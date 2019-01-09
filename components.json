@@ -396,6 +396,30 @@
       },
       {
         "classification": null,
+        "default": "#000000",
+        "helpText": "The icon corresponding to the user's current page will honor this color",
+        "label": "Active Color",
+        "name": "navBarActiveColor",
+        "options": {
+
+        },
+        "section": null,
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "0",
+        "helpText": "Number between 0-1. Zero shows no shadow, one displays strong shadow",
+        "label": "Shadow Opacity",
+        "name": "navBarShadowOpacity",
+        "options": {
+
+        },
+        "section": null,
+        "type": "numeric"
+      },
+      {
+        "classification": null,
         "helpText": null,
         "label": "Item Link",
         "name": "navBarItemLink1",
@@ -532,7 +556,7 @@
       }
 
     ],
-    "template": "<lumavate-nav-bar nav-bar-background-color=\"{{ componentData.navBarBackgroundColor }}\" nav-bar-item-color=\"{{ componentData.navBarItemColor }}\" nav-bar-items='[{\"text\":\"{{ componentData.navBarItemText1 }}\",\"linkTo\":\"{{componentData.navBarItemLink1.url}}\",\"imageSource\":{{componentData.navBarItemImageLink1|tojson}}},{\"text\":\"{{ componentData.navBarItemText2 }}\",\"linkTo\":\"{{componentData.navBarItemLink2.url}}\",\"imageSource\":{{componentData.navBarItemImageLink2|tojson}}},{\"text\":\"{{ componentData.navBarItemText3 }}\",\"linkTo\":\"{{componentData.navBarItemLink3.url}}\",\"imageSource\":{{componentData.navBarItemImageLink3|tojson}}},{\"text\":\"{{ componentData.navBarItemText4 }}\",\"linkTo\":\"{{componentData.navBarItemLink4.url}}\",\"imageSource\":{{componentData.navBarItemImageLink4|tojson}}}]'></lumavate-nav-bar>"
+    "template": "<lumavate-nav-bar nav-bar-background-color=\"{{ componentData.navBarBackgroundColor }}\" nav-bar-item-color=\"{{ componentData.navBarItemColor }}\" nav-bar-active-color=\"{{ componentData.navBarActiveColor }}\" nav-bar-shadow-opacity=\"{{ componentData.navBarShadowOpacity }}\" nav-bar-items='[{\"text\":\"{{ componentData.navBarItemText1 }}\",\"linkTo\":\"{{componentData.navBarItemLink1.url}}\",\"imageSource\":{{componentData.navBarItemImageLink1|tojson}}},{\"text\":\"{{ componentData.navBarItemText2 }}\",\"linkTo\":\"{{componentData.navBarItemLink2.url}}\",\"imageSource\":{{componentData.navBarItemImageLink2|tojson}}},{\"text\":\"{{ componentData.navBarItemText3 }}\",\"linkTo\":\"{{componentData.navBarItemLink3.url}}\",\"imageSource\":{{componentData.navBarItemImageLink3|tojson}}},{\"text\":\"{{ componentData.navBarItemText4 }}\",\"linkTo\":\"{{componentData.navBarItemLink4.url}}\",\"imageSource\":{{componentData.navBarItemImageLink4|tojson}}}]'></lumavate-nav-bar>"
   },
   {
     "label": "Carousel",

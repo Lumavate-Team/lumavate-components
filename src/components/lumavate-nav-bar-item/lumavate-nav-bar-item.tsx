@@ -30,17 +30,32 @@ export class LumavateNavBarItem {
   }
 
   render() {
-    return (
-      <div onClick={() => this.buttonClicked()}>
-        {this.displayImage ?
-          <div class="icon" style={{webkitMaskImage:"url(" + this.NavBarItemImageLink + ")",maskImage:"url(" + this.NavBarItemImageLink + ")",backgroundColor:this.NavBarItemColor}}></div>
-          : ''
-        }
-        {this.NavBarItemText ?
-          <div style={{color:this.NavBarItemColor ? this.NavBarItemColor : "#000"}} class="button-text">{this.NavBarItemText}</div>
-          : ''
-        }
-      </div>
-    );
+    if (this.NavBarItemLink == '/') {
+      return (
+        <div>
+          {this.displayImage ?
+            <div class="icon" style={{webkitMaskImage:"url(" + this.NavBarItemImageLink + ")",maskImage:"url(" + this.NavBarItemImageLink + ")",backgroundColor:this.NavBarItemColor}}></div>
+            : ''
+          }
+          {this.NavBarItemText ?
+            <div style={{color:this.NavBarItemColor ? this.NavBarItemColor : "#000"}} class="button-text">{this.NavBarItemText}</div>
+            : ''
+          }
+        </div>
+      );
+    } else {
+      return (
+        <div onClick={() => this.buttonClicked()}>
+          {this.displayImage ?
+            <div class="icon" style={{webkitMaskImage:"url(" + this.NavBarItemImageLink + ")",maskImage:"url(" + this.NavBarItemImageLink + ")",backgroundColor:this.NavBarItemColor}}></div>
+            : ''
+          }
+          {this.NavBarItemText ?
+            <div style={{color:this.NavBarItemColor ? this.NavBarItemColor : "#000"}} class="button-text">{this.NavBarItemText}</div>
+            : ''
+          }
+        </div>
+      );
+    }
   }
 }
