@@ -198,16 +198,20 @@ export namespace Components {
   }
 
   interface LumavateNavBar {
+    'NavBarActiveColor': string;
     'NavBarBackgroundColor': string;
     'NavBarItemColor': string;
     'NavBarItems': string;
     'NavBarPosition': string;
+    'NavBarShadowOpacity': string;
   }
   interface LumavateNavBarAttributes extends StencilHTMLAttributes {
+    'NavBarActiveColor'?: string;
     'NavBarBackgroundColor'?: string;
     'NavBarItemColor'?: string;
     'NavBarItems'?: string;
     'NavBarPosition'?: string;
+    'NavBarShadowOpacity'?: string;
   }
 }
 
