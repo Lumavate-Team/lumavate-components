@@ -187,12 +187,61 @@
     "tags": ["body"],
     "type":"lumavate-email",
     "properties": [
+        {
+        "classification": null,
+        "default": "email",
+        "helpText": "Type of authentication. Email auth will only require a valid email to be authenticated. Email and access code will require a valid email and the correct access code to be authenticated.",
+        "label": "Auth Type",
+        "name": "authType",
+        "options": {
+          "email": "Email Verification",
+          "pin": "Email and Access Code Verification"
+        },
+        "section": null,
+        "type": "dropdown"
+      },
       {
         "classification": null,
-        "default": "#4a4a4a",
-        "helpText": "Color of the the button and text input label.",
+        "default": "#676767",
+        "helpText": "Primary color of the component.",
         "label": "Theme Color",
         "name": "themeColor",
+        "options": {
+
+        },
+        "section": null,
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "#878787",
+        "helpText": "Accent color of the component.",
+        "label": "Secondary Color",
+        "name": "secondaryColor",
+        "options": {
+
+        },
+        "section": null,
+        "type": "color"
+      },
+      {
+        "classification": null,
+        "default": "#BB0000",
+        "helpText": "Color of text that displays when an error occurs within the auth process.",
+        "label": "Error Color",
+        "name": "errorColor",
+        "options": {
+
+        },
+        "section": null,
+        "type": "color"
+      },
+       {
+        "classification": null,
+        "default": "#0c0c0c",
+        "helpText": "Color of standard text blocks",
+        "label": "Text Color",
+        "name": "textColor",
         "options": {
 
         },
@@ -214,7 +263,7 @@
       {
         "classification": null,
         "default":null,
-        "helpText": "Image for the background of the component.  If no background image is being used, this can be left blank.",
+        "helpText": "Background image of the component.  If no background image is being used, this can be left blank.",
         "label": "Background Image",
         "name": "backgroundImage",
         "options": {
@@ -224,21 +273,19 @@
       },
       {
         "classification": null,
-        "default": "#fafafa",
-        "helpText": "Color of the background of the component.",
-        "label": "Background Color",
-        "name": "backgroundColor",
-        "options": {
-
-        },
-        "section": null,
-        "type": "color"
-      },
-      {
-        "classification": null,
         "helpText": "Logo at the top of the component.",
         "label": "Logo",
         "name": "logo",
+        "options": {
+        },
+        "section": null,
+        "type": "image-upload"
+      },
+      {
+        "classification": null,
+        "helpText": "Header logo on the access code page. This logo will only be displayed if auth type 'Email and Access Code Verification' is selected.",
+        "label": "Header Logo",
+        "name": "headerLogo",
         "options": {
         },
         "section": null,
@@ -274,6 +321,18 @@
         "helpText": "Text on the button used to submit the email address.",
         "label": "Button Text",
         "name": "buttonText",
+        "options": {
+
+        },
+        "section": null,
+        "type": "translated-text"
+      },
+      {
+        "classification": null,
+        "default": {"en-us":""},
+        "helpText": "Help text below the button used to submit the email address.",
+        "label": "Below Button Text",
+        "name": "belowButtonText",
         "options": {
 
         },
@@ -328,7 +387,7 @@
         "type": "page-link"
       }
     ],
-    "template": "<lumavate-email submitted-button-link=\"{{ componentData.submittedButtonLink.url }}\" button-text=\"{{ componentData.buttonText }}\" instruction-text=\"{{ componentData.instructionText }}\" header-text=\"{{ componentData.headerText }}\" header-text-confirm=\"{{ componentData.headerTextConfirm }}\" instruction-text-confirm=\"{{ componentData.instructionTextConfirm }}\" button-text-confirm=\"{{ componentData.buttonTextConfirm }}\" theme-color=\"{{ componentData.themeColor }}\"  background-color=\"{{ componentData.backgroundColor }}\" background-image=\"{{ componentData.backgroundImage.previewMedium }}\" logo=\"{{ componentData.logo.previewMedium }}\" ></lumavate-email>"
+    "template": "<lumavate-email below-button-text=\"{{ componentData.belowButtonText }}\" auth-type=\"{{ componentData.authType }}\" submitted-button-link=\"{{ componentData.submittedButtonLink.url }}\" button-text=\"{{ componentData.buttonText }}\" instruction-text=\"{{ componentData.instructionText }}\" header-text=\"{{ componentData.headerText }}\" header-text-confirm=\"{{ componentData.headerTextConfirm }}\" instruction-text-confirm=\"{{ componentData.instructionTextConfirm }}\" button-text-confirm=\"{{ componentData.buttonTextConfirm }}\" theme-color=\"{{ componentData.themeColor }}\" secondary-color=\"{{ componentData.secondaryColor }}\" error-color=\"{{ componentData.errorColor }}\" text-color=\"{{ componentData.textColor }}\" background-image=\"{{ componentData.backgroundImage.previewMedium }}\" header-logo=\"{{ componentData.headerLogo.preview }}\" logo=\"{{ componentData.logo.preview }}\" ></lumavate-email>"
   },
   {
     "label": "Image",
