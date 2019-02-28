@@ -19,11 +19,33 @@
         d.showModal();
       }
     </script> -->
+      <script>
+        let authData = {
+          'namespace': 'abc',
+          'session': 'abc123',
+          'code': 'activation-code',
+          'org_id': 1,
+          'version': 'production',
+          'home_url': '',
+          'auth_url': ''
+        };
+        testToken = 'frontpart.' + btoa(JSON.stringify(authData)) + '.backpart';
+        document.cookie = 'pwa_jwt=' + testToken + ';'
+
+        function getSingleUseToken(onSuccess, onNoAuth, onError) {
+          onSuccess('12345');
+        }
+
+        function getAuthUrl() {
+          return 'http://localhost:5002/ic/magiclink/'
+        }
+      </script>
   </head>
 
   <body style="height:100%;min-height:100%;margin:0px;">
+    <lumavate-email below-button-text="Please use blah, blah, or blah for best experience." theme-color="#f26b20" secondary-color="#000000" auth-type="pin" logo='/iot/v1/icons/no_image_available.png' header-logo='/iot/v1/icons/no_image_available.png'></lumavate-email>
     <!-- <lumavate-button page-redirect="www.google.com" button-color="blue" button-radius="7px" font-size="16px" button-shape="mdc-button--raised" button-style="mdc-button--dense" button-text="Press Me!"></lumavate-button> -->
-    <lumavate-markdown font-size="16px" body="# Dillinger
+    <!-- <lumavate-markdown font-align="center" font-size="16px" body="# Dillinger
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
@@ -35,7 +57,7 @@ Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered H
   - See HTML in the right
   - Magic
 
-# New Features!"></lumavate-markdown>
+# New Features!"></lumavate-markdown> -->
     <!-- <lumavate-header text="Lumavate Header"></lumavate-header>
     <div style="width:360px;height:200px;margin:8px;">
       <lumavate-image id='myimage' src='https://www.fillmurray.com/800/800'></lumavate-image>
@@ -80,5 +102,7 @@ Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered H
         })
       })
     </script> -->
+
+
   </body>
 </html>

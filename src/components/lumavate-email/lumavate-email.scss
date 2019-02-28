@@ -1,53 +1,38 @@
+@import "@material/button/mdc-button";
+@import "@material/textfield/mdc-text-field";
+@import "@material/floating-label/mdc-floating-label";
+@import "@material/form-field/mdc-form-field";
+@import "@material/notched-outline/mdc-notched-outline";
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
 
 :host {
     width:100%;
     height:100%;
 
-    #background{
-      position: absolute;
+    #componentContainer{
       height: 100%;
       width: 100%;
-    }
-
-    .page {
-      width:100%;
-      height:100%;
       font-family:  'Source Sans Pro', sans-serif;
-      vertical-align: middle;
       text-align: center;
-      position: fixed;
-      top: 50%;
-      // transform: translate(-50%, -50%);
-      // transform: translatey(-50%);
     }
 
     .container{
-      transform: translatey(-50%);
-      width: 350px;
-      display: inline-grid;
-      max-width: 80%
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      height: auto;
     }
-    // .confirm-container {
-    //   background: white;
-    //   margin: 10px;
-    //   height: 80%;
-    //   border-radius: 7px;
-    //   border: 2px solid black;
-    //   display: grid;
-    //   grid-template-rows: 35% 60%;
-    // }
-    //
-    // .confirm-header {
-    //   background: black;
-    //   border-radius: 5px 5px 0px 0px;
-    // }
-    //
-    // .confirm-header img {
-    //   width: 70px;
-    //   padding: 5px;
-    //   position: absolute;
-    // }
-
 
     .confirm-inputs .label{
       color:red;
@@ -64,60 +49,62 @@
       font-size: 20px;
     }
 
-    .confirm-inputs {
-      margin: auto auto;
-      display: inline-grid;
-    }
-
     .confirm-inputs input {
       border-width: 1px;
       border-style: solid;
       border-radius: 2px;
-      border-color: lightgray;
       padding: 10px 10px;
-      margin-bottom: 15px;
-      width: 190px;
     }
     .confirm-inputs input:focus{
       border-color: var(--email-component-button-color);
       outline:none;
     }
 
-    .confirm-inputs button {
-      height: 40px;
-      border-radius: 2px;
+    .logo{
+      height: auto;
+      width: 100%;
+    }
+
+    .instructions {
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    #emailConfirmContainer {
+      width: 100%;
+      height: 100%;
+      font-family: 'Source Sans Pro', sans-serif;
+      text-align: center;
+    }
+
+    .errorMessageContainer {
+      padding: 10px 0px;
+      color: var(--error-color);
+      height: 20px;
+    }
+
+    .successMessageContainer {
+      padding: 10px 0px;
+      color: var(--text-color);
+      height: 20px;
+    }
+
+    #signup-button {
+      height: 50px;
+    }
+
+    .extraMessage {
+      font-size: 13px;
+      padding-top: 25px;
+    }
+
+    #signup-button button {
+      height: 100%;
+      width: 100%;
+      border-radius: 7px;
       font-size: 10pt;
       font-family:  'Source Sans Pro', sans-serif;
-      margin-top: 0px;
-      width: 212px;
-      -webkit-appearance: button-bevel;
-    }
-    // #desktopButton{
-    //   width: 212px;
-    //   // max-width: 90%;
-    // }
-    // #desktopInput{
-    //   width: 190px;
-    // }
-
-
-    .logo{
-      width: 120px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 30px;
-      position: relative;
-      display: inline-grid;
-      background: transparent;
-    }
-
-    .instructions{
-      font-size: 13px;
-      margin-bottom:20px;
-      position: relative;
-      width: 100%;
-      display: inline-grid;
+      text-transform: capitalize;
     }
 
     .header{
@@ -125,12 +112,9 @@
       letter-spacing: .45px;
       font-weight: bold;
       margin-bottom: 20px;
-      position: relative;
-      width: 100%;
-      display: inline-grid;
     }
 
-    #hide{
+    .hide{
       display: none;
     }
 
@@ -142,5 +126,147 @@
       font-family:  'Source Sans Pro', sans-serif;
       margin-top: 0px;
       -webkit-appearance: button-bevel;
+    }
+
+    .headerContainer {
+      height: 115px;
+      text-align: center;
+      background-color: var(--primary-color);
+      box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.50)
+    }
+
+    #headerText {
+      color: white;
+      padding-top: 20px;
+      font-size: 18px;
+      line-height: 1.39;
+      letter-spacing: 0.1px;
+      font-weight: 600;
+    }
+
+    .headerIcon {
+      max-width: 200px;
+      max-height: 100px;
+      position: absolute;
+      margin: auto auto;
+      left: 0;
+      margin-top: 15px;
+      right: 0;
+      display: grid;
+      align-content: center;
+      justify-content: center;
+    }
+
+    .headerIcon img {
+      max-height: 100px;
+      width: auto;
+    }
+
+    #checkCode {
+      text-align: center;
+      color: var(--secondary-color);
+      font-size: 20px;
+      font-weight: bold;
+      padding: 15% 15% 0px 15%;
+      line-height: 1.25;
+      letter-spacing: 0.1px;
+    }
+
+    #enterCode {
+      padding-top: 25px;
+      text-align: center;
+      opacity: 0.71;
+      font-size: 18px;
+      padding-bottom: 15px;
+      line-height: 1.39;
+      color: #f48e82;
+      letter-spacing: 0.1px;
+      font-weight: 600;
+    }
+
+    form#pin input[type=tel]{
+      outline: none;
+      height: 62px;
+      width: 30px;
+      text-align: center;
+      font-size: 2em;
+      padding: 5px;
+      border-radius: 7px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.18);
+      -webkit-appearance: none;
+      margin: 4px;
+      color: var(--secondary-color);
+      border: 2px solid transparent;
+    }
+
+    form {
+      text-align: center;
+    }
+
+    #pincode-button {
+    }
+
+    #pincode-button button {
+      width: 70%;
+        height: 48px;
+        font-size: 18px;
+    }
+
+    #pincode-button button i {
+      transform: rotate(180deg);
+      font-size: 25px;
+        width: 25px;
+        height: 25px;
+        margin-left: 5px;
+    }
+
+    .mdc-button {
+      text-transform: capitalize;
+    }
+
+    .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+      color: var(--secondary-color);
+    }
+
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+      border-color: var(--primary-color);
+    }
+
+    :not(:disabled).mdc-button--raised, :not(:disabled).mdc-button--unelevated {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .mdc-button--raised:disabled, .mdc-button--unelevated:disabled {
+      background-color: var(--primary-color);
+      opacity: .15;
+      color: white;
+    }
+
+    .material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 50px;  /* Preferred icon size */
+      color: white;
+      display: inline-block;
+      line-height: 1;
+      place-self: center;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+
+      /* Support for all WebKit browsers. */
+      -webkit-font-smoothing: antialiased;
+      /* Support for Safari and Chrome. */
+      text-rendering: optimizeLegibility;
+
+      /* Support for Firefox. */
+      -moz-osx-font-smoothing: grayscale;
+
+      /* Support for IE. */
+      font-feature-settings: 'liga';
     }
   }
